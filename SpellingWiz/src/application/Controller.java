@@ -1,7 +1,6 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,9 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -37,25 +34,7 @@ public class Controller {
 	private Button startGame;
 	@FXML
 	private Button checkSpelling;
-	@FXML
-	private TextField textField2;
-	@FXML
-	private Button startReview;
-	@FXML
-	private TextArea promptReview;
-	@FXML
-	private Button checkSpellingReview;
-	@FXML
-	private Button clearStats;
-	@FXML 
-	private Label promptStats;
-	@FXML 
-	private Label promptView;
-	@FXML 
-	private GridPane gridPane;
-	@FXML
-	private Label[][] gridLabel;
-	
+
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
@@ -69,62 +48,6 @@ public class Controller {
 	public void newSpellingQuiz(ActionEvent event) { 
 		try {
 			root = FXMLLoader.load(getClass().getResource("NewSpellingQuiz.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/*
-	 * Function to change scenes to Review Mistakes when button is pressed
-	 */
-	public void reviewMistakes(ActionEvent event) {
-		try {
-			root = FXMLLoader.load(getClass().getResource("ReviewMistakes.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/*
-	 * Function to change scenes to View Statistics when button is pressed 
-	 */
-	public void viewStatistics(ActionEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("ViewStatistics.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-			
-			// access the controller and call function to view statistics
-			Controller controller = loader.getController();
-			controller.startViewStatistics();
-			
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/*
-	 * Function to change scenes to Clear Statistics when button is pressed
-	 */
-	public void clearStatistics(ActionEvent event) {
-		try {
-			root = FXMLLoader.load(getClass().getResource("ClearStatistics.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -222,161 +145,6 @@ public class Controller {
 		prompt.setText("Spelling Quiz Completed! Click start quiz to play again or return to main menu to exit quiz");
 
 	}
-
-	/*
-	 * Function to start review Mistakes 
-	 */
-	public void startReviewMistakes(ActionEvent event) {
-		// get words from the for review file and assign them to failedWords 
-		String[] failedWords = new String[3];
-		int numWords = countNumLines(".FOR_REVIEW");
-	
-		if (numWords >= 3) {
-			failedWords = new String[3];
-			failedWords = returnWordList("shuf -n3 .FOR_REVIEW"); // return random three words from file 
-		} else if (numWords < 3 && numWords > 0){
-			failedWords = new String[numWords];
-			for (int i = 0; i < numWords; i++) {
-				int line = i + 1;
-				failedWords[i] = returnWord("sed -n "+line+"p .FOR_REVIEW"); // get all the words from file 
-			}
-		} else if (numWords == 0){
-			prompt.setLayoutX(250);
-			prompt.setText("No words to review"); // and exit out of function
-			return;
-		}
-
-		// starting word count 
-		wordCount = 1;
-		
-		// loop through the words the user needs to spell and mark the words accordingly
-		for (String word: failedWords) {
-
-			attempts = 0;
-			prompt.setLayoutX(255);
-
-			// call method to say the word to user 
-			spellingQuestion(word, wordCount, attempts, numWords);
-			attempts++;
-
-			// checkSpelling button will check the word and append the word to the correct file
-			checkSpellingReview.setOnAction( new EventHandler<ActionEvent>() {
-
-				@Override 
-				public void handle(ActionEvent e) {
-
-					String wordEntered = textField2.getText();
-
-					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-						bashCommand("echo Correct | festival --tts");
-						bashCommand("sed -i /"+word+"/d .FOR_REVIEW"); 	// remove word from the for review list
-						bashCommand("echo "+word+" >> .MASTERED_WORDS"); // append correctly spelled word to mastered
-						wordCount++;
-						resume(); // resume function after button is pressed
-					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Correct | festival --tts");
-						bashCommand("sed -i /"+word+"/d .FOR_REVIEW"); // remove the word from for review
-						bashCommand("echo "+word+" >> .FAULTED_WORDS");	// append correctly spelled word to faulted
-						wordCount++;
-						resume(); // resume function after button is pressed
-					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Incorrect | festival --tts");
-						bashCommand("echo "+word+" >> .FAILED_WORDS"); // append word to failed
-						wordCount++;
-						resume(); // resume function after button is pressed
-					} else if (!wordEntered.equalsIgnoreCase(word)){
-						spellingQuestion(word, 0, 1, numWords); // call function again to ask user to spell word again 
-						attempts++;
-					}
-				}
-
-			});
-
-			// temporarily pause the method and wait to resume 
-			pause();
-
-		}
-		
-		// prompt the user the review has finished 
-		prompt.setLayoutX(45);
-		prompt.setText("Review Completed! Click start review to review again or return to main menu to exit review");
-
-	}
-
-	/*
-	 * Function to clear statistics 
-	 */
-	public void startClearStatistics(ActionEvent event) {
-		
-		// Clear the mastered words file 
-		clearContents(".MASTERED_WORDS");
-		// Clear the faulted words file 
-		clearContents(".FAULTED_WORDS");
-		// Clear the failed words file 
-		clearContents(".FAILED_WORDS");
-		// Clear the quizzed words file 
-		clearContents(".QUIZZED_WORDS");
-		// Clear the for review words file
-		clearContents(".FOR_REVIEW");
-		// set the prompt on the screen 
-		promptStats.setLayoutX(255);
-		promptStats.setText("Statistics Cleared!");
-
-	}
-
-	public void startViewStatistics() {
-		// add the words to view into an array
-		int numWords = countNumLines(".QUIZZED_WORDS");
-		String[] quizzedWords = new String[numWords];
-		for(int i = 0; i < numWords; i++) {
-			int line = i + 1;
-			quizzedWords[i] = returnWord("sed -n "+line+"p .QUIZZED_WORDS");
-		}
-	 
-		// exit out of function and display user message 
-		if (numWords == 0) {
-			promptView.setLayoutX(250);
-			promptView.setText("No statistics to view");
-			return;
-		}
-		
-		// add the titles for the grid
-		Label mastered = new Label();
-		mastered.setText("Mastered");
-		gridPane.add(mastered, 1, 0);
-		Label faulted = new Label();
-		faulted.setText("Faulted");
-		gridPane.add(faulted, 2, 0);
-		Label failed = new Label();
-		failed.setText("Failed");
-		gridPane.add(failed, 3, 0);
-		
-		gridLabel = new Label[numWords][4]; // initialize 
-		
-		// assign the appropriate word with its statistics 
-		for (int i = 0; i < quizzedWords.length; i++) {
-				for (int j = 0; j < 4; j++) {
-					gridLabel[i][j] = new Label();
-				}
-				// assign the statistics for the word
-				int masteredTimes = bashCommandInt("grep -c "+quizzedWords[i]+" .MASTERED_WORDS");
-				int faultedTimes = bashCommandInt("grep -c "+quizzedWords[i]+" .FAULTED_WORDS");
-				int failedTimes = bashCommandInt("grep -c "+quizzedWords[i]+" .FAILED_WORDS");
-				
-				// add statistics to a label 
-				gridLabel[i][0].setText(quizzedWords[i]);
-				gridLabel[i][1].setText(Integer.toString(masteredTimes));
-				gridLabel[i][2].setText(Integer.toString(faultedTimes));
-				gridLabel[i][3].setText(Integer.toString(failedTimes));
-				
-				// add label to gridPane
-				gridPane.add(gridLabel[i][0], 0, i+1);
-				gridPane.add(gridLabel[i][1], 1, i+1);
-				gridPane.add(gridLabel[i][2], 2, i+1);
-				gridPane.add(gridLabel[i][3], 3, i+1);
-		}
-		
-	}
 	
 	/*
 	 * Function is used the pause a method
@@ -407,16 +175,6 @@ public class Controller {
 			prompt.setText("Incorrect, try once more");
 		}
 
-	}
-	
-	/*
-	 * Function to clear the contents of a file
-	 */
-	public void clearContents(String fileName) {
-		File file = new File(fileName);
-		if(file.exists()) {
-			bashCommand("cat /dev/null > "+fileName+"");
-		}
 	}
 
 	/*
@@ -450,40 +208,6 @@ public class Controller {
 		}
 	}
 	
-	/*
-	 * Function is used when an integer needs to be stored from bash command
-	 */
-	public int bashCommandInt(String command) {
-		int num = 0;
-		try {
-			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
-
-			Process process = pb.start();
-
-			BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
-			BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-			int exitStatus = process.waitFor();
-
-			if (exitStatus == 0) {
-				String line;
-				while ((line = stdout.readLine()) != null) {
-					num = Integer.parseInt(line);
-				}
-			} else {
-				String line;
-				while ((line = stderr.readLine()) != null) {
-					System.err.println(line);
-				}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return num;
-	}
-
 	/*
 	 * Function to count the number of lines in a file
 	 */
@@ -534,38 +258,4 @@ public class Controller {
 		return word;
 	}
 	
-	/*
-	 * Function is used when a string needs to be stored from the bash command
-	 */
-	public String returnWord(String command) {
-		String word = null;
-		try {
-			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
-
-			Process process = pb.start();
-
-			BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
-			BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-			int exitStatus = process.waitFor();
-			if (exitStatus == 0) {
-				String line;
-				while ((line = stdout.readLine()) != null) {
-					word = line;
-				}
-			} else {
-				String line;
-				while ((line = stderr.readLine()) != null) {
-					System.err.println(line);
-				}
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return word;
-	}
-
-
 }
