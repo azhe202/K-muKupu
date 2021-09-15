@@ -44,6 +44,8 @@ public class Controller implements Initializable{
 	private Label hintLabel;
 	@FXML
 	private Label scoreLabel;
+	@FXML
+	private Label letterHintLabel;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
 	
@@ -105,11 +107,16 @@ public class Controller implements Initializable{
 
 		// loop through the words the user needs to spell and mark the words accordingly
 		for (int i=0; i<words.length; i++) {
+			
 			String word = words[i];
 			String englishWord = englishWords[i];
 
 			attempts = 0;
 			prompt.setLayoutX(255);
+			
+			// remove existing hints
+			hintLabel.setText("");
+			letterHintLabel.setText("");
 
 			// call method to say the word
 			spellingQuestion(word, wordCount, attempts, 5);
@@ -117,7 +124,7 @@ public class Controller implements Initializable{
 
 			// checkSpelling button will check the word and append the word to the correct file
 			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
-
+				
 				@Override 
 				public void handle(ActionEvent e) {
 
@@ -145,6 +152,7 @@ public class Controller implements Initializable{
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						spellingQuestion(word, 0, 1, 5); // call the function again to ask user to spell word again 
 						hintLabel.setText("The english translation is: " + englishWord);
+						letterHintLabel.setText("The second letter of the word is '"+word.charAt(1)+"'");
 						attempts++;
 					}
 					// update score
