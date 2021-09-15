@@ -85,6 +85,10 @@ public class Controller implements Initializable{
 		bashCommand("touch .FAILED_WORDS");
 		bashCommand("touch .QUIZZED_WORDS");
 		bashCommand("touch .FOR_REVIEW");
+		
+		//disables start button and enables submit button
+		startGame.setDisable(true);
+		checkSpelling.setDisable(false);
 
 		// get three random words from popular file
 		String command = "sort -u words/" + wordpoolSelection.getValue() + " | shuf -n 5";
@@ -134,12 +138,14 @@ public class Controller implements Initializable{
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						bashCommand("echo Correct | festival --tts");
 						bashCommand("echo "+word+" >> .MASTERED_WORDS");
+						textField.clear();
 						wordCount++;
 						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Correct | festival --tts");
 						bashCommand("echo "+word+" >> .FAULTED_WORDS");	
+						textField.clear();
 						wordCount++;
 						score++;
 						resume(); // resume function after check spelling button has been pressed
@@ -147,12 +153,14 @@ public class Controller implements Initializable{
 						bashCommand("echo Incorrect | festival --tts");
 						bashCommand("echo "+word+" >> .FAILED_WORDS");
 						bashCommand("grep -qxFs "+word+" .FOR_REVIEW || echo "+word+" >> .FOR_REVIEW");
+						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						spellingQuestion(word, 0, 1, 5); // call the function again to ask user to spell word again 
 						hintLabel.setText("The english translation is: " + englishWord);
 						letterHintLabel.setText("The second letter of the word is '"+word.charAt(1)+"'");
+						textField.clear();
 						attempts++;
 					}
 					// update score
@@ -169,6 +177,14 @@ public class Controller implements Initializable{
 		// prompt the user the quiz has finished 
 		prompt.setLayoutX(50);
 		prompt.setText("Spelling Quiz Completed! Click start quiz to play again or return to main menu to exit quiz");
+		
+		//disables submit and enables start button
+		startGame.setDisable(false);
+		checkSpelling.setDisable(true);
+		
+		// remove existing hints
+		hintLabel.setText("");
+		letterHintLabel.setText("");
 
 	}
 	
