@@ -4,15 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -24,7 +28,7 @@ import javafx.scene.Node;
  * helper function
  */
 
-public class Controller {
+public class Controller implements Initializable{
 
 	@FXML
 	private Label prompt;
@@ -34,29 +38,20 @@ public class Controller {
 	private Button startGame;
 	@FXML
 	private Button checkSpelling;
-
+	@FXML
+	private ChoiceBox<String> wordpoolSelection;
+	@FXML
+	private Label hintLabel;
+	
+	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	private int attempts;
 	private int wordCount;
 	private final Object PAUSE_KEY = new Object();
-
-	/*
-	 * Function to change scenes to New Spelling Quiz when button is pressed
-	 */
-	public void newSpellingQuiz(ActionEvent event) { 
-		try {
-			root = FXMLLoader.load(getClass().getResource("NewSpellingQuiz.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-		} 
-		catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	
 	
 	/*
 	 * Function to change scenes back to the main menu when button is pressed 
@@ -87,19 +82,30 @@ public class Controller {
 		bashCommand("touch .FOR_REVIEW");
 
 		// get three random words from popular file
-		String[] words = returnWordList("shuf -n3 words/popular");
+		String command = "sort -u words/" + wordpoolSelection.getValue() + " | shuf -n 5";
+		String[] words = returnWordList(command);
+		
+		String[] englishWords = new String[5];
+		for (int i=0; i<words.length; i++) {
+			String temp = words[i];
+			String tempArray[] = temp.split("#");
+			words[i] = tempArray[0].trim();
+			englishWords[i] = tempArray[1];
+		}
 
 		// starting word count
 		wordCount = 1;
 
 		// loop through the words the user needs to spell and mark the words accordingly
-		for (String word : words) {
+		for (int i=0; i<words.length; i++) {
+			String word = words[i];
+			String englishWord = englishWords[i];
 
 			attempts = 0;
 			prompt.setLayoutX(255);
 
 			// call method to say the word
-			spellingQuestion(word, wordCount, attempts, 3);
+			spellingQuestion(word, wordCount, attempts, 5);
 			attempts++;
 
 			// checkSpelling button will check the word and append the word to the correct file
@@ -108,7 +114,7 @@ public class Controller {
 				@Override 
 				public void handle(ActionEvent e) {
 
-					String wordEntered = textField.getText();
+					String wordEntered = textField.getText().trim();
 
 					// conditional checks to append word entered to the correct files 
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
@@ -128,7 +134,8 @@ public class Controller {
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						spellingQuestion(word, 0, 1, 3); // call the function again to ask user to spell word again 
+						spellingQuestion(word, 0, 1, 5); // call the function again to ask user to spell word again 
+						hintLabel.setText("The english translation is: " + englishWord);
 						attempts++;
 					}
 				}
@@ -227,7 +234,7 @@ public class Controller {
 	 * Function using bash command to return the word list as an array
 	 */
 	public String[] returnWordList(String command) {
-		String[] word = new String[3];
+		String[] word = new String[5];
 		try {
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
 
@@ -256,6 +263,13 @@ public class Controller {
 		}
 
 		return word;
+	}
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		wordpoolSelection.getItems().addAll(wordpool);
+		wordpoolSelection.setValue("babies");
+		
 	}
 	
 }
