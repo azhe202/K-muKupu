@@ -46,6 +46,8 @@ public class Controller implements Initializable{
 	private Label scoreLabel;
 	@FXML
 	private Label letterHintLabel;
+	@FXML
+	private Button repeatWordBtn;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
 	
@@ -55,6 +57,7 @@ public class Controller implements Initializable{
 	private int attempts;
 	private int wordCount;
 	private int score;
+	private String word;
 	private final Object PAUSE_KEY = new Object();
 	
 	
@@ -112,7 +115,7 @@ public class Controller implements Initializable{
 		// loop through the words the user needs to spell and mark the words accordingly
 		for (int i=0; i<words.length; i++) {
 			
-			String word = words[i];
+			word = words[i];
 			String englishWord = englishWords[i];
 
 			attempts = 0;
@@ -200,6 +203,13 @@ public class Controller implements Initializable{
 	 */
 	private void resume() {
 		Platform.exitNestedEventLoop(PAUSE_KEY, null);
+	}
+	
+	/*
+	 * Function to repeat the word on users request
+	 */
+	public void repeatWord(ActionEvent event) {
+		bashCommand("echo "+word+" | festival --tts");
 	}
 
 	/*
