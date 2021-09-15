@@ -42,6 +42,8 @@ public class Controller implements Initializable{
 	private ChoiceBox<String> wordpoolSelection;
 	@FXML
 	private Label hintLabel;
+	@FXML
+	private Label scoreLabel;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
 	
@@ -50,6 +52,7 @@ public class Controller implements Initializable{
 	private Parent root;
 	private int attempts;
 	private int wordCount;
+	private int score;
 	private final Object PAUSE_KEY = new Object();
 	
 	
@@ -92,9 +95,13 @@ public class Controller implements Initializable{
 			words[i] = tempArray[0].trim();
 			englishWords[i] = tempArray[1];
 		}
+		
+		// show current score text
+		scoreLabel.setText("Current Score: ");
 
-		// starting word count
+		// starting word count and score
 		wordCount = 1;
+		score = 0;
 
 		// loop through the words the user needs to spell and mark the words accordingly
 		for (int i=0; i<words.length; i++) {
@@ -121,11 +128,13 @@ public class Controller implements Initializable{
 						bashCommand("echo Correct | festival --tts");
 						bashCommand("echo "+word+" >> .MASTERED_WORDS");
 						wordCount++;
+						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Correct | festival --tts");
 						bashCommand("echo "+word+" >> .FAULTED_WORDS");	
 						wordCount++;
+						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Incorrect | festival --tts");
@@ -138,6 +147,8 @@ public class Controller implements Initializable{
 						hintLabel.setText("The english translation is: " + englishWord);
 						attempts++;
 					}
+					// update score
+					scoreLabel.setText("Current Score: "+score+"/"+(wordCount-1));
 				}
 
 			});
