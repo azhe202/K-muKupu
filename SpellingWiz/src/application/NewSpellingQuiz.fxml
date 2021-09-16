@@ -4,26 +4,93 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="1400" maxWidth="1400" minHeight="1400" minWidth="1400" prefHeight="1400.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <Label layoutX="414.0" layoutY="121.0" text="New Spelling Quiz">
+      <ImageView fitHeight="1400.0" fitWidth="1400.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Border.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="191.0" fitWidth="1010.0" layoutX="195.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/rooster-personal-use.regular-1.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bf000080" height="612.0" layoutX="190.0" layoutY="620.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" width="1020.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bf000080" height="160.0" layoutX="190.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" width="1020.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="957.0" layoutY="667.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="214.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="230.0" layoutY="667.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="708.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="96.0" layoutX="223.0" layoutY="1008.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="954.0" />
+      <Button layoutX="223.0" layoutY="1139.0" mnemonicParsing="false" onAction="#returnToMainMenu" text="Menu">
          <font>
-            <Font size="70.0" />
+            <Font size="35.0" />
+         </font></Button>
+      <TextField fx:id="textField" layoutX="229.0" layoutY="813.0" prefHeight="80.0" prefWidth="638.0">
+         <font>
+            <Font size="35.0" />
+         </font></TextField>
+      <Button fx:id="startGame" alignment="CENTER" layoutX="966.0" layoutY="456.0" mnemonicParsing="false" onAction="#startSpellingGame" prefHeight="68.0" prefWidth="204.0" text="Start Quiz">
+         <font>
+            <Font size="35.0" />
+         </font></Button>
+      <Label fx:id="prompt" layoutX="251.0" layoutY="688.0" prefHeight="64.0" prefWidth="666.0">
+         <font>
+            <Font size="35.0" />
+         </font></Label>
+      <Button fx:id="checkSpelling" defaultButton="true" disable="true" layoutX="885.0" layoutY="813.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="290.0" text="Check Spelling">
+         <font>
+            <Font size="35.0" />
+         </font></Button>
+      <ChoiceBox fx:id="wordpoolSelection" layoutX="499.0" layoutY="456.0" prefHeight="68.0" prefWidth="446.0" />
+ 		<font>
+            <Font size="35.0" />
+         </font></ChoiceBox>
+      <Label alignment="CENTER_RIGHT" layoutX="232.0" layoutY="470.0" prefHeight="40.0" prefWidth="248.0" text="Word Category:">
+         <font>
+            <Font size="35.0" />
+         </font></Label>
+      <Label fx:id="hintLabel" alignment="CENTER" layoutX="353.0" layoutY="1057.0" prefHeight="39.0" prefWidth="798.0">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Label fx:id="scoreLabel" layoutX="988.0" layoutY="720.0" prefHeight="40.0" prefWidth="163.0">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Label fx:id="letterHintLabel" layoutX="357.0" layoutY="1031.0" prefHeight="29.0" prefWidth="790.0">
+         <font>
+            <Font size="25.0" />
+         </font></Label>
+      <Button fx:id="repeatWordBtn" layoutX="228.0" layoutY="912.0" mnemonicParsing="false" onAction="#repeatWord" prefHeight="56.0" prefWidth="290.0" text="Repeat">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+      <Button layoutX="885.0" layoutY="912.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="290.0" text="Translation">
+         <font>
+            <Font size="25.0" />
          </font>
-      </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#returnToMainMenu" text="Return to Main Menu" />
-      <TextField fx:id="textField" layoutX="399.0" layoutY="518.0" prefHeight="80.0" prefWidth="420.0" />
-      <Button fx:id="startGame" alignment="CENTER" layoutX="346.0" layoutY="98.0" mnemonicParsing="false" onAction="#startSpellingGame" text="Start Quiz" />
-      <Label fx:id="prompt" layoutX="284.0" layoutY="146.0" />
-      <Button fx:id="checkSpelling" defaultButton="true" disable="true" layoutX="250.0" layoutY="244.0" mnemonicParsing="false" text="Check Spelling" />
-      <ChoiceBox fx:id="wordpoolSelection" layoutX="194.0" layoutY="98.0" prefWidth="150.0" />
-      <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="102.0" prefHeight="15.0" prefWidth="180.0" text="Word Category:" />
-      <Label fx:id="hintLabel" alignment="CENTER" layoutX="2.0" layoutY="220.0" prefHeight="15.0" prefWidth="600.0" />
-      <Label fx:id="scoreLabel" layoutX="466.0" layoutY="18.0" prefHeight="15.0" prefWidth="115.0" text="Current Score:" />
-      <Label fx:id="letterHintLabel" layoutX="195.0" layoutY="172.0" prefHeight="15.0" prefWidth="228.0" />
-      <Button fx:id="repeatWordBtn" layoutX="828.0" layoutY="518.0" mnemonicParsing="false" onAction="#repeatWord" prefHeight="80.0" prefWidth="173.0" text="Repeat Word" />
+      </Button>
+      <Button layoutX="534.0" layoutY="912.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="330.0" text="Don't Know">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Text layoutX="983.0" layoutY="707.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Score:">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="245.0" layoutY="1072.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hints:">
+         <font>
+            <Font size="35.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

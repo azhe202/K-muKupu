@@ -106,7 +106,7 @@ public class Controller implements Initializable{
 		}
 		
 		// show current score text
-		scoreLabel.setText("Current Score: ");
+		scoreLabel.setText("0/0");
 
 		// starting word count and score
 		wordCount = 1;
@@ -167,7 +167,7 @@ public class Controller implements Initializable{
 						attempts++;
 					}
 					// update score
-					scoreLabel.setText("Current Score: "+score+"/"+(wordCount-1));
+					scoreLabel.setText(score+"/"+(wordCount-1));
 				}
 
 			});
