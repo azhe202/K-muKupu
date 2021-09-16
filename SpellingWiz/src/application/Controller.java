@@ -58,6 +58,7 @@ public class Controller implements Initializable{
 	private int wordCount;
 	private int score;
 	private String word;
+	private String englishWord;
 	private final Object PAUSE_KEY = new Object();
 	
 	
@@ -116,7 +117,7 @@ public class Controller implements Initializable{
 		for (int i=0; i<words.length; i++) {
 			
 			word = words[i];
-			String englishWord = englishWords[i];
+			englishWord = englishWords[i];
 
 			attempts = 0;
 			prompt.setLayoutX(255);
@@ -161,7 +162,6 @@ public class Controller implements Initializable{
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						spellingQuestion(word, 0, 1, 5); // call the function again to ask user to spell word again 
-						hintLabel.setText("The english translation is: " + englishWord);
 						letterHintLabel.setText("The second letter of the word is '"+word.charAt(1)+"'");
 						textField.clear();
 						attempts++;
@@ -210,6 +210,10 @@ public class Controller implements Initializable{
 	 */
 	public void repeatWord(ActionEvent event) {
 		bashCommand("echo "+word+" | festival --tts");
+	}
+	
+	public void giveTranslation(ActionEvent event) {
+		hintLabel.setText("The english translation is: " + englishWord);
 	}
 
 	/*
