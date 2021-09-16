@@ -93,7 +93,7 @@ public class Controller implements Initializable{
 		startGame.setDisable(true);
 		checkSpelling.setDisable(false);
 
-		// get three random words from popular file
+		// get three random words from the appropriate file
 		String command = "sort -u words/" + wordpoolSelection.getValue() + " | shuf -n 5";
 		String[] words = returnWordList(command);
 		

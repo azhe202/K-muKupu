@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+<AnchorPane maxHeight="1400" maxWidth="1400" minHeight="1400" minWidth="1400" prefHeight="1400.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
    <children>
-      <Label layoutX="226.0" layoutY="39.0" text="Kemu Kupu">
+      <ImageView fitHeight="1400.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Border.jpeg" />
+         </image>
+      </ImageView>
+      <Button layoutX="179.0" layoutY="492.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="333.0" prefWidth="1042.0" text="Games Module">
          <font>
-            <Font name="Chalkboard" size="30.0" />
-         </font>
-      </Label>
-      <Button layoutX="50.0" layoutY="112.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="45.0" prefWidth="500.0" text="Games Module">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="50.0" layoutY="178.0" mnemonicParsing="false" onAction="#exit" prefHeight="45.0" prefWidth="500.0" text="Quit">
-         <font>
-            <Font size="20.0" />
+            <Font size="70.0" />
          </font>
       </Button>
+      <Button layoutX="179.0" layoutY="898.0" mnemonicParsing="false" onAction="#exit" prefHeight="333.0" prefWidth="1042.0" text="Quit">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="244.0" fitWidth="1042.0" layoutX="170.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/rooster-personal-use.regular.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
