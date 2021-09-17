@@ -23,6 +23,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -58,6 +60,8 @@ public class Controller implements Initializable{
 	private Button translationBtn;
 	@FXML
 	private Slider voiceSpeedSlider;
+	@FXML
+	private GridPane hintGrid;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
 	
@@ -67,6 +71,7 @@ public class Controller implements Initializable{
 	private int attempts;
 	private int wordCount;
 	private int score;
+	private int nextGridSpace = 0;
 	private double voiceSpeed;
 	private String word;
 	private String englishWord;
@@ -141,8 +146,8 @@ public class Controller implements Initializable{
 			prompt.setLayoutX(255);
 			
 			// remove existing hints
-			hintLabel.setText("");
-			letterHintLabel.setText("");
+			nextGridSpace = 0;
+			hintGrid.getChildren().clear();
 			
 			voiceSpeed = voiceSpeedSlider.getValue();
 
@@ -192,7 +197,10 @@ public class Controller implements Initializable{
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						voiceSpeed = voiceSpeedSlider.getValue();
 						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
-						letterHintLabel.setText("The second letter of the word is '"+word.charAt(1)+"'");
+						Label hintLabel = new Label("The second letter of the word is '"+word.charAt(1)+"'");
+						hintLabel.setFont(new Font(25));
+						hintGrid.add(hintLabel, 0, nextGridSpace);
+						nextGridSpace++;
 						textField.clear();
 						attempts++;
 					}
@@ -274,7 +282,10 @@ public class Controller implements Initializable{
 	}
 	
 	public void giveTranslation(ActionEvent event) {
-		hintLabel.setText("The english translation is: " + englishWord);
+		Label hintLabel = new Label("The english translation is: " + englishWord);
+		hintLabel.setFont(new Font(25));
+		hintGrid.add(hintLabel, 0, nextGridSpace);
+		nextGridSpace++;
 	}
 
 	/*
