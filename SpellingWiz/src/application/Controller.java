@@ -239,7 +239,10 @@ public class Controller implements Initializable{
 	 * Function to repeat the word on users request
 	 */
 	public void repeatWord(ActionEvent event) {
-		bashCommand("echo "+word+" | festival --tts");
+		// voice speed is changed accordingly
+		voiceSpeed = voiceSpeedSlider.getValue();
+		createSchemeFile(word, voiceSpeed);
+		bashCommand("festival -b " + schemeFile);
 	}
 	
 	public void giveTranslation(ActionEvent event) {
