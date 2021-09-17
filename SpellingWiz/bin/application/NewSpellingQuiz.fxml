@@ -27,8 +27,8 @@
             <Image url="@../../images/rooster-personal-use.regular-1.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bf000080" height="612.0" layoutX="190.0" layoutY="620.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" width="1020.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bf000080" height="160.0" layoutX="190.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" width="1020.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bd00004d" height="612.0" layoutX="190.0" layoutY="620.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="6.0" width="1020.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bd00004d" height="160.0" layoutX="190.0" layoutY="410.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="6.0" width="1020.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="957.0" layoutY="667.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="214.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="230.0" layoutY="667.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="708.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="96.0" layoutX="223.0" layoutY="1008.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" width="954.0" />

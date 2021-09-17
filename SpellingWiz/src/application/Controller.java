@@ -180,7 +180,7 @@ public class Controller implements Initializable{
 						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Incorrect | festival --tts");
+						bashCommand("echo Incorrect. You can do it! | festival --tts");
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
@@ -204,6 +204,7 @@ public class Controller implements Initializable{
 			pause();
 			
 			if (skipRequested) {
+				bashCommand("echo You can do it! | festival --tts");
 				skipRequested = false;
 				wordCount++;
 				scoreLabel.setText(score+"/"+(wordCount-1));
