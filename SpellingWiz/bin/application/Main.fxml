@@ -6,24 +6,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="1400" maxWidth="1400" minHeight="1400" minWidth="1400" prefHeight="1400.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+<AnchorPane maxHeight="700.0" maxWidth="700.0" minHeight="700.0" minWidth="700.0" prefHeight="700.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
    <children>
-      <ImageView fitHeight="1400.0" fitWidth="1400.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="700.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/Border.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="179.0" layoutY="492.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="333.0" prefWidth="1042.0" text="Games Module">
+      <Button layoutX="132.0" layoutY="193.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="119.0" prefWidth="437.0" text="Games Module">
          <font>
-            <Font size="70.0" />
+            <Font size="35.0" />
          </font>
       </Button>
-      <Button layoutX="179.0" layoutY="898.0" mnemonicParsing="false" onAction="#exit" prefHeight="333.0" prefWidth="1042.0" text="Quit">
+      <Button layoutX="132.0" layoutY="350.0" mnemonicParsing="false" onAction="#exit" prefHeight="119.0" prefWidth="437.0" text="Quit">
          <font>
-            <Font size="70.0" />
+            <Font size="35.0" />
          </font>
       </Button>
-      <ImageView fitHeight="244.0" fitWidth="1042.0" layoutX="170.0" layoutY="188.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="125.0" fitWidth="500.0" layoutX="100.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/rooster-personal-use.regular.png" />
          </image>

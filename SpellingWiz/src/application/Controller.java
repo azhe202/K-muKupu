@@ -18,6 +18,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -180,7 +182,10 @@ public class Controller implements Initializable{
 						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Incorrect. You can do it! | festival --tts");
+						bashCommand("echo Incorrect. | festival --tts");
+						if (wordCount != words.length) {
+							bashCommand("echo You can do it! | festival --tts");
+						}
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
@@ -188,7 +193,7 @@ public class Controller implements Initializable{
 						voiceSpeed = voiceSpeedSlider.getValue();
 						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
 						Label hintLabel = new Label("The second letter of the word is '"+word.charAt(1)+"'");
-						hintLabel.setFont(new Font(25));
+						hintLabel.setFont(new Font(15));
 						hintGrid.add(hintLabel, 0, nextGridSpace);
 						nextGridSpace++;
 						textField.clear();
@@ -204,7 +209,9 @@ public class Controller implements Initializable{
 			pause();
 			
 			if (skipRequested) {
-				bashCommand("echo You can do it! | festival --tts");
+				if (wordCount != words.length) {
+					bashCommand("echo You can do it! | festival --tts");
+				}
 				skipRequested = false;
 				wordCount++;
 				scoreLabel.setText(score+"/"+(wordCount-1));
@@ -215,6 +222,19 @@ public class Controller implements Initializable{
 		
 		// prompt the user the quiz has finished 
 		prompt.setText("Spelling Quiz Completed!");
+		
+		// alert shows the user their final score
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game Complete");
+		alert.setHeaderText(null);
+		if (score <=2) {
+			alert.setContentText("You spelt " + score + "/5 words correcly. Maybe spend some more time practicing the \"" + wordpoolSelection.getValue() + "\" wordpool.");
+		} else if (score <=4) {
+			alert.setContentText("You spelt " + score + "/5 words correctly. Good job.");
+		} else {
+			alert.setContentText("Good job, you spelt " + score + "/5 words correctly. You have mastered the \"" + wordpoolSelection.getValue() + "\" wordpool.");
+		}
+		alert.showAndWait();
 		
 		//disables game related buttons and enables start button
 		startGame.setDisable(false);
@@ -273,7 +293,7 @@ public class Controller implements Initializable{
 	
 	public void giveTranslation(ActionEvent event) {
 		Label hintLabel = new Label("The english translation is: " + englishWord);
-		hintLabel.setFont(new Font(25));
+		hintLabel.setFont(new Font(15));
 		hintGrid.add(hintLabel, 0, nextGridSpace);
 		nextGridSpace++;
 	}
