@@ -63,6 +63,7 @@ public class Controller implements Initializable{
 	private int attempts;
 	private int wordCount;
 	private int score;
+	private double voiceSpeed;
 	private String word;
 	private String englishWord;
 	private final Object PAUSE_KEY = new Object();
@@ -134,9 +135,11 @@ public class Controller implements Initializable{
 			// remove existing hints
 			hintLabel.setText("");
 			letterHintLabel.setText("");
+			
+			voiceSpeed = voiceSpeedSlider.getValue();
 
 			// call method to say the word
-			spellingQuestion(word, wordCount, attempts, 5);
+			spellingQuestion(word, wordCount, attempts, 5, voiceSpeed);
 			attempts++;
 
 			// checkSpelling button will check the word and append the word to the correct file
@@ -170,7 +173,8 @@ public class Controller implements Initializable{
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						spellingQuestion(word, 0, 1, 5); // call the function again to ask user to spell word again 
+						voiceSpeed = voiceSpeedSlider.getValue();
+						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
 						letterHintLabel.setText("The second letter of the word is '"+word.charAt(1)+"'");
 						textField.clear();
 						attempts++;
@@ -245,18 +249,22 @@ public class Controller implements Initializable{
 	/*
 	 * Helper method for newSpellingQuiz and reviewMistakes
 	 */
-	public void spellingQuestion(String word, int wordCount, int attempts, int numWords) {
+	public void spellingQuestion(String word, int wordCount, int attempts, int numWords, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
 			prompt.setText("Spell word " + wordCount + " of " + numWords);
 			bashCommand("grep -qxFs "+word+" .QUIZZED_WORDS || echo "+word+" >> .QUIZZED_WORDS"); // append the quizzed word to the QUIZZED_WORDS file 
-			bashCommand("echo Please spell "+word+" | festival --tts");
+			bashCommand("echo Please spell | festival --tts");
+			createSchemeFile(word, speed); // file to speak the maori word
+			bashCommand("festival -b " + schemeFile);	
 		} else if (attempts == 1) {
-			bashCommand("echo Incorrect, try once more. "+word+". "+word+" | festival --tts");
+			bashCommand("echo Incorrect, try once more. | festival --tts");
+			createSchemeFile(word, speed); // file to speak the maori word
+			bashCommand("festival -b " + schemeFile);
+			bashCommand("festival -b " + schemeFile);
 			prompt.setLayoutX(235);
 			prompt.setText("Incorrect, try once more");
 		}
-
 	}
 
 	/*
