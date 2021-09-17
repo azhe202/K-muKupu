@@ -53,6 +53,8 @@ public class Controller implements Initializable{
 	@FXML
 	private Button repeatWordBtn;
 	@FXML
+	private Button skipWordBtn;
+	@FXML
 	private Slider voiceSpeedSlider;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
@@ -66,6 +68,7 @@ public class Controller implements Initializable{
 	private double voiceSpeed;
 	private String word;
 	private String englishWord;
+	private Boolean skipRequested = false;
 	private final Object PAUSE_KEY = new Object();
 	
 	private static String binPath = (new File(System.getProperty("java.class.path"))).getAbsolutePath().split(File.pathSeparator)[0];
@@ -141,6 +144,15 @@ public class Controller implements Initializable{
 			// call method to say the word
 			spellingQuestion(word, wordCount, attempts, 5, voiceSpeed);
 			attempts++;
+			
+			//
+			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent e) {
+					skipRequested = true;
+					resume();
+				}
+			});
 
 			// checkSpelling button will check the word and append the word to the correct file
 			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
@@ -187,12 +199,19 @@ public class Controller implements Initializable{
 
 			// temporarily pause the method and wait for resume to be called
 			pause();
+			
+			if (skipRequested) {
+				skipRequested = false;
+				wordCount++;
+				scoreLabel.setText(score+"/"+(wordCount-1));
+				continue;
+			}
 
 		}	
 		
 		// prompt the user the quiz has finished 
 		prompt.setLayoutX(50);
-		prompt.setText("Spelling Quiz Completed! Click start quiz to play again or return to main menu to exit quiz");
+		prompt.setText("Spelling Quiz Completed!");
 		
 		//disables submit and enables start button
 		startGame.setDisable(false);

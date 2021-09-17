@@ -41,7 +41,7 @@
          <font>
             <Font size="35.0" />
          </font></Button>
-      <Label fx:id="prompt" layoutX="251.0" layoutY="688.0" prefHeight="64.0" prefWidth="666.0">
+      <Label fx:id="prompt" alignment="CENTER" layoutX="251.0" layoutY="688.0" prefHeight="64.0" prefWidth="666.0">
          <font>
             <Font size="35.0" />
          </font></Label>
@@ -54,11 +54,11 @@
          <font>
             <Font size="35.0" />
          </font></Label>
-      <Label fx:id="hintLabel" alignment="CENTER" layoutX="353.0" layoutY="1057.0" prefHeight="39.0" prefWidth="798.0">
+      <Label fx:id="hintLabel" layoutX="353.0" layoutY="1057.0" prefHeight="39.0" prefWidth="798.0">
          <font>
             <Font size="25.0" />
          </font></Label>
-      <Label fx:id="scoreLabel" layoutX="988.0" layoutY="720.0" prefHeight="40.0" prefWidth="163.0">
+      <Label fx:id="scoreLabel" alignment="CENTER" layoutX="988.0" layoutY="720.0" prefHeight="40.0" prefWidth="163.0">
          <font>
             <Font size="25.0" />
          </font></Label>
@@ -75,7 +75,7 @@
             <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="534.0" layoutY="912.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="330.0" text="Don't Know">
+      <Button fx:id="skipWordBtn" layoutX="534.0" layoutY="912.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="330.0" text="Don't Know">
          <font>
             <Font size="25.0" />
          </font>
