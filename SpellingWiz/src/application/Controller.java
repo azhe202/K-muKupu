@@ -55,6 +55,8 @@ public class Controller implements Initializable{
 	@FXML
 	private Button skipWordBtn;
 	@FXML
+	private Button translationBtn;
+	@FXML
 	private Slider voiceSpeedSlider;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
@@ -103,9 +105,12 @@ public class Controller implements Initializable{
 		bashCommand("touch .QUIZZED_WORDS");
 		bashCommand("touch .FOR_REVIEW");
 		
-		//disables start button and enables submit button
+		//disables game related buttons and enables submit button
 		startGame.setDisable(true);
 		checkSpelling.setDisable(false);
+		repeatWordBtn.setDisable(false);
+		translationBtn.setDisable(false);
+		skipWordBtn.setDisable(false);
 
 		// get three random words from the appropriate file
 		String command = "sort -u words/" + wordpoolSelection.getValue() + " | shuf -n 5";
@@ -145,7 +150,7 @@ public class Controller implements Initializable{
 			spellingQuestion(word, wordCount, attempts, 5, voiceSpeed);
 			attempts++;
 			
-			//
+			// create a skip request when don't know is pressed
 			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent e) {
@@ -213,9 +218,13 @@ public class Controller implements Initializable{
 		prompt.setLayoutX(50);
 		prompt.setText("Spelling Quiz Completed!");
 		
-		//disables submit and enables start button
+		//disables game related buttons and enables start button
 		startGame.setDisable(false);
 		checkSpelling.setDisable(true);
+		repeatWordBtn.setDisable(true);
+		translationBtn.setDisable(true);
+		skipWordBtn.setDisable(true);
+		
 		
 		// remove existing hints
 		hintLabel.setText("");

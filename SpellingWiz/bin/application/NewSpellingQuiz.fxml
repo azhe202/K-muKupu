@@ -66,16 +66,16 @@
          <font>
             <Font size="25.0" />
          </font></Label>
-      <Button fx:id="repeatWordBtn" layoutX="228.0" layoutY="912.0" mnemonicParsing="false" onAction="#repeatWord" prefHeight="56.0" prefWidth="290.0" text="Repeat">
+      <Button fx:id="repeatWordBtn" disable="true" layoutX="228.0" layoutY="912.0" mnemonicParsing="false" onAction="#repeatWord" prefHeight="56.0" prefWidth="290.0" text="Repeat">
          <font>
             <Font size="25.0" />
          </font></Button>
-      <Button layoutX="885.0" layoutY="912.0" mnemonicParsing="false" onAction="#giveTranslation" prefHeight="56.0" prefWidth="290.0" text="Translation">
+      <Button fx:id="translationBtn" disable="true" layoutX="885.0" layoutY="912.0" mnemonicParsing="false" onAction="#giveTranslation" prefHeight="56.0" prefWidth="290.0" text="Translation">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button fx:id="skipWordBtn" layoutX="534.0" layoutY="912.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="330.0" text="Don't Know">
+      <Button fx:id="skipWordBtn" disable="true" layoutX="534.0" layoutY="912.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="330.0" text="Don't Know">
          <font>
             <Font size="25.0" />
          </font>
