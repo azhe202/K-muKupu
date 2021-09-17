@@ -103,12 +103,6 @@ public class Controller implements Initializable{
 	 * Function to start a new spelling game 
 	 */
 	public void startSpellingGame(ActionEvent event) {
-		// make the files to store the mastered, faulted and failed words 
-		bashCommand("touch .MASTERED_WORDS");
-		bashCommand("touch .FAULTED_WORDS");
-		bashCommand("touch .FAILED_WORDS");
-		bashCommand("touch .QUIZZED_WORDS");
-		bashCommand("touch .FOR_REVIEW");
 		
 		//disables game related buttons and enables submit button
 		startGame.setDisable(true);
@@ -175,22 +169,18 @@ public class Controller implements Initializable{
 					// conditional checks to append word entered to the correct files 
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						bashCommand("echo Correct | festival --tts");
-						bashCommand("echo "+word+" >> .MASTERED_WORDS");
 						textField.clear();
 						wordCount++;
 						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Correct | festival --tts");
-						bashCommand("echo "+word+" >> .FAULTED_WORDS");	
 						textField.clear();
 						wordCount++;
 						score++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Incorrect | festival --tts");
-						bashCommand("echo "+word+" >> .FAILED_WORDS");
-						bashCommand("grep -qxFs "+word+" .FOR_REVIEW || echo "+word+" >> .FOR_REVIEW");
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
@@ -223,7 +213,6 @@ public class Controller implements Initializable{
 		}	
 		
 		// prompt the user the quiz has finished 
-		prompt.setLayoutX(50);
 		prompt.setText("Spelling Quiz Completed!");
 		
 		//disables game related buttons and enables start button
@@ -295,7 +284,6 @@ public class Controller implements Initializable{
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
 			prompt.setText("Spell word " + wordCount + " of " + numWords);
-			bashCommand("grep -qxFs "+word+" .QUIZZED_WORDS || echo "+word+" >> .QUIZZED_WORDS"); // append the quizzed word to the QUIZZED_WORDS file 
 			bashCommand("echo Please spell | festival --tts");
 			createSchemeFile(word, speed); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);	
