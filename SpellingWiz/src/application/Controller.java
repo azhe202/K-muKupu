@@ -1,7 +1,10 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -18,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -48,6 +52,8 @@ public class Controller implements Initializable{
 	private Label letterHintLabel;
 	@FXML
 	private Button repeatWordBtn;
+	@FXML
+	private Slider voiceSpeedSlider;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
 	
@@ -61,6 +67,9 @@ public class Controller implements Initializable{
 	private String englishWord;
 	private final Object PAUSE_KEY = new Object();
 	
+	private static String binPath = (new File(System.getProperty("java.class.path"))).getAbsolutePath().split(File.pathSeparator)[0];
+	private static String path = new File(binPath).getParentFile().getAbsolutePath();
+	private static File schemeFile = new File(path + "/.speak.scm");
 	
 	/*
 	 * Function to change scenes back to the main menu when button is pressed 
@@ -205,6 +214,23 @@ public class Controller implements Initializable{
 		Platform.exitNestedEventLoop(PAUSE_KEY, null);
 	}
 	
+	/*
+	 * Function to adjust the speed of festival voice 
+	 */
+	private void createSchemeFile(String word, double speed) {
+		//open a scheme file and write to it 
+		BufferedWriter scheme = null;
+		try {
+			scheme = new BufferedWriter(new FileWriter(schemeFile));
+			scheme.write("(voice_akl_mi_pk06_cg)");
+			scheme.write("(Parameter.set 'Duration_Stretch " + speed + ")" + System.getProperty("line.separator"));
+			scheme.write("(SayText \"" + word + "\")" + System.getProperty("line.separator"));
+			scheme.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	/*
 	 * Function to repeat the word on users request
 	 */
