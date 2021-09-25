@@ -67,7 +67,7 @@ public class Controller implements Initializable{
 	@FXML 
 	private Button macronBtn;
 	
-	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
+	private String[] wordpool = {"Babies", "Colours", "Compass points", "Days of the week", "Days of the week (loan words)", "Engineering", "Feelings", "Months of the year", "Months of the year (loan words)", "Software", "Uni life", "Weather", "Work"};
 	
 	private Stage stage;
 	private Scene scene;

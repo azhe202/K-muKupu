@@ -36,7 +36,7 @@
          <font>
             <Font size="15.0" />
          </font></Button>
-      <TextField fx:id="textField" layoutX="120.0" layoutY="383.0" prefHeight="50.0" prefWidth="324.0">
+      <TextField fx:id="textField" layoutX="120.0" layoutY="383.0" prefHeight="50.0" prefWidth="324.0" promptText="Type word here">
          <font>
             <Font size="15.0" />
          </font></TextField>
