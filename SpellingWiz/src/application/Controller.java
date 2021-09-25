@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -83,9 +85,7 @@ public class Controller implements Initializable{
 	private Boolean skipRequested = false;
 	private final Object PAUSE_KEY = new Object();
 	
-	private static String binPath = (new File(System.getProperty("java.class.path"))).getAbsolutePath().split(File.pathSeparator)[0];
-	private static String path = new File(binPath).getParentFile().getAbsolutePath();
-	private static File schemeFile = new File(path + "/.speak.scm");
+	private static File schemeFile = getPath();
 	
 	/*
 	 * Function to change scenes back to the main menu when button is pressed 
@@ -292,6 +292,15 @@ public class Controller implements Initializable{
 		}
 	}
 
+	/* 
+	 * Function to get the path for the scheme file
+	 */
+	private static File getPath() {
+		Path path = Paths.get(".speak.scm");
+		schemeFile = new File(path.toAbsolutePath().toString());
+		return schemeFile;
+	}
+	
 	/*
 	 * Function to repeat the word on users request
 	 */
