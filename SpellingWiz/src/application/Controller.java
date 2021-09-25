@@ -283,9 +283,9 @@ public class Controller implements Initializable{
 		BufferedWriter scheme = null;
 		try {
 			scheme = new BufferedWriter(new FileWriter(schemeFile));
-			scheme.write("(voice_akl_mi_pk06_cg)");
-			scheme.write("(Parameter.set 'Duration_Stretch " + speed + ")" + System.getProperty("line.separator"));
-			scheme.write("(SayText \"" + word + "\")" + System.getProperty("line.separator"));
+			scheme.write("(voice_akl_mi_pk06_cg)"); // set up Māori voice
+			scheme.write("(Parameter.set 'Duration_Stretch " + speed + ")");
+			scheme.write("(SayText \"" + word + "\")");
 			scheme.close();
 		} catch (IOException e) {
 			e.printStackTrace();
