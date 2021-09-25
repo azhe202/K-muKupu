@@ -250,8 +250,7 @@ public class Controller implements Initializable{
 		
 		
 		// remove existing hints
-		hintLabel.setText("");
-		letterHintLabel.setText("");
+		hintGrid.getChildren().clear();
 
 	}
 	
