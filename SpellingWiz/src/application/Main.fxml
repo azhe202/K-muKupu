@@ -13,14 +13,14 @@
             <Image url="@../../images/Border.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="132.0" layoutY="193.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="119.0" prefWidth="437.0" text="Games Module">
+      <Button layoutX="132.0" layoutY="193.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="119.0" prefWidth="437.0" text="Games Module (Kaupapa Tono)">
          <font>
-            <Font size="35.0" />
+            <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="132.0" layoutY="350.0" mnemonicParsing="false" onAction="#exit" prefHeight="119.0" prefWidth="437.0" text="Quit">
+      <Button layoutX="132.0" layoutY="350.0" mnemonicParsing="false" onAction="#exit" prefHeight="119.0" prefWidth="437.0" text="Quit (Kati)">
          <font>
-            <Font size="35.0" />
+            <Font size="25.0" />
          </font>
       </Button>
       <ImageView fitHeight="125.0" fitWidth="500.0" layoutX="100.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
