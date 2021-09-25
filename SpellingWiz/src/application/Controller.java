@@ -312,10 +312,11 @@ public class Controller implements Initializable{
 	public void addMacron(ActionEvent event) {
 		
 		String noMacronWord = textField.getText();
-		String preMacron = noMacronWord.substring(0,noMacronWord.length()-1);
-		String noMacronChar	= noMacronWord.substring(noMacronWord.length()-1);
-		String macronChar;
-		switch (noMacronChar) {
+		if (!noMacronWord.isEmpty()) {
+			String preMacron = noMacronWord.substring(0,noMacronWord.length()-1);
+			String noMacronChar	= noMacronWord.substring(noMacronWord.length()-1);
+			String macronChar;
+			switch (noMacronChar) {
 			case "a":
 				macronChar = "ā";
 				break;
@@ -349,10 +350,11 @@ public class Controller implements Initializable{
 			default:
 				macronChar = noMacronChar;
 				break;
+			}
+			textField.clear();
+			textField.setText(preMacron + macronChar);
 		}
-		textField.clear();
-		textField.setText(preMacron + macronChar);
-		
+
 	}
 
 	/*
