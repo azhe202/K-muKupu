@@ -48,7 +48,7 @@
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Button fx:id="checkSpelling" defaultButton="true" disable="true" layoutX="487.0" layoutY="383.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" text="Check Spelling">
+      <Button fx:id="checkSpelling" defaultButton="true" disable="true" layoutX="449.0" layoutY="383.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="148.0" text="Check Spelling">
          <font>
             <Font size="15.0" />
          </font></Button>
@@ -61,16 +61,16 @@
          <font>
             <Font size="10.0" />
          </font></Label>
-      <Button fx:id="repeatWordBtn" disable="true" layoutX="143.0" layoutY="449.0" mnemonicParsing="false" onAction="#repeatWord" prefHeight="30.0" prefWidth="125.0" text="Repeat">
+      <Button fx:id="repeatWordBtn" disable="true" layoutX="122.0" layoutY="449.0" mnemonicParsing="false" onAction="#repeatWord" prefHeight="30.0" prefWidth="100.0" text="Repeat">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button fx:id="translationBtn" disable="true" layoutX="441.0" layoutY="449.0" mnemonicParsing="false" onAction="#giveTranslation" prefHeight="30.0" prefWidth="125.0" text="Translation">
+      <Button fx:id="translationBtn" disable="true" layoutX="371.0" layoutY="449.0" mnemonicParsing="false" onAction="#giveTranslation" prefHeight="30.0" prefWidth="100.0" text="Translation">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button fx:id="skipWordBtn" disable="true" layoutX="295.0" layoutY="449.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="125.0" text="Don't Know">
+      <Button fx:id="skipWordBtn" disable="true" layoutX="250.0" layoutY="449.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Don't Know">
          <font>
             <Font size="15.0" />
          </font>
@@ -110,6 +110,9 @@
           <RowConstraints minHeight="15.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="macronBtn" disable="true" layoutX="452.0" layoutY="383.0" mnemonicParsing="false" onAction="#addMacron" prefHeight="50.0" prefWidth="29.0" text="Macron" />
+      <Button fx:id="macronBtn" disable="true" layoutX="492.0" layoutY="449.0" mnemonicParsing="false" onAction="#addMacron" prefHeight="30.0" prefWidth="100.0" text="Macron">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
    </children>
 </AnchorPane>
