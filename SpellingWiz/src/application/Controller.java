@@ -67,7 +67,8 @@ public class Controller implements Initializable{
 	@FXML 
 	private Button macronBtn;
 	
-	private String[] wordpool = {"Babies", "Colours", "Compass points", "Days of the week", "Days of the week (loan words)", "Engineering", "Feelings", "Months of the year", "Months of the year (loan words)", "Software", "Uni life", "Weather", "Work"};
+	private String[] wordpool = {"Babies", "Colours", "Compass points", "Days of the week", "Days of the week loan words", "Engineering", "Feelings", "Months of the year", "Months of the year loan words", "Software", "Uni life", "Weather", "Work"};
+	private String[] wordpoolFileNames = {"babies", "colours", "compassPoints", "daysOfTheWeek", "daysOfTheWeekLoanWords", "engineering", "feelings", "monthsOfTheYear", "monthsOfTheYearLoanWords", "software", "uniLife", "weather", "work"};
 	
 	private Stage stage;
 	private Scene scene;
@@ -117,9 +118,15 @@ public class Controller implements Initializable{
 		macronBtn.setDisable(false);
 
 		// get three random words from the appropriate file
-		String command = "sort -u words/" + wordpoolSelection.getValue() + " | shuf -n 5";
+		int wordIndex;
+		for (wordIndex=0; wordIndex<wordpool.length; wordIndex++) {
+			if (wordpoolSelection.getValue() == wordpool[wordIndex]) {
+				break;
+			}
+		}
+		String command = "sort -u words/" + wordpoolFileNames[wordIndex] + " | shuf -n 5";
 		String[] words = returnWordList(command);
-		
+
 		String[] englishWords = new String[5];
 		for (int i=0; i<words.length; i++) {
 			String temp = words[i];
