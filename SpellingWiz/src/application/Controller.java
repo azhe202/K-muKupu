@@ -64,6 +64,8 @@ public class Controller implements Initializable{
 	private Slider voiceSpeedSlider;
 	@FXML
 	private GridPane hintGrid;
+	@FXML 
+	private Button macronBtn;
 	
 	private String[] wordpool = {"babies", "colours", "compassPoints", "daysOfTheWeek1", "daysOfTheWeek2", "engineering", "feelings", "monthsOfTheYear1", "monthsOfTheYear2", "software", "uniLife", "weather", "work"};
 	
@@ -112,6 +114,7 @@ public class Controller implements Initializable{
 		repeatWordBtn.setDisable(false);
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
+		macronBtn.setDisable(false);
 
 		// get three random words from the appropriate file
 		String command = "sort -u words/" + wordpoolSelection.getValue() + " | shuf -n 5";
@@ -242,6 +245,7 @@ public class Controller implements Initializable{
 		repeatWordBtn.setDisable(true);
 		translationBtn.setDisable(true);
 		skipWordBtn.setDisable(true);
+		macronBtn.setDisable(true);
 		
 		
 		// remove existing hints
