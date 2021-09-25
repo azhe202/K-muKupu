@@ -137,6 +137,7 @@ public class Controller implements Initializable{
 
 		// loop through the words the user needs to spell and mark the words accordingly
 		for (int i=0; i<words.length; i++) {
+			textField.clear();
 			
 			word = words[i];
 			englishWord = englishWords[i];
@@ -300,6 +301,52 @@ public class Controller implements Initializable{
 		hintLabel.setFont(new Font(15));
 		hintGrid.add(hintLabel, 0, nextGridSpace);
 		nextGridSpace++;
+	}
+	
+	public void addMacron(ActionEvent event) {
+		
+		String noMacronWord = textField.getText();
+		String preMacron = noMacronWord.substring(0,noMacronWord.length()-1);
+		String noMacronChar	= noMacronWord.substring(noMacronWord.length()-1);
+		String macronChar;
+		switch (noMacronChar) {
+			case "a":
+				macronChar = "ā";
+				break;
+			case "e":
+				macronChar = "ē";
+				break;
+			case "i":
+				macronChar = "ī";
+				break;
+			case "o":
+				macronChar = "ō";
+				break;
+			case "u":
+				macronChar = "ū";
+				break;
+			case "A":
+				macronChar = "Ā";
+				break;
+			case "E":
+				macronChar = "Ē";
+				break;
+			case "I":
+				macronChar = "Ī";
+				break;
+			case "O":
+				macronChar = "Ō";
+				break;
+			case "U":
+				macronChar = "Ū";
+				break;
+			default:
+				macronChar = noMacronChar;
+				break;
+		}
+		textField.clear();
+		textField.setText(preMacron + macronChar);
+		
 	}
 
 	/*
