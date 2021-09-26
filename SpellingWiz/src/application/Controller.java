@@ -418,21 +418,6 @@ public class Controller implements Initializable{
 	}
 	
 	/*
-	 * Function to count the number of lines in a file
-	 */
-	public int countNumLines(String fileName) {
-
-		int lines = 0;
-		try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-			while (reader.readLine() != null) lines++;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return lines;
-
-	}
-	
-	/*
 	 * Function using bash command to return the word list as an array
 	 */
 	public String[] returnWordList(String command) {
