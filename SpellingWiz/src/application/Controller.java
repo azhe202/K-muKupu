@@ -3,7 +3,6 @@ package application;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -117,16 +116,19 @@ public class Controller implements Initializable{
 		skipWordBtn.setDisable(false);
 		macronBtn.setDisable(false);
 
-		// get three random words from the appropriate file
+		// get the selected word list
 		int wordIndex;
 		for (wordIndex=0; wordIndex<wordpool.length; wordIndex++) {
 			if (wordpoolSelection.getValue() == wordpool[wordIndex]) {
 				break;
 			}
 		}
+		
+		// get five random words from the appropriate file
 		String command = "sort -u words/" + wordpoolFileNames[wordIndex] + " | shuf -n 5";
 		String[] words = returnWordList(command);
 
+		// extract the maori and english words from the selected words
 		String[] englishWords = new String[5];
 		for (int i=0; i<words.length; i++) {
 			String temp = words[i];
@@ -146,7 +148,7 @@ public class Controller implements Initializable{
 		for (int i=0; i<words.length; i++) {
 			textField.clear();
 			
-			word = words[i];
+			word = words[i]; // maori words
 			englishWord = englishWords[i];
 
 			attempts = 0;
@@ -171,7 +173,7 @@ public class Controller implements Initializable{
 				}
 			});
 
-			// checkSpelling button will check the word and append the word to the correct file
+			// checkSpelling button will check the word and increase the score or ask user to spell again
 			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
 				
 				@Override 
@@ -179,7 +181,7 @@ public class Controller implements Initializable{
 
 					String wordEntered = textField.getText().trim();
 
-					// conditional checks to append word entered to the correct files 
+					// conditional checks to increase user score
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						bashCommand("echo Correct | festival --tts");
 						textField.clear();
@@ -195,7 +197,7 @@ public class Controller implements Initializable{
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Incorrect. | festival --tts");
 						if (wordCount != words.length) {
-							bashCommand("echo You can do it! | festival --tts");
+							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
 						}
 						textField.clear();
 						wordCount++;
@@ -203,6 +205,7 @@ public class Controller implements Initializable{
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						voiceSpeed = voiceSpeedSlider.getValue();
 						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
+						// display to the user the appropriate hint
 						Label hintLabel = new Label("The second letter of the word is '"+word.charAt(1)+"'");
 						hintLabel.setFont(new Font(15));
 						hintGrid.add(hintLabel, 0, nextGridSpace);
@@ -219,13 +222,14 @@ public class Controller implements Initializable{
 			// temporarily pause the method and wait for resume to be called
 			pause();
 			
+			// skips the current word as per user request
 			if (skipRequested) {
 				if (wordCount != words.length) {
 					bashCommand("echo You can do it! | festival --tts");
 				}
 				skipRequested = false;
 				wordCount++;
-				scoreLabel.setText(score+"/"+(wordCount-1));
+				scoreLabel.setText(score+"/"+(wordCount-1)); // update the score
 				continue;
 			}
 
@@ -234,10 +238,11 @@ public class Controller implements Initializable{
 		// prompt the user the quiz has finished 
 		prompt.setText("Spelling Quiz Completed!");
 		
-		// alert shows the user their final score
+		// alert shows the user their final score and appropriate message
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("Game Complete");
 		alert.setHeaderText(null);
+		// select appropriate message to display
 		if (score <=2) {
 			alert.setContentText("You spelt " + score + "/5 words correcly. Maybe spend some more time practicing the \"" + wordpoolSelection.getValue() + "\" wordpool.");
 		} else if (score <=4) {
@@ -296,7 +301,7 @@ public class Controller implements Initializable{
 	 * Function to get the path for the scheme file
 	 */
 	private static File getPath() {
-		Path path = Paths.get(".speak.scm");
+		Path path = Paths.get(".speak.scm"); 
 		schemeFile = new File(path.toAbsolutePath().toString());
 		return schemeFile;
 	}
@@ -305,26 +310,34 @@ public class Controller implements Initializable{
 	 * Function to repeat the word on users request
 	 */
 	public void repeatWord(ActionEvent event) {
-		// voice speed is changed accordingly
+		// voice speed is changed accordingly when word is repeated
 		voiceSpeed = voiceSpeedSlider.getValue();
 		createSchemeFile(word, voiceSpeed);
 		bashCommand("festival -b " + schemeFile);
 	}
 	
+	/*
+	 * Function which provides the English translation of the given word
+	 */
 	public void giveTranslation(ActionEvent event) {
 		Label hintLabel = new Label("The english translation is: " + englishWord);
 		hintLabel.setFont(new Font(15));
-		hintGrid.add(hintLabel, 0, nextGridSpace);
+		hintGrid.add(hintLabel, 0, nextGridSpace); // add the hint in the correct space
 		nextGridSpace++;
 	}
 	
+	/*
+	 * Function allowing the user to enter a macron
+	 */
 	public void addMacron(ActionEvent event) {
 		
+		// get the current word and macronize the last letter
 		String noMacronWord = textField.getText();
 		if (!noMacronWord.isEmpty()) {
 			String preMacron = noMacronWord.substring(0,noMacronWord.length()-1);
 			String noMacronChar	= noMacronWord.substring(noMacronWord.length()-1);
 			String macronChar;
+			// add the appropriate macron
 			switch (noMacronChar) {
 			case "a":
 				macronChar = "ā";
@@ -361,13 +374,13 @@ public class Controller implements Initializable{
 				break;
 			}
 			textField.clear();
-			textField.setText(preMacron + macronChar);
+			textField.setText(preMacron + macronChar); // display the word with the macron to user
 		}
 
 	}
 
 	/*
-	 * Helper method for newSpellingQuiz and reviewMistakes
+	 * Helper function for newSpellingQuiz 
 	 */
 	public void spellingQuestion(String word, int wordCount, int attempts, int numWords, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
@@ -454,9 +467,9 @@ public class Controller implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		// initialise the wordPool
 		wordpoolSelection.getItems().addAll(wordpool);
 		wordpoolSelection.setValue("Babies");
-		
 	}
 	
 }

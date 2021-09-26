@@ -31,10 +31,12 @@ public class SceneController {
 			e.printStackTrace();
 		}
 	}
-	
-	//closes stage when exit button pressed
-		public void exit(ActionEvent event) {
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.close();
-		}
+
+	/*
+	 * Function exits out of the GUI when exit button is pressed
+	 */
+	public void exit(ActionEvent event) {
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		stage.close();
+	}
 }
