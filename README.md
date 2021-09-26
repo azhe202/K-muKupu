@@ -1,6 +1,14 @@
-# project
+# SOFTENG 206 Assignment 3
 
-Use this repo for both Assignment 3 and also your final Project (as you will be in the same team). 
+To run this program navigate to the following project directory from command line using cd
 
-Be sure to update this README file to provide an easy-to-follow set of instructions on how to run your program. 
+/SpellingWiz
+
+Next, type the following from command line:
+
+>  chmod +x KēmuKupu.jar KēmuKupu.sh 
+
+Finally, run the program:
+
+> ./KēmuKupu.sh
 
