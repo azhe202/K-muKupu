@@ -160,6 +160,8 @@ public class Controller implements Initializable{
 			nextGridSpace = 0;
 			hintGrid.getChildren().clear();
 			
+			displayNumLetters(word);
+			
 			voiceSpeed = voiceSpeedSlider.getValue();
 
 			// call method to say the word
@@ -208,6 +210,7 @@ public class Controller implements Initializable{
 						voiceSpeed = voiceSpeedSlider.getValue();
 						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
+						secondLetterHint(word);
 						Label hintLabel = new Label("The second letter of the word is '"+word.charAt(1)+"'");
 						hintLabel.setFont(new Font(15));
 						hintGrid.add(hintLabel, 0, nextGridSpace);
@@ -277,6 +280,24 @@ public class Controller implements Initializable{
 		String textToDisplay = "_";
 		
 		for(int i=1; i<numLetters; i++) {
+			textToDisplay = textToDisplay + " " + "_";
+		}
+		
+		wordLength.setText(textToDisplay);
+	}
+	
+	/**
+	 * Function displays to the user how many letters are in the word along with the letter 
+	 * in the second position
+	 * @param word
+	 */
+	private void secondLetterHint(String word) {
+		int numLetters = word.length();
+		char secondLetter = word.charAt(1);
+		String textToDisplay = "_";
+		textToDisplay = textToDisplay + " " + secondLetter;
+		
+		for(int i=2; i<numLetters; i++) {
 			textToDisplay = textToDisplay + " " + "_";
 		}
 		

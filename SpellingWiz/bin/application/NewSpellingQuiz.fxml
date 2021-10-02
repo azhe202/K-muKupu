@@ -118,5 +118,10 @@
          <tooltip>
             <Tooltip text="Click immediately after typing the letter to macronise" />
          </tooltip></Button>
+      <Label fx:id="wordLength" layoutX="112.0" layoutY="677.0" prefHeight="65.0" prefWidth="382.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
