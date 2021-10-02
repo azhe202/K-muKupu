@@ -67,6 +67,8 @@ public class Controller implements Initializable{
 	private GridPane hintGrid;
 	@FXML 
 	private Button macronBtn;
+	@FXML
+	private Label wordLength;
 	
 	private String[] wordpool = {"Babies", "Colours", "Compass points", "Days of the week", "Days of the week loan words", "Engineering", "Feelings", "Months of the year", "Months of the year loan words", "Software", "Uni life", "Weather", "Work"};
 	private String[] wordpoolFileNames = {"babies", "colours", "compassPoints", "daysOfTheWeek", "daysOfTheWeekLoanWords", "engineering", "feelings", "monthsOfTheYear", "monthsOfTheYearLoanWords", "software", "uniLife", "weather", "work"};
@@ -264,6 +266,21 @@ public class Controller implements Initializable{
 		// remove existing hints
 		hintGrid.getChildren().clear();
 
+	}
+
+	/**
+	 * Function displays to the user how many letters are in the word
+	 * @param word
+	 */
+	private void displayNumLetters(String word) {
+		int numLetters = word.length();
+		String textToDisplay = "_";
+		
+		for(int i=1; i<numLetters; i++) {
+			textToDisplay = textToDisplay + " " + "_";
+		}
+		
+		wordLength.setText(textToDisplay);
 	}
 	
 	/*
