@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
+   <children>
+      <ImageView fitHeight="909.0" fitWidth="1366.0" layoutX="-6.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../menubackground.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="practiseBtn" fitHeight="90.0" fitWidth="426.0" layoutX="446.0" layoutY="526.0" onMouseEntered="#enterPractise" onMouseExited="#exitPractise" pickOnBounds="true" preserveRatio="true" rotate="3.0">
+         <image>
+            <Image url="@../practiseModule.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="gamesBtn" fitHeight="90.0" fitWidth="426.0" layoutX="509.0" layoutY="694.0" onMouseClicked="#chooseCategory" onMouseEntered="#enterGames" onMouseExited="#exitGames" pickOnBounds="true" preserveRatio="true" rotate="-3.0">
+         <image>
+            <Image url="@../gamesModule.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
