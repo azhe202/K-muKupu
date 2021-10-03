@@ -10,15 +10,15 @@
    <children>
       <ImageView fitHeight="909.0" fitWidth="1366.0" layoutX="-6.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../MenuBackground-min.jpeg" />
+            <Image url="@../menubackground.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="508.0" layoutY="685.0" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="69.0" prefWidth="403.0" text="Games Module (Kaupapa Tono)">
+      <Button layoutX="506.0" layoutY="703.0" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="69.0" prefWidth="403.0" rotate="-3.0" text="Games Module">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="442.0" layoutY="527.0" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="69.0" prefWidth="403.0" text="Practice Module (Kaupapa Tono)">
+      <Button layoutX="442.0" layoutY="535.0" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="69.0" prefWidth="403.0" rotate="3.0" text="Practise Module">
          <font>
             <Font size="25.0" />
          </font>
