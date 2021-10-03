@@ -91,7 +91,7 @@ public class Controller implements Initializable{
 	 */
 	public void returnToMainMenu(ActionEvent event) {
 		try {
-			root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+			root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -106,7 +106,9 @@ public class Controller implements Initializable{
 	/*
 	 * Function to start a new spelling game 
 	 */
-	public void startSpellingGame(ActionEvent event) {
+	public void startSpellingGame(String wordpoolSelected) {
+		wordpoolSelection.getItems().addAll(wordpool);
+		wordpoolSelection.setValue(wordpoolSelected);
 		
 		//disables game related buttons and enables submit button
 		startGame.setDisable(true);
@@ -468,8 +470,7 @@ public class Controller implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// initialise the wordPool
-		wordpoolSelection.getItems().addAll(wordpool);
-		wordpoolSelection.setValue("Babies");
+		
 	}
 	
 }
