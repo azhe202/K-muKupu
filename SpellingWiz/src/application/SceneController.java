@@ -19,6 +19,7 @@ public class SceneController {
 	/*
 	 * Function to change scenes to New Spelling Quiz when button is pressed
 	 */
+	/*
 	public void newSpellingQuiz(ActionEvent event) { 
 		try {
 			root = FXMLLoader.load(getClass().getResource("NewSpellingQuiz.fxml"));
@@ -31,7 +32,21 @@ public class SceneController {
 			e.printStackTrace();
 		}
 	}
-
+	*/
+	
+	public void chooseCategory(ActionEvent event) { 
+		try {
+			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/*
 	 * Function exits out of the GUI when exit button is pressed
 	 */

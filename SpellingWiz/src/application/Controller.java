@@ -91,7 +91,7 @@ public class Controller implements Initializable{
 	 */
 	public void returnToMainMenu(ActionEvent event) {
 		try {
-			root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+			root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

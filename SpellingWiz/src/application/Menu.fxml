@@ -8,25 +8,20 @@
 
 <AnchorPane prefHeight="900.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SceneController">
    <children>
-      <ImageView fx:id="borderImg" fitHeight="900.0" fitWidth="1900.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="909.0" fitWidth="1366.0" layoutX="-6.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Border.jpeg" />
+            <Image url="@../MenuBackground-min.jpeg" />
          </image>
       </ImageView>
-      <Button layoutX="132.0" layoutY="193.0" mnemonicParsing="false" onAction="#newSpellingQuiz" prefHeight="119.0" prefWidth="437.0" text="Games Module (Kaupapa Tono)">
+      <Button layoutX="508.0" layoutY="685.0" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="69.0" prefWidth="403.0" text="Games Module (Kaupapa Tono)">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="132.0" layoutY="350.0" mnemonicParsing="false" onAction="#exit" prefHeight="119.0" prefWidth="437.0" text="Quit (Kati)">
+      <Button layoutX="442.0" layoutY="527.0" mnemonicParsing="false" onAction="#chooseCategory" prefHeight="69.0" prefWidth="403.0" text="Practice Module (Kaupapa Tono)">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <ImageView fitHeight="125.0" fitWidth="500.0" layoutX="100.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Title.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
