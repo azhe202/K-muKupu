@@ -3,6 +3,7 @@ package application;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.file.Paths;
 
 import javafx.fxml.FXML;
@@ -14,6 +15,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class CategorySelection{
@@ -89,7 +92,7 @@ public class CategorySelection{
 	//food
 	public void enterFood(MouseEvent event) throws MalformedURLException { 
 		foodBtn.setImage(new Image("./food.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitFood(MouseEvent event) { 
@@ -98,6 +101,7 @@ public class CategorySelection{
 	//weather
 	public void enterWeather(MouseEvent event) throws MalformedURLException { 
 		weatherBtn.setImage(new Image("./weather.jpg"));
+		Sound.playSound("./switch.wav");
 		
 	}
 
@@ -107,7 +111,7 @@ public class CategorySelection{
 	//colours
 	public void enterColours(MouseEvent event) throws MalformedURLException { 
 		coloursBtn.setImage(new Image("./colours.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitColours(MouseEvent event) { 
@@ -117,7 +121,7 @@ public class CategorySelection{
 	//animals
 	public void enterAnimals(MouseEvent event) throws MalformedURLException { 
 		animalsBtn.setImage(new Image("./animals.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitAnimals(MouseEvent event) { 
@@ -126,7 +130,7 @@ public class CategorySelection{
 	//feelings
 	public void enterFeelings(MouseEvent event) throws MalformedURLException { 
 		feelingsBtn.setImage(new Image("./feelings.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitFeelings(MouseEvent event) { 
@@ -135,7 +139,7 @@ public class CategorySelection{
 	//directions
 	public void enterDirections(MouseEvent event) throws MalformedURLException { 
 		directionsBtn.setImage(new Image("./directions.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitDirections(MouseEvent event) { 
@@ -144,7 +148,7 @@ public class CategorySelection{
 	//month1
 	public void enterMonths(MouseEvent event) throws MalformedURLException { 
 		monthsBtn.setImage(new Image("./months.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitMonths(MouseEvent event) { 
@@ -153,7 +157,7 @@ public class CategorySelection{
 	//month2
 	public void enterMonths2(MouseEvent event) throws MalformedURLException { 
 		months2Btn.setImage(new Image("./months2.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitMonths2(MouseEvent event) { 
@@ -162,7 +166,7 @@ public class CategorySelection{
 	//arrow
 	public void enterArrow(MouseEvent event) throws MalformedURLException { 
 		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitArrow(MouseEvent event) { 

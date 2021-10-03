@@ -57,7 +57,7 @@ public class SceneController {
 	
 	public void enterGames(MouseEvent event) throws MalformedURLException { 
 		gamesBtn.setImage(new Image("./gamesModuleSelect.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitGames(MouseEvent event) { 
@@ -66,7 +66,7 @@ public class SceneController {
 	
 	public void enterPractise(MouseEvent event) throws MalformedURLException { 
 		practiseBtn.setImage(new Image("./practiseModuleSelect.jpg"));
-		
+		Sound.playSound("./switch.wav");
 	}
 
 	public void exitPractise(MouseEvent event) { 
