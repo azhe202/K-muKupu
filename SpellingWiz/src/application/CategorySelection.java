@@ -38,6 +38,8 @@ public class CategorySelection{
 	private ImageView monthsBtn;
 	@FXML
 	private ImageView months2Btn;
+	@FXML
+	private ImageView arrowBtn;
 	
 	public void chooseFood(MouseEvent event) {
 		System.out.println("worked");
@@ -156,6 +158,15 @@ public class CategorySelection{
 
 	public void exitMonths2(MouseEvent event) { 
 		months2Btn.setImage(new Image("./months2fade.jpg"));
+	}
+	//arrow
+	public void enterArrow(MouseEvent event) throws MalformedURLException { 
+		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
+		
+	}
+
+	public void exitArrow(MouseEvent event) { 
+		arrowBtn.setImage(new Image("./arrow.jpg"));
 	}
 	
 }
