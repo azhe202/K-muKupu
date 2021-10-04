@@ -277,7 +277,7 @@ public class Controller implements Initializable{
 	 * Function displays to the user how many letters are in the word
 	 * @param word
 	 */
-	private void displayNumLetters(String word) {
+	public void displayNumLetters(String word) {
 		int numLetters = word.length();
 		String textToDisplay = "_";
 		
@@ -293,7 +293,7 @@ public class Controller implements Initializable{
 	 * in the second position
 	 * @param word
 	 */
-	private void secondLetterHint(String word) {
+	public void secondLetterHint(String word) {
 		int numLetters = word.length();
 		char secondLetter = word.charAt(1);
 		String textToDisplay = "_";
@@ -309,14 +309,14 @@ public class Controller implements Initializable{
 	/*
 	 * Function is used the pause a method
 	 */
-	private void pause() {
+	public void pause() {
 		Platform.enterNestedEventLoop(PAUSE_KEY);
 	}
 
 	/*
 	 * function is used to resume a method
 	 */
-	private void resume() {
+	public void resume() {
 		Platform.exitNestedEventLoop(PAUSE_KEY, null);
 	}
 	
@@ -425,7 +425,6 @@ public class Controller implements Initializable{
 	public void spellingQuestion(String word, int wordCount, int attempts, int numWords, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
-			prompt.setText("Spell word " + wordCount + " of " + numWords);
 			bashCommand("echo Please spell | festival --tts");
 			createSchemeFile(word, speed); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);	
@@ -434,8 +433,6 @@ public class Controller implements Initializable{
 			createSchemeFile(word, speed); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);
 			bashCommand("festival -b " + schemeFile);
-			prompt.setLayoutX(235);
-			prompt.setText("Incorrect, try once more");
 		}
 	}
 

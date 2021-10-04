@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GamesModule">
    <children>
       <Label fx:id="wordLength" layoutX="195.0" layoutY="87.0" prefHeight="39.0" prefWidth="212.0">
          <font>
@@ -16,10 +16,12 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
-      <TextField layoutX="219.0" layoutY="141.0" promptText="Type word here" />
-      <Button layoutX="78.0" layoutY="215.0" mnemonicParsing="false" text="Repeat" />
-      <Button layoutX="191.0" layoutY="215.0" mnemonicParsing="false" text="Don't Know" />
-      <Button layoutX="324.0" layoutY="215.0" mnemonicParsing="false" text="Translation" />
-      <Button layoutX="452.0" layoutY="215.0" mnemonicParsing="false" text="Add Macron" />
+      <TextField fx:id="textField" layoutX="219.0" layoutY="141.0" promptText="Type word here" />
+      <Button fx:id="repeatWordBtn" layoutX="78.0" layoutY="215.0" mnemonicParsing="false" text="Repeat" />
+      <Button fx:id="skipWordBtn" layoutX="191.0" layoutY="215.0" mnemonicParsing="false" text="Don't Know" />
+      <Button fx:id="translationBtn" layoutX="324.0" layoutY="215.0" mnemonicParsing="false" text="Translation" />
+      <Button fx:id="macronBtn" layoutX="452.0" layoutY="215.0" mnemonicParsing="false" text="Add Macron" />
+      <Button fx:id="startGame" layoutX="78.0" layoutY="115.0" mnemonicParsing="false" onAction="#startSpellingGame" text="Start Game" />
+      <Button fx:id="checkSpelling" layoutX="452.0" layoutY="141.0" mnemonicParsing="false" text="Check Spelling" />
    </children>
 </AnchorPane>
