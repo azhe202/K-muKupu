@@ -24,13 +24,10 @@ public class SceneController {
 	private ImageView gamesBtn;
 	@FXML
 	private ImageView practiseBtn;
-	/*
-	 * Function to change scenes to New Spelling Quiz when button is pressed
-	 */
-	/*
-	public void newSpellingQuiz(ActionEvent event) { 
+	
+	public void chooseGame(MouseEvent event) { 
 		try {
-			root = FXMLLoader.load(getClass().getResource("NewSpellingQuiz.fxml"));
+			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
@@ -40,11 +37,10 @@ public class SceneController {
 			e.printStackTrace();
 		}
 	}
-	*/
 	
-	public void chooseCategory(MouseEvent event) { 
+	public void choosePractise(MouseEvent event) { 
 		try {
-			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
+			root = FXMLLoader.load(getClass().getResource("PractiseSelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

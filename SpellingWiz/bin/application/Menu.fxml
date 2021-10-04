@@ -11,12 +11,12 @@
             <Image url="@../menubackground.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="practiseBtn" fitHeight="90.0" fitWidth="426.0" layoutX="446.0" layoutY="526.0" onMouseEntered="#enterPractise" onMouseExited="#exitPractise" pickOnBounds="true" preserveRatio="true" rotate="3.0">
+      <ImageView fx:id="practiseBtn" fitHeight="90.0" fitWidth="426.0" layoutX="446.0" layoutY="526.0" onMouseClicked="#choosePractise" onMouseEntered="#enterPractise" onMouseExited="#exitPractise" pickOnBounds="true" preserveRatio="true" rotate="3.0">
          <image>
             <Image url="@../practiseModule.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="gamesBtn" fitHeight="90.0" fitWidth="426.0" layoutX="509.0" layoutY="694.0" onMouseClicked="#chooseCategory" onMouseEntered="#enterGames" onMouseExited="#exitGames" pickOnBounds="true" preserveRatio="true" rotate="-3.0">
+      <ImageView fx:id="gamesBtn" fitHeight="90.0" fitWidth="426.0" layoutX="509.0" layoutY="694.0" onMouseClicked="#chooseGame" onMouseEntered="#enterGames" onMouseExited="#exitGames" pickOnBounds="true" preserveRatio="true" rotate="-3.0">
          <image>
             <Image url="@../gamesModule.jpg" />
          </image>
