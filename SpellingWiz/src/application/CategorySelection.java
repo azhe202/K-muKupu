@@ -44,6 +44,7 @@ public class CategorySelection{
 	@FXML
 	private ImageView arrowBtn;
 	
+	String wordList;
 	/**
 	 * Change to the Games Module when the category is chosen
 	 * @param event
@@ -62,35 +63,51 @@ public class CategorySelection{
 		}
 	}
 	
+	/**
+	 * Function will return the given word list from the category
+	 * @return
+	 */
+	public String getWordList() {
+		return wordList;
+	}
+	
 	public void chooseFood(MouseEvent event) {
+		wordList = "food";
 		changeScenes(event);
 	}
 	
 	public void chooseWeather(MouseEvent event) {
+		wordList = "weather";
 		changeScenes(event);
 	}
 	
 	public void chooseColours(MouseEvent event) {
+		wordList = "colours";
 		changeScenes(event);
 	}
 	
 	public void chooseAnimals(MouseEvent event) {
+		wordList = "animals";
 		changeScenes(event);
 	}
 	
 	public void chooseFeelings(MouseEvent event) {
+		wordList = "feelings";
 		changeScenes(event);
 	}
 	
 	public void chooseDirections(MouseEvent event) {
+		wordList = "compassPoints";
 		changeScenes(event);
 	}
 	
 	public void chooseMonths(MouseEvent event) {
+		wordList = "monthsOfTheYear";
 		changeScenes(event);
 	}
 	
 	public void chooseMonths2(MouseEvent event) {
+		wordList = "monthsOfTheYearLoanWords";
 		changeScenes(event);
 	}
 	
