@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class GamesModule extends Controller {
 	
@@ -25,6 +27,8 @@ public class GamesModule extends Controller {
 	private Button checkSpelling;
 	@FXML
 	private Label translationHint;
+	@FXML
+	private ImageView scoreImage;
 	
 	private int wordCount;
 	private int score;
@@ -43,6 +47,7 @@ public class GamesModule extends Controller {
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
 		macronBtn.setDisable(false);
+		scoreImage.setImage(new Image("./startScore.png"));
 		
 		// get the word list 
 		String wordList = CategorySelection.wordList;
@@ -98,11 +103,15 @@ public class GamesModule extends Controller {
 					// conditional checks to increase user score
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						bashCommand("echo Correct | festival --tts");
+						score++;
+						scoreImage.setImage(new Image("./" + String.valueOf(score) + ".png"));
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Correct | festival --tts");
+						score++;
+						scoreImage.setImage(new Image("./" + String.valueOf(score) + ".png"));
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
@@ -118,6 +127,7 @@ public class GamesModule extends Controller {
 						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
 						secondLetterHint(word);
+						textField.clear();
 						attempts++;
 
 					}
