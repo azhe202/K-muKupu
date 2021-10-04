@@ -44,36 +44,54 @@ public class CategorySelection{
 	@FXML
 	private ImageView arrowBtn;
 	
+	/**
+	 * Change to the Games Module when the category is chosen
+	 * @param event
+	 */
+	public void changeScenes(MouseEvent event) {
+		try {
+			root = FXMLLoader.load(getClass().getResource("GamesModule.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void chooseFood(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseWeather(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseColours(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseAnimals(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseFeelings(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseDirections(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseMonths(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void chooseMonths2(MouseEvent event) {
-		System.out.println("worked");
+		changeScenes(event);
 	}
 	
 	public void backToMenu(MouseEvent event) { 
@@ -94,6 +112,7 @@ public class CategorySelection{
 		foodBtn.setImage(new Image("./food.jpg"));
 		Sound.playSound("./switch.wav");
 	}
+	
 
 	public void exitFood(MouseEvent event) { 
 		foodBtn.setImage(new Image("./foodfade.jpg"));
