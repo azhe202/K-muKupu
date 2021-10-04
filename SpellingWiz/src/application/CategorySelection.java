@@ -44,7 +44,7 @@ public class CategorySelection{
 	@FXML
 	private ImageView arrowBtn;
 	
-	String wordList;
+	public static String wordList;
 	/**
 	 * Change to the Games Module when the category is chosen
 	 * @param event

@@ -42,7 +42,8 @@ public class GamesModule extends Controller {
 		macronBtn.setDisable(false);
 		
 		// get the word list 
-		String wordList = "colours";
+		String wordList = CategorySelection.wordList;
+		
 		
 		// give random word
 		String command = "sort -u words/" + wordList + " | shuf -n 5";
@@ -144,6 +145,61 @@ public class GamesModule extends Controller {
 		macronBtn.setDisable(true);
 		
 	}
+	
+	
+	/*
+	 * Function allowing the user to enter a macron
+	 */
+	public void addMacron(ActionEvent event) {
+		
+		// get the current word and macronize the last letter
+		String noMacronWord = textField.getText();
+		if (!noMacronWord.isEmpty()) {
+			String preMacron = noMacronWord.substring(0,noMacronWord.length()-1);
+			String noMacronChar	= noMacronWord.substring(noMacronWord.length()-1);
+			String macronChar;
+			// add the appropriate macron
+			switch (noMacronChar) {
+			case "a":
+				macronChar = "ā";
+				break;
+			case "e":
+				macronChar = "ē";
+				break;
+			case "i":
+				macronChar = "ī";
+				break;
+			case "o":
+				macronChar = "ō";
+				break;
+			case "u":
+				macronChar = "ū";
+				break;
+			case "A":
+				macronChar = "Ā";
+				break;
+			case "E":
+				macronChar = "Ē";
+				break;
+			case "I":
+				macronChar = "Ī";
+				break;
+			case "O":
+				macronChar = "Ō";
+				break;
+			case "U":
+				macronChar = "Ū";
+				break;
+			default:
+				macronChar = noMacronChar;
+				break;
+			}
+			textField.clear();
+			textField.setText(preMacron + macronChar); // display the word with the macron to user
+		}
+
+	}
+	
 	
 	
 }
