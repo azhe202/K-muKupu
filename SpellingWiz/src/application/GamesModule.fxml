@@ -17,11 +17,12 @@
             <Font name="System Bold" size="20.0" />
          </font></Label>
       <TextField fx:id="textField" layoutX="219.0" layoutY="141.0" promptText="Type word here" />
-      <Button fx:id="repeatWordBtn" layoutX="78.0" layoutY="215.0" mnemonicParsing="false" text="Repeat" />
+      <Button fx:id="repeatWordBtn" layoutX="78.0" layoutY="215.0" mnemonicParsing="false" onAction="#wordRepeat" text="Repeat" />
       <Button fx:id="skipWordBtn" layoutX="191.0" layoutY="215.0" mnemonicParsing="false" text="Don't Know" />
-      <Button fx:id="translationBtn" layoutX="324.0" layoutY="215.0" mnemonicParsing="false" text="Translation" />
-      <Button fx:id="macronBtn" layoutX="452.0" layoutY="215.0" mnemonicParsing="false" onAction="#addMacron" text="Add Macron" />
+      <Button fx:id="translationBtn" layoutX="324.0" layoutY="215.0" mnemonicParsing="false" onAction="#translate" text="Translation" />
+      <Button fx:id="macronBtn" layoutX="452.0" layoutY="215.0" mnemonicParsing="false" onAction="#insertMacron" text="Add Macron" />
       <Button fx:id="startGame" layoutX="78.0" layoutY="115.0" mnemonicParsing="false" onAction="#startSpellingGame" text="Start Game" />
       <Button fx:id="checkSpelling" defaultButton="true" layoutX="452.0" layoutY="141.0" mnemonicParsing="false" text="Check Spelling" />
+      <Label fx:id="translationHint" layoutX="276.0" layoutY="185.0" />
    </children>
 </AnchorPane>

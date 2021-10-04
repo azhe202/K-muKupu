@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class GamesModule extends Controller {
@@ -22,6 +23,8 @@ public class GamesModule extends Controller {
 	private TextField textField;
 	@FXML
 	private Button checkSpelling;
+	@FXML
+	private Label translationHint;
 	
 	private int wordCount;
 	private int score;
@@ -43,7 +46,6 @@ public class GamesModule extends Controller {
 		
 		// get the word list 
 		String wordList = CategorySelection.wordList;
-		
 		
 		// give random word
 		String command = "sort -u words/" + wordList + " | shuf -n 5";
@@ -146,59 +148,27 @@ public class GamesModule extends Controller {
 		
 	}
 	
+	/**
+	 * Function allowing user to repeat a word 
+	 */
+	public void wordRepeat(ActionEvent event) {
+		repeatWord(event);
+	}
+	
+	/**
+	 * Function to translate word from maori to english
+	 */
+	public void translate(ActionEvent event) {
+		translationHint.setText("Hint: the english translation is " + englishWord);
+	}
 	
 	/*
 	 * Function allowing the user to enter a macron
 	 */
-	public void addMacron(ActionEvent event) {
-		
-		// get the current word and macronize the last letter
-		String noMacronWord = textField.getText();
-		if (!noMacronWord.isEmpty()) {
-			String preMacron = noMacronWord.substring(0,noMacronWord.length()-1);
-			String noMacronChar	= noMacronWord.substring(noMacronWord.length()-1);
-			String macronChar;
-			// add the appropriate macron
-			switch (noMacronChar) {
-			case "a":
-				macronChar = "ā";
-				break;
-			case "e":
-				macronChar = "ē";
-				break;
-			case "i":
-				macronChar = "ī";
-				break;
-			case "o":
-				macronChar = "ō";
-				break;
-			case "u":
-				macronChar = "ū";
-				break;
-			case "A":
-				macronChar = "Ā";
-				break;
-			case "E":
-				macronChar = "Ē";
-				break;
-			case "I":
-				macronChar = "Ī";
-				break;
-			case "O":
-				macronChar = "Ō";
-				break;
-			case "U":
-				macronChar = "Ū";
-				break;
-			default:
-				macronChar = noMacronChar;
-				break;
-			}
-			textField.clear();
-			textField.setText(preMacron + macronChar); // display the word with the macron to user
-		}
-
+	public void insertMacron(ActionEvent event) {
+		addMacron(event);
 	}
+	
 	
 	
 	
