@@ -181,7 +181,8 @@ public class GamesModule extends Controller {
 	 * Function allowing user to repeat a word 
 	 */
 	public void wordRepeat(ActionEvent event) {
-		repeatWord(event);
+		RepeatThread repeat = new RepeatThread();
+		repeat.start();
 	}
 	
 	/**

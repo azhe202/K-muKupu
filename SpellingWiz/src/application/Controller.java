@@ -349,9 +349,9 @@ public class Controller implements Initializable{
 	/*
 	 * Function to repeat the word on users request
 	 */
-	public void repeatWord(ActionEvent event) {
+	public void repeatWord(double voiceSpeed, String word) {
 		// voice speed is changed accordingly when word is repeated
-		voiceSpeed = voiceSpeedSlider.getValue();
+//		voiceSpeed = voiceSpeedSlider.getValue();
 		createSchemeFile(word, voiceSpeed);
 		bashCommand("festival -b " + schemeFile);
 	}
