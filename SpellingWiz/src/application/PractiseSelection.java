@@ -25,12 +25,25 @@ public class PractiseSelection {
 	private ImageView selectBtn;
 	@FXML
 	private ImageView arrowBtn;
+	
+	public static String moduleSelected = "NotSelected";
 
 	public void chooseRandom(MouseEvent event) {
+		try {
+			root = FXMLLoader.load(getClass().getResource("PractiseModule.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void chooseSelect(MouseEvent event) {
+		moduleSelected = "PractiseModule";
 		try {
 			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

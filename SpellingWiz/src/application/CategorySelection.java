@@ -1,10 +1,7 @@
 package application;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.file.Paths;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,9 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class CategorySelection{
@@ -49,8 +43,9 @@ public class CategorySelection{
 	 * Change to the Games Module when the category is chosen
 	 * @param event
 	 */
-	public void changeScenes(MouseEvent event) {
+	public void changeGamesModule(MouseEvent event) {
 		try {
+
 			root = FXMLLoader.load(getClass().getResource("GamesModule.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
@@ -64,11 +59,30 @@ public class CategorySelection{
 	}
 	
 	/**
-	 * Function will return the given word list from the category
-	 * @return
+	 * Change to Practice module when the category is chosen
+	 * @param event
 	 */
-	public String getWordList() {
-		return wordList;
+	public void changePractiseModule(MouseEvent event) {
+		try {
+
+			root = FXMLLoader.load(getClass().getResource("PractiseModule.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+
+		} 
+		catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void changeScenes(MouseEvent event) {
+		if(PractiseSelection.moduleSelected.equals("PractiseModule")) {
+			changePractiseModule(event);
+		} else {
+			changeGamesModule(event);
+		}
 	}
 	
 	public void chooseFood(MouseEvent event) {

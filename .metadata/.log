@@ -5324,3 +5324,920 @@ Binding(CTRL+SHIFT+T,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 4 0 2021-10-05 20:23:23.413
+!MESSAGE Unhandled event loop exception
+!STACK 0
+org.eclipse.swt.SWTException: Widget is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4893)
+	at org.eclipse.swt.SWT.error(SWT.java:4808)
+	at org.eclipse.swt.SWT.error(SWT.java:4779)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:557)
+	at org.eclipse.swt.widgets.Widget.checkWidget(Widget.java:472)
+	at org.eclipse.swt.widgets.Control.redraw(Control.java:4588)
+	at org.eclipse.swt.widgets.Link.gtk_event_after(Link.java:449)
+	at org.eclipse.swt.widgets.Widget.windowProc(Widget.java:2305)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:6764)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:6132)
+	at org.eclipse.swt.internal.gtk3.GTK3.gtk_main_do_event(Native Method)
+	at org.eclipse.swt.widgets.Display.eventProc(Display.java:1567)
+	at org.eclipse.swt.internal.gtk3.GTK3.gtk_main_iteration_do(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4596)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1157)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1435)
+!SESSION 2021-10-05 20:37:15.273 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=11.0.11
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_NZ
+Framework arguments:  -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-10-05 20:37:25.711
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.e4.ui.css.swt.theme 4 0 2021-10-05 20:37:29.177
+!MESSAGE /css/dark.css
+!STACK 0
+java.io.FileNotFoundException: /css/dark.css
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:174)
+	at java.base/java.net.URL.openConnection(URL.java:1099)
+	at org.eclipse.osgi.storage.url.BundleURLConverter.resolve(BundleURLConverter.java:55)
+	at org.eclipse.core.runtime.FileLocator.resolve(FileLocator.java:283)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.resolve(PlatformURLConverter.java:53)
+	at org.eclipse.core.runtime.FileLocator.resolve(FileLocator.java:283)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:466)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:622)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1419)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1326)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1050)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1435)
+
+!ENTRY org.eclipse.jface 2 0 2021-10-05 20:37:29.671
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-05 20:37:29.671
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1de6dc80,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@418d1c03,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.jdt.core 4 4 2021-10-05 20:59:42.554
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package application;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
+public class GamesModule extends Controller {
+	
+	@FXML
+	private Button startGame;
+	@FXML
+	private Button repeatWordBtn;
+	@FXML
+	private Button skipWordBtn;
+	@FXML
+	private Button translationBtn;
+	@FXML 
+	private Button macronBtn;
+	@FXML
+	private TextField textField;
+	@FXML
+	private Button checkSpelling;
+	@FXML
+	private Label translationHint;
+	@FXML
+	private ImageView frog;
+	@FXML
+	private ImageView stones;
+	@FXML
+	private Label time;
+	
+	private int wordCount;
+	private int score;
+	private int attempts;
+	private static long secondsPassed, totalSeconds = 0;
+	private static long minsPassed = 0;
+	private String word;
+	private String englishWord;
+	private Boolean skipRequested = false;
+	TranslateTransition translate = new TranslateTransition();
+	
+	/**
+	 * Function to start the game
+	 */
+	public void startSpellingGame() {
+		
+		startGame.setDisable(true);
+		repeatWordBtn.setDisable(false);
+		translationBtn.setDisable(false);
+		skipWordBtn.setDisable(false);
+		macronBtn.setDisable(false);
+		translate.setNode(frog);
+		translate.setDuration(Duration.millis(1000));
+		translate.setByX(80);
+		
+		
+		// get the word list 
+		String wordList = CategorySelection.wordList;
+		
+		// give random word
+		String command = "sort -u words/" + wordList + " | shuf -n 5";
+		String[] words = returnWordList(command);
+		
+		// extract the maori and english words from the selected words
+		String[] englishWords = new String[5];
+		for (int i=0; i<words.length; i++) {
+			String temp = words[i];
+			String tempArray[] = temp.split("#");
+			words[i] = tempArray[0].trim();
+			englishWords[i] = tempArray[1];
+		}
+		
+		// starting word count and score
+		wordCount = 1;
+		score = 0;
+				
+		for (int i=0; i<words.length; i++) {
+			textField.clear();
+			
+			word = words[i]; // maori words
+			englishWord = englishWords[i];
+
+			attempts = 0;
+			
+			displayNumLetters(word); // display how many letters are in the word
+			
+			// call method to say the word
+			spellingQuestion(word, wordCount, attempts, 5, 1);
+			attempts++;
+			
+			// create a skip request when don't know is pressed
+			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent e) {
+					skipRequested = true;
+					resume();
+				}
+			});
+			
+			// checkSpelling button will check the word and increase the score or ask user to spell again
+			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
+
+				@Override 
+				public void handle(ActionEvent e) {
+
+					String wordEntered = textField.getText().trim();
+
+					// conditional checks to increase user score
+					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
+						bashCommand("echo Correct | festival --tts");
+						score++;
+						translate.play();
+						textField.clear();
+						wordCount++;
+						resume(); // resume function after check spelling button has been pressed
+					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+						bashCommand("echo Correct | festival --tts");
+						score++;
+						translate.play();
+						textField.clear();
+						wordCount++;
+						resume(); // resume function after check spelling button has been pressed
+					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+						bashCommand("echo Incorrect. | festival --tts");
+						if (wordCount != words.length) {
+							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
+						}
+						textField.clear();
+						wordCount++;
+						resume(); // resume function after check spelling button has been pressed
+					} else if (!wordEntered.equalsIgnoreCase(word)){
+						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
+						// display to the user the appropriate hint
+						secondLetterHint(word);
+						textField.clear();
+						attempts++;
+
+					}
+				}
+
+		});
+
+			// temporarily pause the method and wait for resume to be called
+			pause();
+
+			// skips the current word as per user request
+			if (skipRequested) {
+				if (wordCount != words.length) {
+					bashCommand("echo You can do it! | festival --tts");
+				}
+				skipRequested = false;
+				wordCount++;
+				continue;
+			}
+		}
+		
+		//disables game related buttons and enables start button
+		startGame.setDisable(false);
+		repeatWordBtn.setDisable(true);
+		translationBtn.setDisable(true);
+		skipWordBtn.setDisable(true);
+		macronBtn.setDisable(true);
+		
+	}
+	
+	/**
+	 * Function allowing user to repeat a word 
+	 */
+	public void wordRepeat(ActionEvent event) {
+		repeatWord(event);
+	}
+	
+	/**
+	 * Function to translate word from maori to english
+	 */
+	public void translate(ActionEvent event) {
+		translationHint.setText("Hint: the english translation is " + englishWord);
+	}
+	
+	/*
+	 * Function allowing the user to enter a macron
+	 */
+	public void insertMacron(ActionEvent event) {
+		addMacron(event);
+	}
+	
+	
+
+	/**
+	 * Timer functionality
+	 */
+	
+	private String format(long value) {
+		if (value < 10) {
+			return 0 + "" + value;
+		}
+		return value + "";
+	}
+	
+	public static void convertTime() {
+		minsPassed = TimeUnit.SECONDS.toMinutes(secondsPassed);
+		secondsPassed = totalSeconds - (minsPassed * 60);
+		(minsPassed + ":" + secondsPassed);
+	}
+	
+	private void setTimer() {
+	 TimerTask timerTask = new TimerTask() {
+
+		@Override
+		public void run() {
+			System.out.println("After 1 sec...");
+			convertTime();
+			
+		}
+		 
+	 };
+	 Timer timer = new Timer();
+	 timer.schedule(timerTask, 0, 1000);
+	}
+	
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2031)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3052)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2021-10-05 20:59:42.556
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2031)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3052)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2021-10-05 20:59:42.557
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2031)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3052)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:494)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1142)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1319)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:131)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.access$0(JavaReconcilingStrategy.java:113)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:93)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:90)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:157)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:210)
+
+!ENTRY org.eclipse.jdt.core 4 4 2021-10-05 20:59:42.759
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package application;
+
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
+
+public class GamesModule extends Controller {
+	
+	@FXML
+	private Button startGame;
+	@FXML
+	private Button repeatWordBtn;
+	@FXML
+	private Button skipWordBtn;
+	@FXML
+	private Button translationBtn;
+	@FXML 
+	private Button macronBtn;
+	@FXML
+	private TextField textField;
+	@FXML
+	private Button checkSpelling;
+	@FXML
+	private Label translationHint;
+	@FXML
+	private ImageView frog;
+	@FXML
+	private ImageView stones;
+	@FXML
+	private Label time;
+	
+	private int wordCount;
+	private int score;
+	private int attempts;
+	private static long secondsPassed, totalSeconds = 0;
+	private static long minsPassed = 0;
+	private String word;
+	private String englishWord;
+	private Boolean skipRequested = false;
+	TranslateTransition translate = new TranslateTransition();
+	
+	/**
+	 * Function to start the game
+	 */
+	public void startSpellingGame() {
+		
+		startGame.setDisable(true);
+		repeatWordBtn.setDisable(false);
+		translationBtn.setDisable(false);
+		skipWordBtn.setDisable(false);
+		macronBtn.setDisable(false);
+		translate.setNode(frog);
+		translate.setDuration(Duration.millis(1000));
+		translate.setByX(80);
+		
+		
+		// get the word list 
+		String wordList = CategorySelection.wordList;
+		
+		// give random word
+		String command = "sort -u words/" + wordList + " | shuf -n 5";
+		String[] words = returnWordList(command);
+		
+		// extract the maori and english words from the selected words
+		String[] englishWords = new String[5];
+		for (int i=0; i<words.length; i++) {
+			String temp = words[i];
+			String tempArray[] = temp.split("#");
+			words[i] = tempArray[0].trim();
+			englishWords[i] = tempArray[1];
+		}
+		
+		// starting word count and score
+		wordCount = 1;
+		score = 0;
+				
+		for (int i=0; i<words.length; i++) {
+			textField.clear();
+			
+			word = words[i]; // maori words
+			englishWord = englishWords[i];
+
+			attempts = 0;
+			
+			displayNumLetters(word); // display how many letters are in the word
+			
+			// call method to say the word
+			spellingQuestion(word, wordCount, attempts, 5, 1);
+			attempts++;
+			
+			// create a skip request when don't know is pressed
+			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent e) {
+					skipRequested = true;
+					resume();
+				}
+			});
+			
+			// checkSpelling button will check the word and increase the score or ask user to spell again
+			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
+
+				@Override 
+				public void handle(ActionEvent e) {
+
+					String wordEntered = textField.getText().trim();
+
+					// conditional checks to increase user score
+					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
+						bashCommand("echo Correct | festival --tts");
+						score++;
+						translate.play();
+						textField.clear();
+						wordCount++;
+						resume(); // resume function after check spelling button has been pressed
+					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+						bashCommand("echo Correct | festival --tts");
+						score++;
+						translate.play();
+						textField.clear();
+						wordCount++;
+						resume(); // resume function after check spelling button has been pressed
+					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+						bashCommand("echo Incorrect. | festival --tts");
+						if (wordCount != words.length) {
+							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
+						}
+						textField.clear();
+						wordCount++;
+						resume(); // resume function after check spelling button has been pressed
+					} else if (!wordEntered.equalsIgnoreCase(word)){
+						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
+						// display to the user the appropriate hint
+						secondLetterHint(word);
+						textField.clear();
+						attempts++;
+
+					}
+				}
+
+		});
+
+			// temporarily pause the method and wait for resume to be called
+			pause();
+
+			// skips the current word as per user request
+			if (skipRequested) {
+				if (wordCount != words.length) {
+					bashCommand("echo You can do it! | festival --tts");
+				}
+				skipRequested = false;
+				wordCount++;
+				continue;
+			}
+		}
+		
+		//disables game related buttons and enables start button
+		startGame.setDisable(false);
+		repeatWordBtn.setDisable(true);
+		translationBtn.setDisable(true);
+		skipWordBtn.setDisable(true);
+		macronBtn.setDisable(true);
+		
+	}
+	
+	/**
+	 * Function allowing user to repeat a word 
+	 */
+	public void wordRepeat(ActionEvent event) {
+		repeatWord(event);
+	}
+	
+	/**
+	 * Function to translate word from maori to english
+	 */
+	public void translate(ActionEvent event) {
+		translationHint.setText("Hint: the english translation is " + englishWord);
+	}
+	
+	/*
+	 * Function allowing the user to enter a macron
+	 */
+	public void insertMacron(ActionEvent event) {
+		addMacron(event);
+	}
+	
+	
+
+	/**
+	 * Timer functionality
+	 */
+	
+	private String format(long value) {
+		if (value < 10) {
+			return 0 + "" + value;
+		}
+		return value + "";
+	}
+	
+	public static void convertTime() {
+		minsPassed = TimeUnit.SECONDS.toMinutes(secondsPassed);
+		secondsPassed = totalSeconds - (minsPassed * 60);
+		(minsPassed + ":" + secondsPassed);
+	}
+	
+	private void setTimer() {
+	 TimerTask timerTask = new TimerTask() {
+
+		@Override
+		public void run() {
+			System.out.println("After 1 sec...");
+			convertTime();
+			
+		}
+		 
+	 };
+	 Timer timer = new Timer();
+	 timer.schedule(timerTask, 0, 1000);
+	}
+	
+}
+
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2031)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3052)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2021-10-05 20:59:42.761
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2031)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3052)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2021-10-05 20:59:42.761
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2031)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3795)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1943)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1974)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3052)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3347)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1524)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:323)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1231)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:820)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:272)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:264)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:197)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2021-10-05 21:49:44.223 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=11.0.11
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_NZ
+Framework arguments:  -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-10-05 21:49:55.884
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.e4.ui.css.swt.theme 4 0 2021-10-05 21:49:59.611
+!MESSAGE /css/dark.css
+!STACK 0
+java.io.FileNotFoundException: /css/dark.css
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:174)
+	at java.base/java.net.URL.openConnection(URL.java:1099)
+	at org.eclipse.osgi.storage.url.BundleURLConverter.resolve(BundleURLConverter.java:55)
+	at org.eclipse.core.runtime.FileLocator.resolve(FileLocator.java:283)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.resolve(PlatformURLConverter.java:53)
+	at org.eclipse.core.runtime.FileLocator.resolve(FileLocator.java:283)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:466)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:622)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1419)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1326)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1050)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1435)
+
+!ENTRY org.eclipse.jface 2 0 2021-10-05 21:50:00.137
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-05 21:50:00.137
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@21ffc00e,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@134955bb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SESSION 2021-10-05 22:10:11.106 -----------------------------------------------
+eclipse.buildId=4.20.0.I20210611-1600
+java.version=11.0.11
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_NZ
+Framework arguments:  -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-10-05 22:10:21.369
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.e4.ui.css.swt.theme 4 0 2021-10-05 22:10:26.174
+!MESSAGE /css/dark.css
+!STACK 0
+java.io.FileNotFoundException: /css/dark.css
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:174)
+	at java.base/java.net.URL.openConnection(URL.java:1099)
+	at org.eclipse.osgi.storage.url.BundleURLConverter.resolve(BundleURLConverter.java:55)
+	at org.eclipse.core.runtime.FileLocator.resolve(FileLocator.java:283)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.resolve(PlatformURLConverter.java:53)
+	at org.eclipse.core.runtime.FileLocator.resolve(FileLocator.java:283)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:466)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:434)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.setTheme(ThemeEngine.java:426)
+	at org.eclipse.e4.ui.css.swt.internal.theme.ThemeEngine.restore(ThemeEngine.java:622)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.setCSSTheme(PartRenderingEngine.java:1419)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.initializeStyling(PartRenderingEngine.java:1326)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1050)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:654)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1435)
+
+!ENTRY org.eclipse.jface 2 0 2021-10-05 22:10:27.065
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-05 22:10:27.065
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@58f97013,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7d70ba18,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)

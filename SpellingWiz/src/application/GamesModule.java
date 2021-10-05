@@ -1,6 +1,10 @@
 package application;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -185,8 +189,5 @@ public class GamesModule extends Controller {
 	public void insertMacron(ActionEvent event) {
 		addMacron(event);
 	}
-	
-	
-	
-	
+
 }
