@@ -1,13 +1,14 @@
 package application;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 public class GamesModule extends Controller {
 	
@@ -28,7 +29,9 @@ public class GamesModule extends Controller {
 	@FXML
 	private Label translationHint;
 	@FXML
-	private ImageView scoreImage;
+	private ImageView frog;
+	@FXML
+	private ImageView stones;
 	
 	private int wordCount;
 	private int score;
@@ -36,6 +39,7 @@ public class GamesModule extends Controller {
 	private String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
+	TranslateTransition translate = new TranslateTransition();
 	
 	/**
 	 * Function to start the game
@@ -47,7 +51,10 @@ public class GamesModule extends Controller {
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
 		macronBtn.setDisable(false);
-		scoreImage.setImage(new Image("./startScore.png"));
+		translate.setNode(frog);
+		translate.setDuration(Duration.millis(1000));
+		translate.setByX(80);
+		
 		
 		// get the word list 
 		String wordList = CategorySelection.wordList;
@@ -104,14 +111,14 @@ public class GamesModule extends Controller {
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						bashCommand("echo Correct | festival --tts");
 						score++;
-						scoreImage.setImage(new Image("./" + String.valueOf(score) + ".png"));
+						translate.play();
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Correct | festival --tts");
 						score++;
-						scoreImage.setImage(new Image("./" + String.valueOf(score) + ".png"));
+						translate.play();
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
