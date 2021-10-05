@@ -37,10 +37,11 @@ public class GamesModule extends Controller {
 	@FXML
 	private ImageView stones;
 	
-	private int wordCount;
+	public static int wordCount;
 	private int score;
 	private int attempts;
-	private String word;
+	public static double voiceSpeed;
+	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
 	TranslateTransition translate = new TranslateTransition();
@@ -79,6 +80,8 @@ public class GamesModule extends Controller {
 		// starting word count and score
 		wordCount = 1;
 		score = 0;
+		
+		SpellingThread speakWord; 
 				
 		for (int i=0; i<words.length; i++) {
 			textField.clear();
@@ -90,8 +93,10 @@ public class GamesModule extends Controller {
 			
 			displayNumLetters(word); // display how many letters are in the word
 			
-			// call method to say the word
-			spellingQuestion(word, wordCount, attempts, 5, 1);
+			// Start a new thread to say the word to spell to user
+			speakWord = new SpellingThread();
+			speakWord.start();
+			
 			attempts++;
 			
 			// create a skip request when don't know is pressed
@@ -158,7 +163,10 @@ public class GamesModule extends Controller {
 				wordCount++;
 				continue;
 			}
+			
 		}
+		
+		
 		
 		//disables game related buttons and enables start button
 		startGame.setDisable(false);
