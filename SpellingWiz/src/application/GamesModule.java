@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -56,6 +57,7 @@ public class GamesModule extends Controller {
 	
 	public static int wordCount;
 	public static int score;
+	public static ArrayList<String> wordsForSummary = new ArrayList<>();
 	private int attempts;
 	public static double voiceSpeed;
 	public static String word;
@@ -136,6 +138,7 @@ public class GamesModule extends Controller {
 					// conditional checks to increase user score
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						bashCommand("echo Correct | festival --tts");
+						wordsForSummary.add(word + "#Correct");
 						score++;
 						translate.play();
 						textField.clear();
@@ -143,6 +146,7 @@ public class GamesModule extends Controller {
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						bashCommand("echo Correct | festival --tts");
+						wordsForSummary.add(word + "#Correct");
 						score++;
 						translate.play();
 						textField.clear();
@@ -153,6 +157,7 @@ public class GamesModule extends Controller {
 						if (wordCount != words.length) {
 							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
 						}
+						wordsForSummary.add(word + "#Incorrect");
 						textField.clear();
 						wordCount++;
 						resume(); // resume function after check spelling button has been pressed
@@ -176,6 +181,7 @@ public class GamesModule extends Controller {
 				if (wordCount != words.length) {
 					bashCommand("echo You can do it! | festival --tts");
 				}
+				wordsForSummary.add(word + "#Incorrect");
 				skipRequested = false;
 				wordCount++;
 				continue;
@@ -251,5 +257,7 @@ public class GamesModule extends Controller {
 			//RewardScreen rewardScreen = new RewardScreen();
 			//rewardScreen.setScore();
 	}
+	
+
 
 }

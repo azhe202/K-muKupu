@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Summary">
    <children>
       <ImageView fitHeight="900.0" fitWidth="1350.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="speltWordsLabel" layoutX="363.0" layoutY="226.0" prefHeight="496.0" prefWidth="753.0" text="Label">
+      <Label fx:id="speltWordsLabel" layoutX="363.0" layoutY="226.0" prefHeight="496.0" prefWidth="753.0">
          <font>
             <Font size="31.0" />
          </font>
@@ -42,6 +41,16 @@
       <ImageView fx:id="indicator5" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1136.0" layoutY="764.0" onMouseClicked="#startNewQuiz" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../arrow.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#goHome" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../arrow.jpg" />
          </image>
       </ImageView>
    </children>
