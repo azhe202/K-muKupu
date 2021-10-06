@@ -49,12 +49,13 @@ public class GamesModule extends Controller {
 	@FXML
 	private ImageView helpWindow;
 	
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	public static int wordCount;
-	private int score;
+	public static int score;
 	private int attempts;
 	public static double voiceSpeed;
 	public static String word;
@@ -247,6 +248,8 @@ public class GamesModule extends Controller {
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
+			//RewardScreen rewardScreen = new RewardScreen();
+			//rewardScreen.setScore();
 	}
 
 }
