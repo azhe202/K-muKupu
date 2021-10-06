@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PractiseModule">
    <children>
-      <Label layoutX="231.0" layoutY="57.0" text="Practise Module">
+      <ImageView fitHeight="908.0" fitWidth="1357.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../background.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="478.0" layoutY="137.0" text="Practise Module">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="51.0" />
          </font>
       </Label>
+      <ImageView fx:id="helpWindow" fitHeight="475.0" fitWidth="319.0" layoutX="1026.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../helpwindow.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpBtn" fitHeight="82.0" fitWidth="102.0" layoutX="1254.0" layoutY="14.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../helpfade.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

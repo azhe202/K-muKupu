@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Summary">
+<AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Summary">
    <children>
-      <ImageView fitHeight="900.0" fitWidth="1350.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="906.0" fitWidth="1356.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../background.jpg" />
          </image>

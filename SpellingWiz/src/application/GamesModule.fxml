@@ -6,12 +6,15 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GamesModule">
+<AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GamesModule">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="912.0" layoutX="-3.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="1306.0" />
+      <ImageView fitHeight="907.0" fitWidth="1358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../background.jpg" />
+         </image>
+      </ImageView>
       <Label fx:id="wordLength" layoutX="234.0" layoutY="88.0" prefHeight="39.0" prefWidth="212.0">
          <font>
             <Font size="20.0" />
@@ -37,16 +40,17 @@
             <Image url="@../frog.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="928.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="972.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../helpwindow.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1196.0" layoutY="14.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1240.0" layoutY="21.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../helpfade.jpg" />
          </image>
       </ImageView>
       <Button layoutX="594.0" layoutY="215.0" mnemonicParsing="false" onAction="#rewardScreen" text="Results" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

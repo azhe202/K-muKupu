@@ -24,12 +24,11 @@ public class Main extends Application {
 			primaryStage.setTitle("Kēmu Kupu"); // set a title for the application
 		   
 
-		    Scene scene = new Scene(root,600,900);
+		    Scene scene = new Scene(root,1350,900);
 		    primaryStage.setScene(scene);
 		    
-		    // keep a constant ratio for window width and height
-		    primaryStage.minWidthProperty().bind(scene.heightProperty().multiply(1.5));
-		    primaryStage.minHeightProperty().bind(scene.widthProperty().divide(1.5));
+		    // keep a constant window width and height
+		    primaryStage.setResizable(false);
 		    
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
