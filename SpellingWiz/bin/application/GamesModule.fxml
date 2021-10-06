@@ -47,5 +47,6 @@
             <Image url="@../helpfade.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="594.0" layoutY="215.0" mnemonicParsing="false" onAction="#rewardScreen" text="Results" />
    </children>
 </AnchorPane>

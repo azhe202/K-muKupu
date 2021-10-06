@@ -1,8 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="900.0" fitWidth="1350.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../background.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="speltWordsLabel" layoutX="363.0" layoutY="226.0" prefHeight="496.0" prefWidth="753.0" text="Label">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="indicator1" fitHeight="59.0" fitWidth="51.0" layoutX="300.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator2" fitHeight="59.0" fitWidth="70.0" layoutX="293.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator3" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator4" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator5" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Correct.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
-

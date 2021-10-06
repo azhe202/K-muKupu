@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -8,12 +9,17 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GamesModule extends Controller {
@@ -42,6 +48,10 @@ public class GamesModule extends Controller {
 	private ImageView helpBtn;
 	@FXML
 	private ImageView helpWindow;
+	
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
 	
 	public static int wordCount;
 	private int score;
@@ -115,7 +125,7 @@ public class GamesModule extends Controller {
 			});
 			
 			// checkSpelling button will check the word and increase the score or ask user to spell again
-			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
+			checkSpelling.setOnAction(new EventHandler<ActionEvent>() {
 
 				@Override 
 				public void handle(ActionEvent e) {
@@ -181,6 +191,7 @@ public class GamesModule extends Controller {
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
 		
+		
 	}
 	
 	/**
@@ -228,6 +239,14 @@ public class GamesModule extends Controller {
 
 	public void exitHelp(MouseEvent event) {
 		helpBtn.setImage(new Image("./helpfade.jpg"));
+	}
+	
+	public void rewardScreen(ActionEvent event) throws IOException { 
+			root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
 	}
 
 }
