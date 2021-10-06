@@ -70,6 +70,7 @@ public class GamesModule extends Controller {
 	 */
 	public void startSpellingGame() {
 		
+		wordsForSummary.clear();
 		startGame.setDisable(true);
 		repeatWordBtn.setDisable(false);
 		translationBtn.setDisable(false);
