@@ -6,15 +6,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GamesModule">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="912.0" layoutX="-3.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="1306.0" />
       <Label fx:id="wordLength" layoutX="234.0" layoutY="88.0" prefHeight="39.0" prefWidth="212.0">
          <font>
             <Font size="20.0" />
          </font></Label>
-      <Label layoutX="230.0" layoutY="45.0" text="Games Module">
+      <Label layoutX="219.0" layoutY="88.0" text="Games Module">
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Label>
@@ -33,6 +35,16 @@
       <ImageView fx:id="frog" fitHeight="30.0" fitWidth="37.0" layoutX="90.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../frog.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="928.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../helpwindow.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1196.0" layoutY="14.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../helpfade.jpg" />
          </image>
       </ImageView>
    </children>
