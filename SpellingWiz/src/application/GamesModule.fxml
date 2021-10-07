@@ -50,5 +50,10 @@
          </image>
       </ImageView>
       <Button layoutX="594.0" layoutY="215.0" mnemonicParsing="false" onAction="#rewardScreen" text="Results" />
+      <Label fx:id="timeLabel" layoutX="62.0" layoutY="57.0" text="Time">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

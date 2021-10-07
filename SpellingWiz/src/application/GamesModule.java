@@ -49,6 +49,8 @@ public class GamesModule extends Controller {
 	private ImageView helpBtn;
 	@FXML
 	private ImageView helpWindow;
+	@FXML
+	private Label timeLabel;
 	
 	
 	private Stage stage;
@@ -57,6 +59,8 @@ public class GamesModule extends Controller {
 	
 	public static int wordCount;
 	public static int score;
+	private int totalSeconds = 31;
+	private int secondsPassed;
 	public static ArrayList<String> wordsForSummary = new ArrayList<>();
 	private int attempts;
 	public static double voiceSpeed;
@@ -64,6 +68,8 @@ public class GamesModule extends Controller {
 	private String englishWord;
 	private Boolean skipRequested = false;
 	TranslateTransition translate = new TranslateTransition();
+	Timer timer = new Timer();
+	TimerTask timerTask;
 	
 	/**
 	 * Function to start the game
@@ -116,6 +122,9 @@ public class GamesModule extends Controller {
 			// Start a new thread to say the word to spell to user
 			speakWord = new SpellingThread();
 			speakWord.start();
+			
+			// start timer
+			startTimer();
 			
 			attempts++;
 			
@@ -180,6 +189,7 @@ public class GamesModule extends Controller {
 
 			// skips the current word as per user request
 			if (skipRequested) {
+				pauseTimer(); // when skip is requested then pause and delete the old timer
 				if (wordCount != words.length) {
 					bashCommand("echo You can do it! | festival --tts");
 				}
@@ -260,6 +270,58 @@ public class GamesModule extends Controller {
 			//rewardScreen.setScore();
 	}
 	
+	/**
+	 * Functionality for the timer
+	 */
+	public void setTimer() {
+		
+		// add a new timer task for count down timer 
+		timerTask = new TimerTask() {
 
+			@Override
+			public void run() {
+				totalSeconds--;
+				secondsPassed++;
+
+				Platform.runLater(new Runnable() {
+
+					@Override
+					public void run() {
+						if(totalSeconds == 0) {
+							timeLabel.setText("Time's Up");
+							totalSeconds = 31;
+							timer.cancel();
+						} else {
+							timeLabel.setText(Integer.toString(totalSeconds));
+						}
+					}
+				});
+			}
+
+		};
+		timer.schedule(timerTask, 0, 1200);	
+	}
+	
+	/**
+	 * Function creates a new timer
+	 */
+	public void startTimer() {
+		timer = new Timer();
+		setTimer();
+	}
+
+	/**
+	 * Function pauses timer and deletes the current timer 
+	 */
+	public void pauseTimer() {
+		timer.cancel();
+		totalSeconds = 31;
+	}
+	
+			
+	
+
+	
+		
 
 }
