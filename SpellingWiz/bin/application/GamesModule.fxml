@@ -51,6 +51,5 @@
          </image>
       </ImageView>
       <Button layoutX="594.0" layoutY="215.0" mnemonicParsing="false" onAction="#rewardScreen" text="Results" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

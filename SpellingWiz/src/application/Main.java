@@ -13,6 +13,9 @@ import javafx.scene.image.ImageView;
 
 public class Main extends Application {
 	
+	public static boolean isEnglish = true;
+	public static String langExt = "";
+	
 	@FXML
 	private ImageView borderImg;
 	

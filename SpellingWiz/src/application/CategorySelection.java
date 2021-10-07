@@ -37,6 +37,8 @@ public class CategorySelection{
 	public ImageView months2Btn;
 	@FXML
 	public ImageView arrowBtn;
+	@FXML
+	public ImageView prompt;
 	
 	public static String wordList;
 	String langExt = SceneController.langExt;
@@ -48,29 +50,15 @@ public class CategorySelection{
 	 */
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
 		// call functions to set up the correct labels
-		enterFood(event);
 		exitFood(event);
-		
-		enterWeather(event);
 		exitWeather(event);
-		
-		enterColours(event);
 		exitColours(event);
-		
-		enterAnimals(event);
 		exitAnimals(event);
-		
-		enterFeelings(event);
 		exitFeelings(event);
-		
-		enterDirections(event);
 		exitDirections(event);
-		
-		enterMonths(event);
 		exitMonths(event);
-		
-		enterMonths2(event);
 		exitMonths2(event);
+		prompt.setImage(new Image("./categoryPrompt"+langExt+".jpg"));
 	}
 	
 	/**

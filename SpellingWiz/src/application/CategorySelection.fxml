@@ -11,7 +11,7 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="157.0" fitWidth="1010.0" layoutX="169.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="prompt" fitHeight="157.0" fitWidth="1010.0" layoutX="169.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../categoryPrompt.png" />
          </image>
