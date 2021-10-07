@@ -15,27 +15,26 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="wordLength" layoutX="234.0" layoutY="88.0" prefHeight="39.0" prefWidth="212.0">
+      <Label fx:id="wordLength" alignment="CENTER" layoutX="239.0" layoutY="64.0" prefHeight="125.0" prefWidth="834.0">
          <font>
-            <Font size="20.0" />
+            <Font size="48.0" />
          </font></Label>
-      <Label layoutX="219.0" layoutY="88.0" text="Games Module">
+      <TextField fx:id="textField" layoutX="257.0" layoutY="375.0" prefHeight="90.0" prefWidth="678.0" promptText="Type word here">
          <font>
-            <Font name="System Bold" size="20.0" />
-         </font></Label>
-      <TextField fx:id="textField" layoutX="219.0" layoutY="141.0" promptText="Type word here" />
-      <Button fx:id="repeatWordBtn" layoutX="78.0" layoutY="215.0" mnemonicParsing="false" onAction="#wordRepeat" text="Repeat" />
-      <Button fx:id="skipWordBtn" layoutX="191.0" layoutY="215.0" mnemonicParsing="false" text="Don't Know" />
-      <Button fx:id="translationBtn" layoutX="324.0" layoutY="215.0" mnemonicParsing="false" onAction="#translate" text="Translation" />
-      <Button fx:id="macronBtn" layoutX="452.0" layoutY="215.0" mnemonicParsing="false" onAction="#insertMacron" text="Add Macron" />
+            <Font size="40.0" />
+         </font></TextField>
+      <Button fx:id="repeatWordBtn" layoutX="257.0" layoutY="507.0" mnemonicParsing="false" onAction="#wordRepeat" prefHeight="99.0" prefWidth="177.0" text="Repeat" />
+      <Button fx:id="skipWordBtn" layoutX="456.0" layoutY="503.0" mnemonicParsing="false" prefHeight="99.0" prefWidth="169.0" text="Don't Know" />
+      <Button fx:id="translationBtn" layoutX="656.0" layoutY="507.0" mnemonicParsing="false" onAction="#translate" prefHeight="90.0" prefWidth="193.0" text="Translation" />
+      <Button fx:id="macronBtn" layoutX="871.0" layoutY="507.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="90.0" prefWidth="185.0" text="Add Macron" />
       <Button fx:id="startGame" layoutX="78.0" layoutY="115.0" mnemonicParsing="false" onAction="#startSpellingGame" text="Start Game" />
-      <Button fx:id="checkSpelling" defaultButton="true" layoutX="452.0" layoutY="141.0" mnemonicParsing="false" text="Check Spelling" />
+      <Button fx:id="checkSpelling" defaultButton="true" layoutX="951.0" layoutY="375.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="105.0" text="Check Spelling" />
       <Label fx:id="translationHint" layoutX="276.0" layoutY="185.0" />
-      <ImageView fx:id="stones" fitHeight="148.0" fitWidth="457.0" layoutX="73.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="stones" fitHeight="148.0" fitWidth="457.0" layoutX="451.0" layoutY="802.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../stones.png" />
          </image></ImageView>
-      <ImageView fx:id="frog" fitHeight="30.0" fitWidth="37.0" layoutX="90.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="frog" fitHeight="30.0" fitWidth="37.0" layoutX="468.0" layoutY="819.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../frog.png" />
          </image>
