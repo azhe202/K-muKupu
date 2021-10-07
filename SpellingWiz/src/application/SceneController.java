@@ -32,7 +32,7 @@ public class SceneController extends CategorySelection{
 	public void setUp(MouseEvent event) {
 		isEnglish = true;
 		langExt = "";
-		langToggle.setImage(new Image("./english.jpg"));
+		langToggle.setImage(new Image("./englishfade.jpg"));
 		gamesBtn.setImage(new Image("./gamesModule"+langExt+".jpg"));
 		practiseBtn.setImage(new Image("./practiseModule"+langExt+".jpg"));
 	}

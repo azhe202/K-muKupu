@@ -138,29 +138,29 @@ public class GamesModule extends Controller {
 
 					// conditional checks to increase user score
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-						bashCommand("echo Correct | festival --tts");
 						wordsForSummary.add(word + "#Correct");
 						score++;
 						translate.play();
 						textField.clear();
 						wordCount++;
+						Sound.playSound("./correctSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Correct | festival --tts");
 						wordsForSummary.add(word + "#Correct");
 						score++;
 						translate.play();
 						textField.clear();
 						wordCount++;
+						Sound.playSound("./correctSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Incorrect. | festival --tts");
 						if (wordCount != words.length) {
 							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
 						}
 						wordsForSummary.add(word + "#Incorrect");
 						textField.clear();
 						wordCount++;
+						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
@@ -168,6 +168,7 @@ public class GamesModule extends Controller {
 						secondLetterHint(word);
 						textField.clear();
 						attempts++;
+						Sound.playSound("./incorrectSound.mp3");
 
 					}
 				}
