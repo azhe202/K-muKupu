@@ -45,7 +45,7 @@ public class PractiseSelection {
 	public void chooseSelect(MouseEvent event) {
 		moduleSelected = "PractiseModule";
 		try {
-			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
+			root = FXMLLoader.load(getClass().getResource("CategorySelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

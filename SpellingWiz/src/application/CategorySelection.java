@@ -42,6 +42,38 @@ public class CategorySelection{
 	String langExt = SceneController.langExt;
 	
 	/**
+	 * Function will change the category labels to the appropriate label (english/maori)
+	 * @param event
+	 * @throws MalformedURLException
+	 */
+	public void setUpLang(MouseEvent event) throws MalformedURLException {
+		// call functions to set up the correct labels
+		enterFood(event);
+		exitFood(event);
+		
+		enterWeather(event);
+		exitWeather(event);
+		
+		enterColours(event);
+		exitColours(event);
+		
+		enterAnimals(event);
+		exitAnimals(event);
+		
+		enterFeelings(event);
+		exitFeelings(event);
+		
+		enterDirections(event);
+		exitDirections(event);
+		
+		enterMonths(event);
+		exitMonths(event);
+		
+		enterMonths2(event);
+		exitMonths2(event);
+	}
+	
+	/**
 	 * Change to the Games Module when the category is chosen
 	 * @param event
 	 */
