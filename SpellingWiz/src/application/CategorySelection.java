@@ -20,45 +20,30 @@ public class CategorySelection{
 	private Parent root;
 	
 	@FXML
-	private static ImageView foodBtn;
+	public ImageView foodBtn;
 	@FXML
-	private static ImageView weatherBtn;
+	public ImageView weatherBtn;
 	@FXML
-	private static ImageView coloursBtn;
+	public ImageView coloursBtn;
 	@FXML
-	private static ImageView animalsBtn;
+	public ImageView animalsBtn;
 	@FXML
-	private static ImageView feelingsBtn;
+	public ImageView feelingsBtn;
 	@FXML
-	private static ImageView directionsBtn;
+	public ImageView directionsBtn;
 	@FXML
-	private static ImageView monthsBtn;
+	public ImageView monthsBtn;
 	@FXML
-	private static ImageView months2Btn;
+	public ImageView months2Btn;
 	@FXML
-	private ImageView arrowBtn;
+	public ImageView arrowBtn;
 	
 	public static String wordList;
+	String langExt = "m";
 	
-	static String langExt;
-	static boolean isEnglish = SceneController.isEnglish;
-	
-	public static void setUpScene() {
-		langExt = "m";
+	public void setUpLang() {
 		
-		if (!isEnglish) {
-			foodBtn.setImage(new Image("./foodfadem.jpg"));
-			weatherBtn.setImage(new Image("./weatherfadem.jpg"));
-			coloursBtn.setImage(new Image("./coloursfadem.jpg"));
-			animalsBtn.setImage(new Image("./animalsfadem.jpg"));
-			feelingsBtn.setImage(new Image("./feelingsfadem.jpg"));
-			directionsBtn.setImage(new Image("./directionsfadem.jpg"));
-			monthsBtn.setImage(new Image("./monthsfadem.jpg"));
-			months2Btn.setImage(new Image("./months2fadem.jpg"));
-			langExt = "m";
-		}
 	}
-	
 	
 	/**
 	 * Change to the Games Module when the category is chosen
@@ -173,7 +158,6 @@ public class CategorySelection{
 	public void enterWeather(MouseEvent event) throws MalformedURLException { 
 		weatherBtn.setImage(new Image("./weather"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
-		
 	}
 
 	public void exitWeather(MouseEvent event) { 

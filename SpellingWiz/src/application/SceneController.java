@@ -25,17 +25,17 @@ public class SceneController {
 	private ImageView gamesBtn;
 	@FXML
 	private ImageView practiseBtn;
+	@FXML
+	private ImageView langToggle;
 	
 	public void chooseGame(MouseEvent event) { 
 		try {
-			CategorySelection.setUpScene();
 			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -50,6 +50,16 @@ public class SceneController {
 		} 
 		catch (IOException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public void chooseToggle(MouseEvent event) {
+		if (isEnglish) {
+			isEnglish = false;
+			langToggle.setImage(new Image("./maori.jpg"));
+		} else {
+			isEnglish = true;
+			langToggle.setImage(new Image("./english.jpg"));
 		}
 	}
 	
@@ -71,11 +81,22 @@ public class SceneController {
 		practiseBtn.setImage(new Image("./practiseModule.jpg"));
 	}
 	
-	/*
-	 * Function exits out of the GUI when exit button is pressed
-	 */
-	public void exit(ActionEvent event) {
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		stage.close();
+	public void enterToggle(MouseEvent event) throws MalformedURLException { 
+		if (isEnglish) {
+			langToggle.setImage(new Image("./english.jpg"));
+		} else {
+			langToggle.setImage(new Image("./maori.jpg"));
+		}
+		Sound.playSound("./switch.wav");
 	}
+
+	public void exitToggle(MouseEvent event) { 
+		if (isEnglish) {
+			langToggle.setImage(new Image("./englishfade.jpg"));
+		} else {
+			langToggle.setImage(new Image("./maorifade.jpg"));
+		}
+	}
+	
+	
 }
