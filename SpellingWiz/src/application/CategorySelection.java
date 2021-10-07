@@ -39,11 +39,7 @@ public class CategorySelection{
 	public ImageView arrowBtn;
 	
 	public static String wordList;
-	String langExt = "m";
-	
-	public void setUpLang() {
-		
-	}
+	String langExt = SceneController.langExt;
 	
 	/**
 	 * Change to the Games Module when the category is chosen

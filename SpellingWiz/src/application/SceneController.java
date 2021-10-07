@@ -14,12 +14,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class SceneController {
+public class SceneController extends CategorySelection{
 	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	public static boolean isEnglish = true;
+	public static String langExt = "";
 	
 	@FXML
 	private ImageView gamesBtn;
@@ -30,6 +31,11 @@ public class SceneController {
 	
 	public void chooseGame(MouseEvent event) { 
 		try {
+			if (isEnglish) {
+				langExt = "";
+			} else {
+				langExt = "m";
+			}
 			root = FXMLLoader.load(getClass().getResource("CatergorySelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
@@ -42,6 +48,11 @@ public class SceneController {
 	
 	public void choosePractise(MouseEvent event) { 
 		try {
+			if (isEnglish) {
+				langExt = "";
+			} else {
+				langExt = "m";
+			}
 			root = FXMLLoader.load(getClass().getResource("PractiseSelection.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
