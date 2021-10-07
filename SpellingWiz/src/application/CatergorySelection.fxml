@@ -23,7 +23,7 @@
       </ImageView>
       <ImageView fx:id="foodBtn" fitHeight="276.0" fitWidth="292.0" layoutX="84.0" layoutY="241.0" onMouseEntered="#enterFood" onMouseExited="#exitFood" onMousePressed="#chooseFood" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../foodfade.jpg" />
+            <Image url="@../foodfadem.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="weatherBtn" fitHeight="276.0" fitWidth="314.0" layoutX="385.0" layoutY="241.0" onMouseClicked="#chooseWeather" onMouseEntered="#enterWeather" onMouseExited="#exitWeather" pickOnBounds="true" preserveRatio="true">

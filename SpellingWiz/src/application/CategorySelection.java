@@ -20,25 +20,46 @@ public class CategorySelection{
 	private Parent root;
 	
 	@FXML
-	private ImageView foodBtn;
+	private static ImageView foodBtn;
 	@FXML
-	private ImageView weatherBtn;
+	private static ImageView weatherBtn;
 	@FXML
-	private ImageView coloursBtn;
+	private static ImageView coloursBtn;
 	@FXML
-	private ImageView animalsBtn;
+	private static ImageView animalsBtn;
 	@FXML
-	private ImageView feelingsBtn;
+	private static ImageView feelingsBtn;
 	@FXML
-	private ImageView directionsBtn;
+	private static ImageView directionsBtn;
 	@FXML
-	private ImageView monthsBtn;
+	private static ImageView monthsBtn;
 	@FXML
-	private ImageView months2Btn;
+	private static ImageView months2Btn;
 	@FXML
 	private ImageView arrowBtn;
 	
 	public static String wordList;
+	
+	static String langExt;
+	static boolean isEnglish = SceneController.isEnglish;
+	
+	public static void setUpScene() {
+		langExt = "m";
+		
+		if (!isEnglish) {
+			foodBtn.setImage(new Image("./foodfadem.jpg"));
+			weatherBtn.setImage(new Image("./weatherfadem.jpg"));
+			coloursBtn.setImage(new Image("./coloursfadem.jpg"));
+			animalsBtn.setImage(new Image("./animalsfadem.jpg"));
+			feelingsBtn.setImage(new Image("./feelingsfadem.jpg"));
+			directionsBtn.setImage(new Image("./directionsfadem.jpg"));
+			monthsBtn.setImage(new Image("./monthsfadem.jpg"));
+			months2Btn.setImage(new Image("./months2fadem.jpg"));
+			langExt = "m";
+		}
+	}
+	
+	
 	/**
 	 * Change to the Games Module when the category is chosen
 	 * @param event
@@ -140,78 +161,78 @@ public class CategorySelection{
 	}
 	//food
 	public void enterFood(MouseEvent event) throws MalformedURLException { 
-		foodBtn.setImage(new Image("./food.jpg"));
+		foodBtn.setImage(new Image("./food"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 	
 
 	public void exitFood(MouseEvent event) { 
-		foodBtn.setImage(new Image("./foodfade.jpg"));
+		foodBtn.setImage(new Image("./foodfade"+langExt+".jpg"));
 	}
 	//weather
 	public void enterWeather(MouseEvent event) throws MalformedURLException { 
-		weatherBtn.setImage(new Image("./weather.jpg"));
+		weatherBtn.setImage(new Image("./weather"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 		
 	}
 
 	public void exitWeather(MouseEvent event) { 
-		weatherBtn.setImage(new Image("./weatherfade.jpg"));
+		weatherBtn.setImage(new Image("./weatherfade"+langExt+".jpg"));
 	}
 	//colours
 	public void enterColours(MouseEvent event) throws MalformedURLException { 
-		coloursBtn.setImage(new Image("./colours.jpg"));
+		coloursBtn.setImage(new Image("./colours"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitColours(MouseEvent event) { 
-		coloursBtn.setImage(new Image("./coloursfade.jpg"));
+		coloursBtn.setImage(new Image("./coloursfade"+langExt+".jpg"));
 	}
 	
 	//animals
 	public void enterAnimals(MouseEvent event) throws MalformedURLException { 
-		animalsBtn.setImage(new Image("./animals.jpg"));
+		animalsBtn.setImage(new Image("./animals"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitAnimals(MouseEvent event) { 
-		animalsBtn.setImage(new Image("./animalsfade.jpg"));
+		animalsBtn.setImage(new Image("./animalsfade"+langExt+".jpg"));
 	}
 	//feelings
 	public void enterFeelings(MouseEvent event) throws MalformedURLException { 
-		feelingsBtn.setImage(new Image("./feelings.jpg"));
+		feelingsBtn.setImage(new Image("./feelings"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitFeelings(MouseEvent event) { 
-		feelingsBtn.setImage(new Image("./feelingsfade.jpg"));
+		feelingsBtn.setImage(new Image("./feelingsfade"+langExt+".jpg"));
 	}
 	//directions
 	public void enterDirections(MouseEvent event) throws MalformedURLException { 
-		directionsBtn.setImage(new Image("./directions.jpg"));
+		directionsBtn.setImage(new Image("./directions"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitDirections(MouseEvent event) { 
-		directionsBtn.setImage(new Image("./directionsfade.jpg"));
+		directionsBtn.setImage(new Image("./directionsfade"+langExt+".jpg"));
 	}
 	//month1
 	public void enterMonths(MouseEvent event) throws MalformedURLException { 
-		monthsBtn.setImage(new Image("./months.jpg"));
+		monthsBtn.setImage(new Image("./months"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitMonths(MouseEvent event) { 
-		monthsBtn.setImage(new Image("./monthsfade.jpg"));
+		monthsBtn.setImage(new Image("./monthsfade"+langExt+".jpg"));
 	}
 	//month2
 	public void enterMonths2(MouseEvent event) throws MalformedURLException { 
-		months2Btn.setImage(new Image("./months2.jpg"));
+		months2Btn.setImage(new Image("./months2"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitMonths2(MouseEvent event) { 
-		months2Btn.setImage(new Image("./months2fade.jpg"));
+		months2Btn.setImage(new Image("./months2fade"+langExt+".jpg"));
 	}
 	//arrow
 	public void enterArrow(MouseEvent event) throws MalformedURLException { 
