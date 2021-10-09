@@ -70,7 +70,7 @@ public class Controller implements Initializable{
 	@FXML 
 	private ImageView macronBtn;
 	@FXML
-	private Label wordLength;
+	protected Label wordLength;
 	
 	private String[] wordpool = {"Babies", "Colours", "Compass points", "Days of the week", "Days of the week loan words", "Engineering", "Feelings", "Months of the year", "Months of the year loan words", "Software", "Uni life", "Weather", "Work"};
 	private String[] wordpoolFileNames = {"babies", "colours", "compassPoints", "daysOfTheWeek", "daysOfTheWeekLoanWords", "engineering", "feelings", "monthsOfTheYear", "monthsOfTheYearLoanWords", "software", "uniLife", "weather", "work"};
