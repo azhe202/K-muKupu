@@ -48,7 +48,7 @@ public class Controller implements Initializable{
 	@FXML
 	private Button startGame;
 	@FXML
-	private Button checkSpelling;
+	private ImageView checkSpelling;
 	@FXML
 	private ChoiceBox<String> wordpoolSelection;
 	@FXML
@@ -182,10 +182,10 @@ public class Controller implements Initializable{
 			});
 
 			// checkSpelling button will check the word and increase the score or ask user to spell again
-			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
+			checkSpelling.setOnMouseClicked( new EventHandler<MouseEvent>() {
 				
 				@Override 
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 
 					String wordEntered = textField.getText().trim();
 
