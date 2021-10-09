@@ -46,7 +46,7 @@ public class Controller implements Initializable{
 	@FXML
 	private TextField textField;
 	@FXML
-	private Button startGame;
+	private ImageView startGame;
 	@FXML
 	private ImageView checkSpelling;
 	@FXML
@@ -111,6 +111,7 @@ public class Controller implements Initializable{
 	 * Function to start a new spelling game 
 	 */
 	public void startSpellingGame(String wordpoolSelected) {
+		startGame.setVisible(false);
 		wordpoolSelection.getItems().addAll(wordpool);
 		wordpoolSelection.setValue(wordpoolSelected);
 		

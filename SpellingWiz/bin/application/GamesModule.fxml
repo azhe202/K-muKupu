@@ -17,7 +17,7 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="252.0" layoutX="44.0" layoutY="382.0" opacity="0.9" stroke="WHITE" strokeType="INSIDE" width="1274.0" />
-      <Label fx:id="wordLength" alignment="CENTER" layoutX="183.0" layoutY="50.0" prefHeight="177.0" prefWidth="984.0">
+      <Label fx:id="wordLength" alignment="CENTER" layoutX="192.0" layoutY="51.0" prefHeight="129.0" prefWidth="984.0">
          <font>
             <Font size="70.0" />
          </font></Label>
@@ -25,8 +25,10 @@
          <font>
             <Font size="40.0" />
          </font></TextField>
-      <Button fx:id="startGame" layoutX="78.0" layoutY="115.0" mnemonicParsing="false" onAction="#startSpellingGame" text="Start Game" />
-      <Label fx:id="translationHint" layoutX="276.0" layoutY="185.0" />
+      <Label fx:id="translationHint" alignment="CENTER" contentDisplay="CENTER" layoutX="242.0" layoutY="180.0" prefHeight="46.0" prefWidth="884.0">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
       <ImageView fx:id="stones" fitHeight="107.0" fitWidth="749.0" layoutX="282.0" layoutY="760.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../stones.png" />
@@ -36,7 +38,7 @@
             <Image url="@../frog.png" />
          </image>
       </ImageView>
-      <Button layoutX="594.0" layoutY="215.0" mnemonicParsing="false" onAction="#rewardScreen" text="Results" />
+      <Button layoutX="76.0" layoutY="156.0" mnemonicParsing="false" onAction="#rewardScreen" text="Results" />
       <Label fx:id="timeLabel" layoutX="62.0" layoutY="57.0" text="Time">
          <font>
             <Font size="20.0" />
@@ -75,6 +77,11 @@
       <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1240.0" layoutY="21.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../helpfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startGame" fitHeight="170.0" fitWidth="826.0" layoutX="341.0" layoutY="53.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../startfade.jpg" />
          </image>
       </ImageView>
    </children>

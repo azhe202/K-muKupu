@@ -27,7 +27,7 @@ import javafx.util.Duration;
 public class GamesModule extends Controller {
 
 	@FXML
-	private Button startGame;
+	private ImageView startGame;
 	@FXML
 	private ImageView repeatWordBtn;
 	@FXML
@@ -85,7 +85,7 @@ public class GamesModule extends Controller {
 	 * Function to start the game
 	 */
 	public void startSpellingGame() {
-
+		startGame.setVisible(false);
 		wordsForSummary.clear();
 		translate.setNode(frog);
 		translate.setDuration(Duration.millis(1000));
@@ -376,6 +376,15 @@ public class GamesModule extends Controller {
 
 	public void exitSubmit(MouseEvent event) { 
 		checkSpelling.setImage(new Image("./submitfade"+langExt+".jpg"));
+	}
+	
+	public void enterStart(MouseEvent event) throws MalformedURLException { 
+		startGame.setImage(new Image("./start"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitStart(MouseEvent event) { 
+		startGame.setImage(new Image("./startfade"+langExt+".jpg"));
 	}
 
 }
