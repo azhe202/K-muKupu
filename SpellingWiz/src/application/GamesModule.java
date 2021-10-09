@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -55,6 +56,12 @@ public class GamesModule extends Controller {
 	private Label timeLabel;
 	@FXML
 	private Slider voiceSpeedSlider;
+	@FXML
+	private ImageView speedBtn;
+	@FXML
+	private ImageView speedWindow;
+	@FXML
+	public ImageView arrowBtn;
 
 
 	private Stage stage;
@@ -82,6 +89,8 @@ public class GamesModule extends Controller {
 		exitTranslate(event);
 		exitMacron(event);
 		exitSkip(event);
+		exitStart(event);
+		exitSubmit(event);
 	}
 
 	/**
@@ -272,6 +281,20 @@ public class GamesModule extends Controller {
 			helpWindow.setVisible(true);
 		}
 	}
+	
+	boolean speedOpen = false;
+	
+	public void selectSpeed(MouseEvent event) {
+		if (speedOpen) {
+			speedOpen = false;
+			voiceSpeedSlider.setVisible(false);
+			speedWindow.setVisible(false);
+		} else {
+			speedOpen = true;
+			voiceSpeedSlider.setVisible(true);
+			speedWindow.setVisible(true);
+		}
+	}
 
 	public void enterHelp(MouseEvent event) {
 		helpBtn.setImage(new Image("./help.jpg"));
@@ -393,6 +416,44 @@ public class GamesModule extends Controller {
 
 	public void exitStart(MouseEvent event) { 
 		startGame.setImage(new Image("./startfade"+langExt+".jpg"));
+	}
+	
+	public void enterSpeed(MouseEvent event) throws MalformedURLException { 
+		speedBtn.setImage(new Image("./speed"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitSpeed(MouseEvent event) { 
+		speedBtn.setImage(new Image("./speedfade"+langExt+".jpg"));
+	}
+	
+	public void enterArrow(MouseEvent event) throws MalformedURLException { 
+		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitArrow(MouseEvent event) { 
+		arrowBtn.setImage(new Image("./arrow.jpg"));
+	}
+	
+	public void back(MouseEvent event) { 
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			root = loader.load();
+			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			CategorySelection controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
