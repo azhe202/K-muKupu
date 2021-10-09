@@ -58,17 +58,17 @@ public class Controller implements Initializable{
 	@FXML
 	private Label letterHintLabel;
 	@FXML
-	private Button repeatWordBtn;
+	private ImageView repeatWordBtn;
 	@FXML
-	private Button skipWordBtn;
+	private ImageView skipWordBtn;
 	@FXML
-	private Button translationBtn;
+	private ImageView translationBtn;
 	@FXML
 	private Slider voiceSpeedSlider;
 	@FXML
 	private GridPane hintGrid;
 	@FXML 
-	private Button macronBtn;
+	private ImageView macronBtn;
 	@FXML
 	private Label wordLength;
 	
@@ -173,9 +173,9 @@ public class Controller implements Initializable{
 			attempts++;
 			
 			// create a skip request when don't know is pressed
-			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+			skipWordBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 					skipRequested = true;
 					resume();
 				}
@@ -371,7 +371,7 @@ public class Controller implements Initializable{
 	/*
 	 * Function allowing the user to enter a macron
 	 */
-	public void addMacron(ActionEvent event) {
+	public void addMacron(MouseEvent event) {
 		
 		// get the current word and macronize the last letter
 		String noMacronWord = textField.getText();

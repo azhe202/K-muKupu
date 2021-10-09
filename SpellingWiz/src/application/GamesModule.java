@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -28,13 +29,13 @@ public class GamesModule extends Controller {
 	@FXML
 	private Button startGame;
 	@FXML
-	private Button repeatWordBtn;
+	private ImageView repeatWordBtn;
 	@FXML
-	private Button skipWordBtn;
+	private ImageView skipWordBtn;
 	@FXML
-	private Button translationBtn;
+	private ImageView translationBtn;
 	@FXML 
-	private Button macronBtn;
+	private ImageView macronBtn;
 	@FXML
 	private TextField textField;
 	@FXML
@@ -67,6 +68,7 @@ public class GamesModule extends Controller {
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
+	String langExt = SceneController.langExt;
 	TranslateTransition translate = new TranslateTransition();
 	Timer timer = new Timer();
 	TimerTask timerTask;
@@ -77,11 +79,6 @@ public class GamesModule extends Controller {
 	public void startSpellingGame() {
 		
 		wordsForSummary.clear();
-		startGame.setDisable(true);
-		repeatWordBtn.setDisable(false);
-		translationBtn.setDisable(false);
-		skipWordBtn.setDisable(false);
-		macronBtn.setDisable(false);
 		translate.setNode(frog);
 		translate.setDuration(Duration.millis(1000));
 		translate.setByX(80);
@@ -129,9 +126,9 @@ public class GamesModule extends Controller {
 			attempts++;
 			
 			// create a skip request when don't know is pressed
-			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+			skipWordBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 					skipRequested = true;
 					resume();
 				}
@@ -201,22 +198,12 @@ public class GamesModule extends Controller {
 			
 		}
 		
-		
-		
-		//disables game related buttons and enables start button
-		startGame.setDisable(false);
-		repeatWordBtn.setDisable(true);
-		translationBtn.setDisable(true);
-		skipWordBtn.setDisable(true);
-		macronBtn.setDisable(true);
-		
-		
 	}
 	
 	/**
 	 * Function allowing user to repeat a word 
 	 */
-	public void wordRepeat(ActionEvent event) {
+	public void wordRepeat(MouseEvent event) {
 		RepeatThread repeat = new RepeatThread();
 		repeat.start();
 	}
@@ -224,14 +211,14 @@ public class GamesModule extends Controller {
 	/**
 	 * Function to translate word from maori to english
 	 */
-	public void translate(ActionEvent event) {
+	public void translate(MouseEvent event) {
 		translationHint.setText("Hint: the english translation is " + englishWord);
 	}
 	
 	/*
 	 * Function allowing the user to enter a macron
 	 */
-	public void insertMacron(ActionEvent event) {
+	public void insertMacron(MouseEvent event) {
 		addMacron(event);
 	}
 	
@@ -319,9 +306,41 @@ public class GamesModule extends Controller {
 	}
 	
 			
-	
+	public void enterRepeat(MouseEvent event) throws MalformedURLException { 
+		repeatWordBtn.setImage(new Image("./repeat"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
 
+	public void exitRepeat(MouseEvent event) { 
+		repeatWordBtn.setImage(new Image("./repeatfade"+langExt+".jpg"));
+	}
+
+	public void enterMacron(MouseEvent event) throws MalformedURLException { 
+		macronBtn.setImage(new Image("./macron"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitMacron(MouseEvent event) { 
+		macronBtn.setImage(new Image("./macronfade"+langExt+".jpg"));
+	}
 	
+	public void enterTranslate(MouseEvent event) throws MalformedURLException { 
+		translationBtn.setImage(new Image("./translate"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitTranslate(MouseEvent event) { 
+		translationBtn.setImage(new Image("./translatefade"+langExt+".jpg"));
+	}
+	
+	public void enterSkip(MouseEvent event) throws MalformedURLException { 
+		skipWordBtn.setImage(new Image("./skip"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitSkip(MouseEvent event) { 
+		skipWordBtn.setImage(new Image("./skipfade"+langExt+".jpg"));
+	}
 		
 
 }
