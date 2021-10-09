@@ -503,6 +503,40 @@ public class Controller implements Initializable{
 
 		return word;
 	}
+	
+	/*
+	 * Function using bash command to return the word 
+	 */
+	public String returnWord(String command) {
+		String word = null;
+		try {
+			ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+
+			Process process = pb.start();
+
+			BufferedReader stdout = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			BufferedReader stderr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+			int exitStatus = process.waitFor();
+			if (exitStatus == 0) {
+				String line;
+				while ((line = stdout.readLine()) != null) {
+					word = line;
+				}
+			} else {
+				String line;
+				while ((line = stderr.readLine()) != null) {
+					System.err.println(line);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return word;
+	}
+	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

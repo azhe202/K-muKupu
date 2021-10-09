@@ -27,8 +27,10 @@ public class PractiseSelection {
 	private ImageView arrowBtn;
 	
 	public static String moduleSelected = "NotSelected";
+	public static boolean randomSelected = false;
 
 	public void chooseRandom(MouseEvent event) {
+		randomSelected = true;
 		try {
 			root = FXMLLoader.load(getClass().getResource("PractiseModule.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
