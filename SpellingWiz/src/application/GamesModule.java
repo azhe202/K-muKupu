@@ -89,6 +89,8 @@ public class GamesModule extends Controller {
 		exitTranslate(event);
 		exitMacron(event);
 		exitSkip(event);
+		exitStart(event);
+		exitSubmit(event);
 	}
 
 	/**
@@ -440,6 +442,10 @@ public class GamesModule extends Controller {
 			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			CategorySelection controller = loader.getController();
+			controller.setUpLang(event);
 
 			// show GUI to user 
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

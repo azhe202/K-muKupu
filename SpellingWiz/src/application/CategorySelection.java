@@ -18,7 +18,7 @@ public class CategorySelection{
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
+
 	@FXML
 	public ImageView foodBtn;
 	@FXML
@@ -39,10 +39,10 @@ public class CategorySelection{
 	public ImageView arrowBtn;
 	@FXML
 	public ImageView prompt;
-	
+
 	public static String wordList;
 	String langExt = SceneController.langExt;
-	
+
 	/**
 	 * Function will change the category labels to the appropriate label (english/maori)
 	 * @param event
@@ -60,27 +60,35 @@ public class CategorySelection{
 		exitMonths2(event);
 		prompt.setImage(new Image("./categoryPrompt"+langExt+".jpg"));
 	}
-	
-	
+
+
 	/**
 	 * Change to the Games Module when the category is chosen
 	 * @param event
 	 */
 	public void changeGamesModule(MouseEvent event) {
-		try {
 
-			root = FXMLLoader.load(getClass().getResource("GamesModule.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("GamesModule.fxml"));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			GamesModule controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
-
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
+
+
 		}
 	}
-	
+
 	/**
 	 * Change to Practice module when the category is chosen
 	 * @param event
@@ -99,7 +107,7 @@ public class CategorySelection{
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void changeScenes(MouseEvent event) {
 		if(PractiseSelection.moduleSelected.equals("PractiseModule")) {
 			changePractiseModule(event);
@@ -107,47 +115,47 @@ public class CategorySelection{
 			changeGamesModule(event);
 		}
 	}
-	
+
 	public void chooseFood(MouseEvent event) {
 		wordList = "food";
 		changeScenes(event);
 	}
-	
+
 	public void chooseWeather(MouseEvent event) {
 		wordList = "weather";
 		changeScenes(event);
 	}
-	
+
 	public void chooseColours(MouseEvent event) {
 		wordList = "colours";
 		changeScenes(event);
 	}
-	
+
 	public void chooseAnimals(MouseEvent event) {
 		wordList = "animals";
 		changeScenes(event);
 	}
-	
+
 	public void chooseFeelings(MouseEvent event) {
 		wordList = "feelings";
 		changeScenes(event);
 	}
-	
+
 	public void chooseDirections(MouseEvent event) {
 		wordList = "compassPoints";
 		changeScenes(event);
 	}
-	
+
 	public void chooseMonths(MouseEvent event) {
 		wordList = "monthsOfTheYear";
 		changeScenes(event);
 	}
-	
+
 	public void chooseMonths2(MouseEvent event) {
 		wordList = "monthsOfTheYearLoanWords";
 		changeScenes(event);
 	}
-	
+
 	public void backToMenu(MouseEvent event) { 
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -172,7 +180,7 @@ public class CategorySelection{
 		foodBtn.setImage(new Image("./food"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
-	
+
 
 	public void exitFood(MouseEvent event) { 
 		foodBtn.setImage(new Image("./foodfade"+langExt+".jpg"));
@@ -195,7 +203,7 @@ public class CategorySelection{
 	public void exitColours(MouseEvent event) { 
 		coloursBtn.setImage(new Image("./coloursfade"+langExt+".jpg"));
 	}
-	
+
 	//animals
 	public void enterAnimals(MouseEvent event) throws MalformedURLException { 
 		animalsBtn.setImage(new Image("./animals"+langExt+".jpg"));
@@ -250,5 +258,5 @@ public class CategorySelection{
 	public void exitArrow(MouseEvent event) { 
 		arrowBtn.setImage(new Image("./arrow.jpg"));
 	}
-	
+
 }
