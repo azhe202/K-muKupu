@@ -35,7 +35,7 @@ public class PractiseModule extends Controller {
 	public static int wordCount;
 	public static int score;
 	private int attempts;
-	public static double voiceSpeed;
+	public static double voiceSpeed = 1;
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
@@ -101,8 +101,9 @@ public class PractiseModule extends Controller {
 			String tempArray[] = temp.split("#");
 			word = tempArray[0].trim();
 			englishWord = tempArray[1];
+		
 			
-
+			System.out.println(word + englishWord);
 
 			// starting word count and score
 			wordCount = 1;
@@ -115,8 +116,7 @@ public class PractiseModule extends Controller {
 			displayNumLetters(word); // display how many letters are in the word
 
 			// Start a new thread to say the word to spell to user
-			SpellingThread speakWord = new SpellingThread();
-			speakWord.start();
+			spellingQuestion(word, wordCount, attempts, 1, voiceSpeed);
 
 			attempts++;
 
