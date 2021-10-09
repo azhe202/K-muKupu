@@ -30,7 +30,7 @@ public class RewardScreen implements Initializable{
 	@FXML
 	private ImageView star5;
 	@FXML
-	private Label messageLabel;
+	private ImageView messageLabel;
 	@FXML
 	private ImageView nextPage;
 
@@ -39,20 +39,17 @@ public class RewardScreen implements Initializable{
 	private Parent root;
 
 	public void start() {
-		messageLabel.setText("Unlucky, maybe try again to \npractice your spelling.");
-		
 		if (GamesModule.score>=1) {
 			star1.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score>=2) {
-			messageLabel.setText("Good job, you should try giving it \nanother go and see if you can \nget a higher score!");
 			star2.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score>=3) {
 			star3.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score>=4) {
-			messageLabel.setText("Great job! You should try \nanother word list now.");
+			messageLabel.setImage(new Image("./goodMessage.png"));
 			star4.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score==5) {
-			messageLabel.setText("Awesome! Try another word list \nand see if you can get \nfull marks in that too!");
+			messageLabel.setImage(new Image("./greatMessage.png"));
 			star5.setImage(new Image("./filledStar.png"));
 		}
 	}

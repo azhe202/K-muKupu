@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RewardScreen">
    <children>
@@ -13,32 +11,27 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="messageLabel" alignment="CENTER" layoutX="255.0" layoutY="97.0" onMouseClicked="#switchToSummary" prefHeight="319.0" prefWidth="948.0" text="Encouraging message">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="star1" fitHeight="150.0" fitWidth="200.0" layoutX="246.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star1" fitHeight="150.0" fitWidth="200.0" layoutX="284.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star2" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star2" fitHeight="150.0" fitWidth="200.0" layoutX="452.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star3" fitHeight="150.0" fitWidth="200.0" layoutX="579.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star3" fitHeight="150.0" fitWidth="200.0" layoutX="617.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star4" fitHeight="150.0" fitWidth="200.0" layoutX="748.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star4" fitHeight="150.0" fitWidth="200.0" layoutX="786.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star5" fitHeight="150.0" fitWidth="200.0" layoutX="914.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star5" fitHeight="150.0" fitWidth="200.0" layoutX="952.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
@@ -48,14 +41,19 @@
             <Image url="@../arrow.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="933.0" fitWidth="1038.0" layoutX="-517.0" layoutY="219.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="933.0" fitWidth="1038.0" layoutX="-514.0" layoutY="151.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../giraffe.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="430.0" fitWidth="1103.0" layoutX="197.0" layoutY="38.0" pickOnBounds="true">
+      <ImageView fitHeight="259.0" fitWidth="1103.0" layoutX="197.0" layoutY="38.0" pickOnBounds="true">
          <image>
             <Image url="@../bubble.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="messageLabel" fitHeight="204.0" fitWidth="727.0" layoutX="419.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../decentMessage.png" />
          </image>
       </ImageView>
    </children>
