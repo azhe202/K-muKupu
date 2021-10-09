@@ -13,44 +13,44 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="speltWordsLabel" layoutX="363.0" layoutY="226.0" prefHeight="496.0" prefWidth="753.0">
+      <Label fx:id="speltWordsLabel" layoutX="263.0" layoutY="150.0" prefHeight="557.0" prefWidth="1035.0">
          <font>
-            <Font size="31.0" />
+            <Font size="95.0" />
          </font>
       </Label>
-      <ImageView fx:id="indicator1" fitHeight="59.0" fitWidth="51.0" layoutX="300.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="indicator1" fitHeight="110.0" fitWidth="100.0" layoutX="155.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Correct.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="indicator2" fitHeight="59.0" fitWidth="70.0" layoutX="293.0" layoutY="314.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="indicator2" fitHeight="110.0" fitWidth="100.0" layoutX="155.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Correct.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="indicator3" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="indicator3" fitHeight="110.0" fitWidth="100.0" layoutX="155.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Correct.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="indicator4" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="464.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="indicator4" fitHeight="110.0" fitWidth="100.0" layoutX="155.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Correct.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="indicator5" fitHeight="59.0" fitWidth="51.0" layoutX="293.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="indicator5" fitHeight="110.0" fitWidth="100.0" layoutX="155.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Correct.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1136.0" layoutY="764.0" onMouseClicked="#startNewQuiz" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="newQuizBut" fitHeight="150.0" fitWidth="200.0" layoutX="1136.0" layoutY="775.0" onMouseClicked="#startNewQuiz" onMouseEntered="#enterNewQuiz" onMouseExited="#exitNewQuiz" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../arrow.jpg" />
+            <Image url="@../arrow.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+      <ImageView fx:id="goBackBut" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#goBack" onMouseEntered="#enterGoBack" onMouseExited="#exitGoBack" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@../arrow.jpg" />
+            <Image url="@../arrow.png" />
          </image>
       </ImageView>
    </children>

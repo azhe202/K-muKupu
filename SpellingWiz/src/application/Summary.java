@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -36,6 +37,10 @@ public class Summary implements Initializable{
 	private ImageView indicator4;
 	@FXML
 	private ImageView indicator5;
+	@FXML
+	private ImageView newQuizBut;
+	@FXML
+	private ImageView goBackBut;
 	
 	
 	private void start() {
@@ -80,6 +85,24 @@ public class Summary implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		start();
 		
+	}
+	
+	public void exitNewQuiz(MouseEvent event) { 
+		newQuizBut.setImage(new Image("./arrow.png"));
+	}
+
+	public void enterNewQuiz(MouseEvent event) throws MalformedURLException { 
+		newQuizBut.setImage(new Image("./arrowSelect.png"));
+		Sound.playSound("./switch.wav");
+	}
+	
+	public void exitGoBack(MouseEvent event) { 
+		goBackBut.setImage(new Image("./arrow.png"));
+	}
+
+	public void enterGoBack(MouseEvent event) throws MalformedURLException { 
+		goBackBut.setImage(new Image("./arrowSelect.png"));
+		Sound.playSound("./switch.wav");
 	}
 	
 	
