@@ -177,6 +177,7 @@ public class GamesModule extends Controller {
 					// conditional checks to increase user score
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						wordsForSummary.add(word + "#Correct");
+						pauseTimer(); 
 						score++;
 						translate.play();
 						textField.clear();
@@ -185,6 +186,7 @@ public class GamesModule extends Controller {
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						wordsForSummary.add(word + "#Correct");
+						pauseTimer();
 						score++;
 						translate.play();
 						textField.clear();
@@ -195,14 +197,15 @@ public class GamesModule extends Controller {
 						if (wordCount != words.length) {
 							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
 						}
+						pauseTimer();
 						wordsForSummary.add(word + "#Incorrect");
 						textField.clear();
 						wordCount++;
 						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						voiceSpeed = voiceSpeedSlider.getValue();
-						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
+						SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
+						repeat.start(); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
 						secondLetterHint(word);
 						textField.clear();
