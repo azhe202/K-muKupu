@@ -39,7 +39,7 @@ public class RewardScreen implements Initializable{
 	private Parent root;
 
 	public void start() {
-		messageLabel.setText("Unlucky, maybe try again to practice \n your spelling.");
+		messageLabel.setText("Unlucky, maybe try again to \npractice your spelling.");
 		
 		if (GamesModule.score>=1) {
 			star1.setImage(new Image("./filledStar.png"));

@@ -13,32 +13,32 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="messageLabel" alignment="CENTER" layoutX="82.0" layoutY="51.0" onMouseClicked="#switchToSummary" prefHeight="438.0" prefWidth="1190.0" text="Encouraging message">
+      <Label fx:id="messageLabel" alignment="CENTER" layoutX="255.0" layoutY="97.0" onMouseClicked="#switchToSummary" prefHeight="319.0" prefWidth="948.0" text="Encouraging message">
          <font>
-            <Font size="68.0" />
+            <Font size="60.0" />
          </font>
       </Label>
-      <ImageView fx:id="star1" fitHeight="150.0" fitWidth="200.0" layoutX="212.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star1" fitHeight="150.0" fitWidth="200.0" layoutX="246.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star2" fitHeight="150.0" fitWidth="200.0" layoutX="380.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star2" fitHeight="150.0" fitWidth="200.0" layoutX="414.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star3" fitHeight="150.0" fitWidth="200.0" layoutX="545.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star3" fitHeight="150.0" fitWidth="200.0" layoutX="579.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star4" fitHeight="150.0" fitWidth="200.0" layoutX="714.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star4" fitHeight="150.0" fitWidth="200.0" layoutX="748.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star5" fitHeight="150.0" fitWidth="200.0" layoutX="880.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star5" fitHeight="150.0" fitWidth="200.0" layoutX="914.0" layoutY="590.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../star.png" />
          </image>
@@ -46,6 +46,16 @@
       <ImageView fx:id="nextPage" fitHeight="150.0" fitWidth="200.0" layoutX="1136.0" layoutY="775.0" onMouseClicked="#switchToSummary" onMouseEntered="#enterNextPage" onMouseExited="#exitNextPage" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="933.0" fitWidth="1038.0" layoutX="-517.0" layoutY="219.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../giraffe.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="430.0" fitWidth="1103.0" layoutX="197.0" layoutY="38.0" pickOnBounds="true">
+         <image>
+            <Image url="@../bubble.png" />
          </image>
       </ImageView>
    </children>
