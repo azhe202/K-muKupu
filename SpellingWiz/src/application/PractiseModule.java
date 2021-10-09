@@ -209,7 +209,7 @@ public class PractiseModule extends Controller {
 	/*
 	 * Function allowing the user to enter a macron
 	 */
-	public void insertMacron(ActionEvent event) {
+	public void insertMacron(MouseEvent event) {
 		addMacron(event);
 	}
 }
