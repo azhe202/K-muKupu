@@ -7091,7 +7091,11 @@ Binding(CTRL+SHIFT+T,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+<<<<<<< HEAD
 !SESSION 2021-10-09 14:23:33.388 -----------------------------------------------
+=======
+!SESSION 2021-10-09 16:07:57.993 -----------------------------------------------
+>>>>>>> main
 eclipse.buildId=4.20.0.I20210611-1600
 java.version=11.0.11
 java.vendor=Ubuntu
@@ -7099,10 +7103,17 @@ BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_NZ
 Framework arguments:  -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
 Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product /home/student/Documents/assignment-3-and-project-team-22
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.core.resources 2 10035 2021-10-09 14:23:57.499
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
 
 !ENTRY org.eclipse.e4.ui.css.swt.theme 4 0 2021-10-09 14:24:03.488
+=======
+!ENTRY org.eclipse.core.resources 2 10035 2021-10-09 16:08:14.488
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.e4.ui.css.swt.theme 4 0 2021-10-09 16:08:18.494
+>>>>>>> main
 !MESSAGE /css/dark.css
 !STACK 0
 java.io.FileNotFoundException: /css/dark.css
@@ -7142,15 +7153,25 @@ java.io.FileNotFoundException: /css/dark.css
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1462)
 	at org.eclipse.equinox.launcher.Main.main(Main.java:1435)
 
+<<<<<<< HEAD
 !ENTRY org.eclipse.jface 2 0 2021-10-09 14:24:04.549
 !MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
 !SUBENTRY 1 org.eclipse.jface 2 0 2021-10-09 14:24:04.549
+=======
+!ENTRY org.eclipse.jface 2 0 2021-10-09 16:08:18.898
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2021-10-09 16:08:18.898
+>>>>>>> main
 !MESSAGE A conflict occurred for CTRL+SHIFT+T:
 Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
 		Open a type in a Java editor,
 		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+<<<<<<< HEAD
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5bccef9f,
+=======
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5a537a16,
+>>>>>>> main
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
@@ -7158,6 +7179,7 @@ Binding(CTRL+SHIFT+T,
 	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+<<<<<<< HEAD
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1136122a,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
@@ -7301,6 +7323,9 @@ Binding(CTRL+SHIFT+T,
 		,
 		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
 		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7adff6cb,
+=======
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@72288480,
+>>>>>>> main
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)

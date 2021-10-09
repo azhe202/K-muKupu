@@ -9,8 +9,8 @@ public class SpellingThread extends Thread{
 		Controller speak = new Controller();
 		String word = GamesModule.word;
 		int wordCount = GamesModule.wordCount;
-		double speed = GamesModule.voiceSpeed;
+		double voiceSpeed = GamesModule.voiceSpeed;
 		
-		speak.spellingQuestion(word, wordCount, 0, 5, speed);
+		speak.spellingQuestion(word, wordCount, 0, 5, voiceSpeed);
 	}
 }

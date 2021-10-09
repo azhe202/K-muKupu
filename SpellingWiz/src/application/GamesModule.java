@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,21 +26,21 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class GamesModule extends Controller {
-	
+
 	@FXML
-	private Button startGame;
+	private ImageView startGame;
 	@FXML
-	private Button repeatWordBtn;
+	private ImageView repeatWordBtn;
 	@FXML
-	private Button skipWordBtn;
+	private ImageView skipWordBtn;
 	@FXML
-	private Button translationBtn;
+	private ImageView translationBtn;
 	@FXML 
-	private Button macronBtn;
+	private ImageView macronBtn;
 	@FXML
 	private TextField textField;
 	@FXML
-	private Button checkSpelling;
+	private ImageView checkSpelling;
 	@FXML
 	private Label translationHint;
 	@FXML
@@ -51,12 +53,14 @@ public class GamesModule extends Controller {
 	private ImageView helpWindow;
 	@FXML
 	private Label timeLabel;
-	
-	
+	@FXML
+	private Slider voiceSpeedSlider;
+
+
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
+
 	public static int wordCount;
 	public static int score;
 	private int totalSeconds = 31;
@@ -67,33 +71,45 @@ public class GamesModule extends Controller {
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
+	String langExt = SceneController.langExt;
 	TranslateTransition translate = new TranslateTransition();
 	Timer timer = new Timer();
 	TimerTask timerTask;
-	
+
+	public void setUpLang(MouseEvent event) throws MalformedURLException {
+		// call functions to set up the correct labels
+		exitRepeat(event);
+		exitTranslate(event);
+		exitMacron(event);
+		exitSkip(event);
+	}
+
 	/**
 	 * Function to start the game
 	 */
 	public void startSpellingGame() {
-		
+		startGame.setVisible(false);
 		wordsForSummary.clear();
+		translate.setNode(frog);
+		translate.setDuration(Duration.millis(1000));
+		translate.setByX(80);
+
+		//disables game related buttons and enables submit button
 		startGame.setDisable(true);
+		checkSpelling.setDisable(false);
 		repeatWordBtn.setDisable(false);
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
 		macronBtn.setDisable(false);
-		translate.setNode(frog);
-		translate.setDuration(Duration.millis(1000));
-		translate.setByX(80);
-		
-		
+
+
 		// get the word list 
 		String wordList = CategorySelection.wordList;
-		
+
 		// give random word
 		String command = "sort -u words/" + wordList + " | shuf -n 5";
 		String[] words = returnWordList(command);
-		
+
 		// extract the maori and english words from the selected words
 		String[] englishWords = new String[5];
 		for (int i=0; i<words.length; i++) {
@@ -102,46 +118,49 @@ public class GamesModule extends Controller {
 			words[i] = tempArray[0].trim();
 			englishWords[i] = tempArray[1];
 		}
-		
+
 		// starting word count and score
 		wordCount = 1;
 		score = 0;
-		
+
 		SpellingThread speakWord; 
-				
+
 		for (int i=0; i<words.length; i++) {
 			textField.clear();
-			
+
 			word = words[i]; // maori words
 			englishWord = englishWords[i];
 
 			attempts = 0;
-			
+
 			displayNumLetters(word); // display how many letters are in the word
 			
+			// get the speed of the voice 
+			voiceSpeed = voiceSpeedSlider.getValue();
+
 			// Start a new thread to say the word to spell to user
 			speakWord = new SpellingThread();
 			speakWord.start();
-			
+
 			// start timer
 			startTimer();
-			
+
 			attempts++;
-			
+
 			// create a skip request when don't know is pressed
-			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+			skipWordBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 					skipRequested = true;
 					resume();
 				}
 			});
-			
+
 			// checkSpelling button will check the word and increase the score or ask user to spell again
-			checkSpelling.setOnAction(new EventHandler<ActionEvent>() {
+			checkSpelling.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 				@Override 
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 
 					String wordEntered = textField.getText().trim();
 
@@ -172,7 +191,8 @@ public class GamesModule extends Controller {
 						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
+						voiceSpeed = voiceSpeedSlider.getValue();
+						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
 						secondLetterHint(word);
 						textField.clear();
@@ -182,7 +202,7 @@ public class GamesModule extends Controller {
 					}
 				}
 
-		});
+			});
 
 			// temporarily pause the method and wait for resume to be called
 			pause();
@@ -199,48 +219,50 @@ public class GamesModule extends Controller {
 				continue;
 			}
 			
+			// remove existing hints
+			translationHint.setText("");
+
 		}
-		
-		
-		
+
 		//disables game related buttons and enables start button
 		startGame.setDisable(false);
+		checkSpelling.setDisable(true);
 		repeatWordBtn.setDisable(true);
 		translationBtn.setDisable(true);
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
-		
-		
+
 	}
-	
+
 	/**
 	 * Function allowing user to repeat a word 
 	 */
-	public void wordRepeat(ActionEvent event) {
+	public void wordRepeat(MouseEvent event) {
+		voiceSpeed = voiceSpeedSlider.getValue();
 		RepeatThread repeat = new RepeatThread();
 		repeat.start();
 	}
-	
+
 	/**
 	 * Function to translate word from maori to english
 	 */
-	public void translate(ActionEvent event) {
+	public void translate(MouseEvent event) {
 		translationHint.setText("Hint: the english translation is " + englishWord);
 	}
-	
+
 	/*
 	 * Function allowing the user to enter a macron
 	 */
-	public void insertMacron(ActionEvent event) {
+	public void insertMacron(MouseEvent event) {
 		addMacron(event);
 	}
-	
+
 	/* 
 	 * Help button functionality
 	 */
-	
+
 	boolean helpOpen = false;
-	
+
 	public void selectHelp(MouseEvent event) {
 		if (helpOpen) {
 			helpOpen = false;
@@ -250,7 +272,7 @@ public class GamesModule extends Controller {
 			helpWindow.setVisible(true);
 		}
 	}
-	
+
 	public void enterHelp(MouseEvent event) {
 		helpBtn.setImage(new Image("./help.jpg"));
 		Sound.playSound("./switch.wav");
@@ -259,22 +281,22 @@ public class GamesModule extends Controller {
 	public void exitHelp(MouseEvent event) {
 		helpBtn.setImage(new Image("./helpfade.jpg"));
 	}
-	
+
 	public void rewardScreen(ActionEvent event) throws IOException { 
-			root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-			//RewardScreen rewardScreen = new RewardScreen();
-			//rewardScreen.setScore();
+		root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+		//RewardScreen rewardScreen = new RewardScreen();
+		//rewardScreen.setScore();
 	}
-	
+
 	/**
 	 * Functionality for the timer
 	 */
 	public void setTimer() {
-		
+
 		// add a new timer task for count down timer 
 		timerTask = new TimerTask() {
 
@@ -301,7 +323,7 @@ public class GamesModule extends Controller {
 		};
 		timer.schedule(timerTask, 0, 1200);	
 	}
-	
+
 	/**
 	 * Function creates a new timer
 	 */
@@ -317,11 +339,60 @@ public class GamesModule extends Controller {
 		timer.cancel();
 		totalSeconds = 31;
 	}
-	
-			
-	
 
+
+	public void enterRepeat(MouseEvent event) throws MalformedURLException { 
+		repeatWordBtn.setImage(new Image("./repeat"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitRepeat(MouseEvent event) { 
+		repeatWordBtn.setImage(new Image("./repeatfade"+langExt+".jpg"));
+	}
+
+	public void enterMacron(MouseEvent event) throws MalformedURLException { 
+		macronBtn.setImage(new Image("./macron"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitMacron(MouseEvent event) { 
+		macronBtn.setImage(new Image("./macronfade"+langExt+".jpg"));
+	}
+
+	public void enterTranslate(MouseEvent event) throws MalformedURLException { 
+		translationBtn.setImage(new Image("./translate"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitTranslate(MouseEvent event) { 
+		translationBtn.setImage(new Image("./translatefade"+langExt+".jpg"));
+	}
+
+	public void enterSkip(MouseEvent event) throws MalformedURLException { 
+		skipWordBtn.setImage(new Image("./skip"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitSkip(MouseEvent event) { 
+		skipWordBtn.setImage(new Image("./skipfade"+langExt+".jpg"));
+	}
+
+	public void enterSubmit(MouseEvent event) throws MalformedURLException { 
+		checkSpelling.setImage(new Image("./submit"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitSubmit(MouseEvent event) { 
+		checkSpelling.setImage(new Image("./submitfade"+langExt+".jpg"));
+	}
 	
-		
+	public void enterStart(MouseEvent event) throws MalformedURLException { 
+		startGame.setImage(new Image("./start"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitStart(MouseEvent event) { 
+		startGame.setImage(new Image("./startfade"+langExt+".jpg"));
+	}
 
 }

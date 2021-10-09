@@ -46,9 +46,9 @@ public class Controller implements Initializable{
 	@FXML
 	private TextField textField;
 	@FXML
-	private Button startGame;
+	private ImageView startGame;
 	@FXML
-	private Button checkSpelling;
+	private ImageView checkSpelling;
 	@FXML
 	private ChoiceBox<String> wordpoolSelection;
 	@FXML
@@ -58,17 +58,17 @@ public class Controller implements Initializable{
 	@FXML
 	private Label letterHintLabel;
 	@FXML
-	private Button repeatWordBtn;
+	private ImageView repeatWordBtn;
 	@FXML
-	private Button skipWordBtn;
+	private ImageView skipWordBtn;
 	@FXML
-	private Button translationBtn;
+	private ImageView translationBtn;
 	@FXML
 	private Slider voiceSpeedSlider;
 	@FXML
 	private GridPane hintGrid;
 	@FXML 
-	private Button macronBtn;
+	private ImageView macronBtn;
 	@FXML
 	private Label wordLength;
 	
@@ -111,6 +111,7 @@ public class Controller implements Initializable{
 	 * Function to start a new spelling game 
 	 */
 	public void startSpellingGame(String wordpoolSelected) {
+		startGame.setVisible(false);
 		wordpoolSelection.getItems().addAll(wordpool);
 		wordpoolSelection.setValue(wordpoolSelected);
 		
@@ -173,19 +174,19 @@ public class Controller implements Initializable{
 			attempts++;
 			
 			// create a skip request when don't know is pressed
-			skipWordBtn.setOnAction(new EventHandler<ActionEvent>() {
+			skipWordBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				@Override
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 					skipRequested = true;
 					resume();
 				}
 			});
 
 			// checkSpelling button will check the word and increase the score or ask user to spell again
-			checkSpelling.setOnAction( new EventHandler<ActionEvent>() {
+			checkSpelling.setOnMouseClicked( new EventHandler<MouseEvent>() {
 				
 				@Override 
-				public void handle(ActionEvent e) {
+				public void handle(MouseEvent e) {
 
 					String wordEntered = textField.getText().trim();
 
@@ -353,7 +354,6 @@ public class Controller implements Initializable{
 	 */
 	public void repeatWord(double voiceSpeed, String word) {
 		// voice speed is changed accordingly when word is repeated
-//		voiceSpeed = voiceSpeedSlider.getValue();
 		createSchemeFile(word, voiceSpeed);
 		bashCommand("festival -b " + schemeFile);
 	}
@@ -371,7 +371,7 @@ public class Controller implements Initializable{
 	/*
 	 * Function allowing the user to enter a macron
 	 */
-	public void addMacron(ActionEvent event) {
+	public void addMacron(MouseEvent event) {
 		
 		// get the current word and macronize the last letter
 		String noMacronWord = textField.getText();

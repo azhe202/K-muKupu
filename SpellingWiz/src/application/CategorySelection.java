@@ -61,6 +61,7 @@ public class CategorySelection{
 		prompt.setImage(new Image("./categoryPrompt"+langExt+".jpg"));
 	}
 	
+	
 	/**
 	 * Change to the Games Module when the category is chosen
 	 * @param event
