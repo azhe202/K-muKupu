@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -43,6 +44,10 @@ public class PractiseModule extends Controller {
 	private ImageView speedBtn;
 	@FXML
 	private ImageView arrowBtn;
+	@FXML
+	private Slider voiceSpeedSlider;
+	@FXML
+	private ImageView speedWindow;
 
 	public static int wordCount;
 	public static int score;
@@ -92,7 +97,7 @@ public class PractiseModule extends Controller {
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
 		macronBtn.setDisable(false);
-
+		checkSpelling.setDisable(false);
 		gameInPlay = true;
 
 		while(gameInPlay) {
@@ -207,7 +212,7 @@ public class PractiseModule extends Controller {
 		translationBtn.setDisable(true);
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
-
+		checkSpelling.setDisable(true);
 	}
 	
 	public void translate(MouseEvent event) {
@@ -217,7 +222,7 @@ public class PractiseModule extends Controller {
 	/**
 	 * Function allowing user to repeat a word 
 	 */
-	public void wordRepeat(ActionEvent event) {
+	public void wordRepeat(MouseEvent event) {
 		repeatWord(voiceSpeed, word);
 	}
 	
@@ -319,5 +324,21 @@ public class PractiseModule extends Controller {
 			e.printStackTrace();
 		}
 	}
+	
+	boolean speedOpen = false;
+	
+	public void selectSpeed(MouseEvent event) {
+		if (speedOpen) {
+			speedOpen = false;
+			voiceSpeedSlider.setVisible(false);
+			speedWindow.setVisible(false);
+		} else {
+			speedOpen = true;
+			voiceSpeedSlider.setVisible(true);
+			speedWindow.setVisible(true);
+		}
+	}
+	
+	
 	
 }
