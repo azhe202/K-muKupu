@@ -30,27 +30,27 @@
             <Image url="@../helpfade.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="repeatWordBtn" layoutX="245.0" layoutY="530.0" mnemonicParsing="false" onAction="#wordRepeat" prefHeight="67.0" prefWidth="156.0" text="Repeat">
+      <Button layoutX="245.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Repeat">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="skipWordBtn" layoutX="478.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Don't Know">
+      <Button layoutX="478.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Don't Know">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="translationBtn" layoutX="731.0" layoutY="530.0" mnemonicParsing="false" onAction="#translate" prefHeight="67.0" prefWidth="156.0" text="Translation">
+      <Button layoutX="731.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Translation">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="macronBtn" layoutX="971.0" layoutY="524.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="67.0" prefWidth="156.0" text="Add Macron">
+      <Button layoutX="971.0" layoutY="524.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Add Macron">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="startGame" layoutX="29.0" layoutY="132.0" mnemonicParsing="false" onAction="#startPractiseGame" prefHeight="67.0" prefWidth="156.0" text="Start Game">
+      <Button layoutX="29.0" layoutY="132.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Start Game">
          <font>
             <Font size="20.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font size="25.0" />
          </font>
       </TextField>
-      <Button fx:id="checkSpelling" layoutX="853.0" layoutY="401.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="188.0" text="Check Spelling">
+      <Button layoutX="853.0" layoutY="401.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="188.0" text="Check Spelling">
          <font>
             <Font size="20.0" />
          </font>
