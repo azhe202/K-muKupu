@@ -62,6 +62,8 @@ public class GamesModule extends Controller {
 	private ImageView speedWindow;
 	@FXML
 	public ImageView arrowBtn;
+	@FXML
+	private ImageView star;
 
 
 	private Stage stage;
@@ -69,7 +71,7 @@ public class GamesModule extends Controller {
 	private Parent root;
 
 	public static int wordCount;
-	public static int score;
+	public static float score;
 	private int totalSeconds = 31;
 	private int secondsPassed;
 	public static ArrayList<String> wordsForSummary = new ArrayList<>();
@@ -80,6 +82,7 @@ public class GamesModule extends Controller {
 	private Boolean skipRequested = false;
 	String langExt = SceneController.langExt;
 	TranslateTransition translate = new TranslateTransition();
+	TranslateTransition translateStar = new TranslateTransition();
 	Timer timer = new Timer();
 	TimerTask timerTask;
 
@@ -96,13 +99,20 @@ public class GamesModule extends Controller {
 	/**
 	 * Function to start the game
 	 * @throws IOException 
+	 * @throws InterruptedException 
 	 */
-	public void startSpellingGame(MouseEvent event) throws IOException {
+	public void startSpellingGame(MouseEvent event) throws IOException, InterruptedException {
 		startGame.setVisible(false);
 		wordsForSummary.clear();
 		translate.setNode(frog);
 		translate.setDuration(Duration.millis(1000));
 		translate.setByX(126);
+		
+		translateStar.setNode(star);
+		translateStar.setDuration(Duration.millis(1000));
+		translateStar.setByY(-170);
+		translateStar.setAutoReverse(true);
+		translateStar.setCycleCount(2);
 
 		//disables game related buttons and enables submit button
 		startGame.setDisable(true);
@@ -178,7 +188,15 @@ public class GamesModule extends Controller {
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						wordsForSummary.add(word + "#Correct");
 						pauseTimer(); 
-						score++;
+						if (timeLabel.getText().equals("Time's Up")) {
+							score+= 0.5;
+							star.setImage(new Image("./halfStar.png"));
+							translateStar.play();
+						} else {
+							score++;
+							star.setImage(new Image("./filledStar.png"));
+							translateStar.play();
+						}
 						translate.play();
 						textField.clear();
 						wordCount++;
@@ -187,7 +205,15 @@ public class GamesModule extends Controller {
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						wordsForSummary.add(word + "#Correct");
 						pauseTimer();
-						score++;
+						if (timeLabel.getText().equals("Time's Up")) {
+							score+= 0.5;
+							star.setImage(new Image("./halfStar.png"));
+							translateStar.play();
+						} else {
+							score++;
+							star.setImage(new Image("./star.png"));
+							translateStar.play();
+						}
 						translate.play();
 						textField.clear();
 						wordCount++;

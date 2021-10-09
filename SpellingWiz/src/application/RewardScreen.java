@@ -42,16 +42,27 @@ public class RewardScreen implements Initializable{
 
 	public void start() {
 		messageLabel.setImage(new Image("./horribleMessage" + langExt + ".png"));
-		if (GamesModule.score>=1) {
+		
+		if (GamesModule.score>=0.5) {
+			star1.setImage(new Image("./halfStar.png"));
+		} if (GamesModule.score>=1) {
 			star1.setImage(new Image("./filledStar.png"));
+		}if (GamesModule.score>=1.5) {
+			star2.setImage(new Image("./halfStar.png"));
 		} if (GamesModule.score>=2) {
 			star2.setImage(new Image("./filledStar.png"));
+		}if (GamesModule.score>=2.5) {
+			star3.setImage(new Image("./halfStar.png"));
 		} if (GamesModule.score>=3) {
 			messageLabel.setImage(new Image("./badMessage" + langExt + ".png"));
 			star3.setImage(new Image("./filledStar.png"));
+		}if (GamesModule.score>=3.5) {
+			star4.setImage(new Image("./halfStar.png"));
 		} if (GamesModule.score>=4) {
 			messageLabel.setImage(new Image("./decentMessage" + langExt + ".png"));
 			star4.setImage(new Image("./filledStar.png"));
+		}if (GamesModule.score>=4.5) {
+			star5.setImage(new Image("./halfStar.png"));
 		} if (GamesModule.score==5) {
 			messageLabel.setImage(new Image("./goodMessage" + langExt + ".png"));
 			star5.setImage(new Image("./filledStar.png"));
