@@ -95,8 +95,9 @@ public class GamesModule extends Controller {
 
 	/**
 	 * Function to start the game
+	 * @throws IOException 
 	 */
-	public void startSpellingGame() {
+	public void startSpellingGame(MouseEvent event) throws IOException {
 		startGame.setVisible(false);
 		wordsForSummary.clear();
 		translate.setNode(frog);
@@ -240,6 +241,12 @@ public class GamesModule extends Controller {
 		translationBtn.setDisable(true);
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
+		
+		root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 
 	}
 
@@ -305,15 +312,6 @@ public class GamesModule extends Controller {
 		helpBtn.setImage(new Image("./helpfade.jpg"));
 	}
 
-	public void rewardScreen(ActionEvent event) throws IOException { 
-		root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
-		//RewardScreen rewardScreen = new RewardScreen();
-		//rewardScreen.setScore();
-	}
 
 	/**
 	 * Functionality for the timer
