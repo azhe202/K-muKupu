@@ -52,7 +52,7 @@ public class RewardScreen implements Initializable{
 			messageLabel.setText("Great job! You should try \nanother word list now.");
 			star4.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score==5) {
-			messageLabel.setText("Awesome! Try another word list\n and see if you can get \nfull marks in that too!");
+			messageLabel.setText("Awesome! Try another word list \nand see if you can get \nfull marks in that too!");
 			star5.setImage(new Image("./filledStar.png"));
 		}
 	}

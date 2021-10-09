@@ -101,7 +101,7 @@ public class GamesModule extends Controller {
 		wordsForSummary.clear();
 		translate.setNode(frog);
 		translate.setDuration(Duration.millis(1000));
-		translate.setByX(80);
+		translate.setByX(126);
 
 		//disables game related buttons and enables submit button
 		startGame.setDisable(true);

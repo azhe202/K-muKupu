@@ -30,11 +30,11 @@
          <font>
             <Font size="30.0" />
          </font></Label>
-      <ImageView fx:id="stones" fitHeight="107.0" fitWidth="749.0" layoutX="282.0" layoutY="760.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="stones" fitHeight="122.0" fitWidth="762.0" layoutX="237.0" layoutY="742.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../stones.png" />
+            <Image url="@../lillypads.png" />
          </image></ImageView>
-      <ImageView fx:id="frog" fitHeight="79.0" fitWidth="133.0" layoutX="295.0" layoutY="750.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="frog" fitHeight="79.0" fitWidth="133.0" layoutX="252.0" layoutY="723.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../frog.png" />
          </image>
