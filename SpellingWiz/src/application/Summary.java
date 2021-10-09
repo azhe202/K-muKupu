@@ -61,15 +61,15 @@ public class Summary implements Initializable{
 	}
 	
 	public void startNewQuiz(MouseEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("CategorySelection.fxml"));
+		root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
 	}
 	
-	public void goHome(MouseEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+	public void goBack(MouseEvent event) throws IOException {
+		root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
