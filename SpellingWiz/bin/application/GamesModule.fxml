@@ -70,21 +70,31 @@
             <Image url="@../submitfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="972.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
-         <image>
-            <Image url="@../helpwindow.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1240.0" layoutY="21.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../helpfade.jpg" />
-         </image>
-      </ImageView>
       <ImageView fx:id="startGame" fitHeight="170.0" fitWidth="826.0" layoutX="341.0" layoutY="53.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../startfade.jpg" />
          </image>
       </ImageView>
-      <Slider fx:id="voiceSpeedSlider" blockIncrement="0.1" layoutX="469.0" layoutY="662.0" majorTickUnit="1.0" max="3.0" minorTickCount="10" prefHeight="40.0" prefWidth="413.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" />
+      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="974.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../helpwindow.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1242.0" layoutY="129.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../helpfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="speedWindow" fitHeight="262.0" fitWidth="826.0" layoutX="513.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../speedWindow.jpg" />
+         </image>
+      </ImageView>
+      <Slider fx:id="voiceSpeedSlider" blockIncrement="0.1" layoutX="618.0" layoutY="14.0" majorTickUnit="1.0" max="3.0" minorTickCount="10" prefHeight="103.0" prefWidth="471.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
+      <ImageView fx:id="speedBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1240.0" layoutY="20.0" onMouseClicked="#selectSpeed" onMouseEntered="#enterSpeed" onMouseExited="#exitSpeed" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../speedfade.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -55,6 +56,10 @@ public class GamesModule extends Controller {
 	private Label timeLabel;
 	@FXML
 	private Slider voiceSpeedSlider;
+	@FXML
+	private ImageView speedBtn;
+	@FXML
+	private ImageView speedWindow;
 
 
 	private Stage stage;
@@ -272,6 +277,20 @@ public class GamesModule extends Controller {
 			helpWindow.setVisible(true);
 		}
 	}
+	
+	boolean speedOpen = false;
+	
+	public void selectSpeed(MouseEvent event) {
+		if (speedOpen) {
+			speedOpen = false;
+			voiceSpeedSlider.setVisible(false);
+			speedWindow.setVisible(false);
+		} else {
+			speedOpen = true;
+			voiceSpeedSlider.setVisible(true);
+			speedWindow.setVisible(true);
+		}
+	}
 
 	public void enterHelp(MouseEvent event) {
 		helpBtn.setImage(new Image("./help.jpg"));
@@ -393,6 +412,15 @@ public class GamesModule extends Controller {
 
 	public void exitStart(MouseEvent event) { 
 		startGame.setImage(new Image("./startfade"+langExt+".jpg"));
+	}
+	
+	public void enterSpeed(MouseEvent event) throws MalformedURLException { 
+		speedBtn.setImage(new Image("./speed"+langExt+".jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitSpeed(MouseEvent event) { 
+		speedBtn.setImage(new Image("./speedfade"+langExt+".jpg"));
 	}
 
 }
