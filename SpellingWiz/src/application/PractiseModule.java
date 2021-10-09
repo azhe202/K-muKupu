@@ -1,6 +1,9 @@
 package application;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -10,7 +13,22 @@ public class PractiseModule {
 	private ImageView helpBtn;
 	@FXML
 	private ImageView helpWindow;
-	
+	@FXML
+	private Button startGame;
+	@FXML
+	private Button repeatWordBtn;
+	@FXML
+	private Button skipWordBtn;
+	@FXML
+	private Button translationBtn;
+	@FXML 
+	private Button macronBtn;
+	@FXML
+	private TextField textField;
+	@FXML
+	private Button checkSpelling;
+	@FXML
+	private Label translationHint;
 	
 	
 	boolean helpOpen = false;

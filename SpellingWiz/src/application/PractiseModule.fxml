@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,7 +15,7 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="478.0" layoutY="137.0" text="Practise Module">
+      <Label layoutX="478.0" layoutY="137.0">
          <font>
             <Font name="System Bold" size="51.0" />
          </font>
@@ -28,5 +30,45 @@
             <Image url="@../helpfade.jpg" />
          </image>
       </ImageView>
+      <Button fx:id="repeatWordBtn" layoutX="245.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Repeat">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="skipWordBtn" layoutX="478.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Don't Know">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="translationBtn" layoutX="731.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Translation">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="macronBtn" layoutX="971.0" layoutY="524.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Add Macron">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="startGame" layoutX="29.0" layoutY="132.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Start Game">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="translationHint" layoutX="663.0" layoutY="246.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="textField" layoutX="250.0" layoutY="393.0" prefHeight="82.0" prefWidth="538.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </TextField>
+      <Button fx:id="checkSpelling" layoutX="853.0" layoutY="401.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="188.0" text="Check Spelling">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
