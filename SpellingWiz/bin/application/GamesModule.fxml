@@ -53,7 +53,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <ImageView fx:id="repeatBtn" fitHeight="79.0" fitWidth="292.0" layoutX="78.0" layoutY="521.0" onMouseClicked="#wordRepeat" onMouseEntered="#enterRepeat" onMouseExited="#exitRepeat" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="repeatWordBtn" fitHeight="79.0" fitWidth="292.0" layoutX="78.0" layoutY="521.0" onMouseClicked="#wordRepeat" onMouseEntered="#enterRepeat" onMouseExited="#exitRepeat" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../repeatfade.jpg" />
          </image>

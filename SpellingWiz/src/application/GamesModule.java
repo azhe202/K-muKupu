@@ -73,6 +73,14 @@ public class GamesModule extends Controller {
 	Timer timer = new Timer();
 	TimerTask timerTask;
 	
+	public void setUpLang(MouseEvent event) throws MalformedURLException {
+		// call functions to set up the correct labels
+		exitRepeat(event);
+		exitTranslate(event);
+		exitMacron(event);
+		exitSkip(event);
+	}
+	
 	/**
 	 * Function to start the game
 	 */
