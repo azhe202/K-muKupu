@@ -7,7 +7,7 @@ public class RepeatThread extends Thread {
 		double voiceSpeed = GamesModule.voiceSpeed;
 		String word = GamesModule.word;
 		
-		repeat.repeatWord(1, word);
+		repeat.repeatWord(voiceSpeed, word);
 	}
 }
 

@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -52,6 +53,8 @@ public class GamesModule extends Controller {
 	private ImageView helpWindow;
 	@FXML
 	private Label timeLabel;
+	@FXML
+	private Slider voiceSpeedSlider;
 
 
 	private Stage stage;
@@ -131,6 +134,9 @@ public class GamesModule extends Controller {
 			attempts = 0;
 
 			displayNumLetters(word); // display how many letters are in the word
+			
+			// get the speed of the voice 
+			voiceSpeed = voiceSpeedSlider.getValue();
 
 			// Start a new thread to say the word to spell to user
 			speakWord = new SpellingThread();
@@ -185,7 +191,8 @@ public class GamesModule extends Controller {
 						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
+						voiceSpeed = voiceSpeedSlider.getValue();
+						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
 						secondLetterHint(word);
 						textField.clear();
@@ -231,6 +238,7 @@ public class GamesModule extends Controller {
 	 * Function allowing user to repeat a word 
 	 */
 	public void wordRepeat(MouseEvent event) {
+		voiceSpeed = voiceSpeedSlider.getValue();
 		RepeatThread repeat = new RepeatThread();
 		repeat.start();
 	}

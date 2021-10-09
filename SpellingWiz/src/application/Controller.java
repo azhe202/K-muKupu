@@ -354,7 +354,6 @@ public class Controller implements Initializable{
 	 */
 	public void repeatWord(double voiceSpeed, String word) {
 		// voice speed is changed accordingly when word is repeated
-//		voiceSpeed = voiceSpeedSlider.getValue();
 		createSchemeFile(word, voiceSpeed);
 		bashCommand("festival -b " + schemeFile);
 	}
