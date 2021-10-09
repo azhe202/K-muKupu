@@ -116,7 +116,8 @@ public class PractiseModule extends Controller {
 			displayNumLetters(word); // display how many letters are in the word
 
 			// Start a new thread to say the word to spell to user
-			spellingQuestion(word, wordCount, attempts, 1, voiceSpeed);
+			PractiseThread practiseThread = new PractiseThread();
+			practiseThread.start();
 
 			attempts++;
 
@@ -189,5 +190,26 @@ public class PractiseModule extends Controller {
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
 
+	}
+	
+	/**
+	 * Function allowing user to repeat a word 
+	 */
+	public void wordRepeat(ActionEvent event) {
+		repeatWord(voiceSpeed, word);
+	}
+	
+	/**
+	 * Function to translate word from maori to english
+	 */
+	public void translate(ActionEvent event) {
+		translationHint.setText("Hint: the english translation is " + englishWord);
+	}
+	
+	/*
+	 * Function allowing the user to enter a macron
+	 */
+	public void insertMacron(ActionEvent event) {
+		addMacron(event);
 	}
 }

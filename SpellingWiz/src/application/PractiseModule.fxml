@@ -30,7 +30,7 @@
             <Image url="@../helpfade.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="repeatWordBtn" layoutX="245.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Repeat">
+      <Button fx:id="repeatWordBtn" layoutX="245.0" layoutY="530.0" mnemonicParsing="false" onAction="#wordRepeat" prefHeight="67.0" prefWidth="156.0" text="Repeat">
          <font>
             <Font size="20.0" />
          </font>
@@ -40,12 +40,12 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="translationBtn" layoutX="731.0" layoutY="530.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Translation">
+      <Button fx:id="translationBtn" layoutX="731.0" layoutY="530.0" mnemonicParsing="false" onAction="#translate" prefHeight="67.0" prefWidth="156.0" text="Translation">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="macronBtn" layoutX="971.0" layoutY="524.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="156.0" text="Add Macron">
+      <Button fx:id="macronBtn" layoutX="971.0" layoutY="524.0" mnemonicParsing="false" onAction="#insertMacron" prefHeight="67.0" prefWidth="156.0" text="Add Macron">
          <font>
             <Font size="20.0" />
          </font>
