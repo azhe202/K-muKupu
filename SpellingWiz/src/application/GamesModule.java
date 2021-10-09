@@ -60,6 +60,8 @@ public class GamesModule extends Controller {
 	private ImageView speedBtn;
 	@FXML
 	private ImageView speedWindow;
+	@FXML
+	public ImageView arrowBtn;
 
 
 	private Stage stage;
@@ -421,6 +423,31 @@ public class GamesModule extends Controller {
 
 	public void exitSpeed(MouseEvent event) { 
 		speedBtn.setImage(new Image("./speedfade"+langExt+".jpg"));
+	}
+	
+	public void enterArrow(MouseEvent event) throws MalformedURLException { 
+		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
+		Sound.playSound("./switch.wav");
+	}
+
+	public void exitArrow(MouseEvent event) { 
+		arrowBtn.setImage(new Image("./arrow.jpg"));
+	}
+	
+	public void back(MouseEvent event) { 
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			root = loader.load();
+			scene = new Scene(root);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
