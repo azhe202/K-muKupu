@@ -180,7 +180,6 @@ public class PractiseModule extends Controller {
 						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						displayCorrectLetters(word, wordEntered);
 						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
 	
@@ -215,30 +214,6 @@ public class PractiseModule extends Controller {
 		macronBtn.setDisable(true);
 		checkSpelling.setDisable(true);
 	}
-	
-	public void displayCorrectLetters(String word, String spelling) { 
-		String textToDisplay = "";
-		int diff = 0;
-
-		diff = word.length() - spelling.length();
-		if (diff < 0) {
-			diff = 0;
-		}
-
-		for (int i = 0; i < word.length() - diff; i++) {
-			if (word.charAt(i) == spelling.charAt(i)) {
-				textToDisplay = (textToDisplay + word.charAt(i) + " "); 
-			} else {
-				textToDisplay = (textToDisplay + "_ "); 
-			}
-		}
-
-		for (int i = 0; i < diff; i++) {
-			textToDisplay = (textToDisplay + "_ "); 
-		}
-		super.wordLength.setText(textToDisplay);
-	}
-
 	
 	public void translate(MouseEvent event) {
 		translationHint.setText("Hint: the english translation is " + englishWord);

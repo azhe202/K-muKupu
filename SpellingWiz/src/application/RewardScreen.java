@@ -33,23 +33,27 @@ public class RewardScreen implements Initializable{
 	private ImageView messageLabel;
 	@FXML
 	private ImageView nextPage;
+	
+	String langExt = SceneController.langExt;
 
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 
 	public void start() {
+		messageLabel.setImage(new Image("./horribleMessage" + langExt + ".png"));
 		if (GamesModule.score>=1) {
 			star1.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score>=2) {
 			star2.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score>=3) {
+			messageLabel.setImage(new Image("./badMessage" + langExt + ".png"));
 			star3.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score>=4) {
-			messageLabel.setImage(new Image("./goodMessage.png"));
+			messageLabel.setImage(new Image("./decentMessage" + langExt + ".png"));
 			star4.setImage(new Image("./filledStar.png"));
 		} if (GamesModule.score==5) {
-			messageLabel.setImage(new Image("./greatMessage.png"));
+			messageLabel.setImage(new Image("./goodMessage" + langExt + ".png"));
 			star5.setImage(new Image("./filledStar.png"));
 		}
 	}
