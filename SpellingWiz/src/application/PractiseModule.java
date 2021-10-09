@@ -43,16 +43,16 @@ public class PractiseModule extends Controller {
 	@FXML
 	private ImageView speedBtn;
 	@FXML
-	private ImageView arrowBtn;
+	private ImageView speedWindow;
 	@FXML
 	private Slider voiceSpeedSlider;
 	@FXML
-	private ImageView speedWindow;
-
+	private ImageView arrowBtn;
+	
 	public static int wordCount;
 	public static int score;
 	private int attempts;
-	public static double voiceSpeed = 1;
+	public static double voiceSpeed;
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
@@ -119,14 +119,13 @@ public class PractiseModule extends Controller {
 
 
 			// extract the maori and english words from the selected words
-
 			String temp = wordListWord;
 			String tempArray[] = temp.split("#");
 			word = tempArray[0].trim();
 			englishWord = tempArray[1];
 		
 			
-			System.out.println(word + englishWord);
+			System.out.println(word + " " + englishWord);
 
 			// starting word count and score
 			wordCount = 1;
@@ -138,6 +137,9 @@ public class PractiseModule extends Controller {
 
 			displayNumLetters(word); // display how many letters are in the word
 
+			// get the speed of the voice 
+			voiceSpeed = voiceSpeedSlider.getValue();
+			
 			// Start a new thread to say the word to spell to user
 			PractiseThread practiseThread = new PractiseThread();
 			practiseThread.start();
@@ -180,7 +182,8 @@ public class PractiseModule extends Controller {
 						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						spellingQuestion(word, 0, 1, 5, 1); // call the function again to ask user to spell word again 
+						voiceSpeed = voiceSpeedSlider.getValue();
+						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
 	
 						textField.clear();
@@ -223,6 +226,7 @@ public class PractiseModule extends Controller {
 	 * Function allowing user to repeat a word 
 	 */
 	public void wordRepeat(MouseEvent event) {
+		voiceSpeed = voiceSpeedSlider.getValue();
 		repeatWord(voiceSpeed, word);
 	}
 	
