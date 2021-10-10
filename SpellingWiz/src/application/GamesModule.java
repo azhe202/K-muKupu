@@ -230,6 +230,7 @@ public class GamesModule extends Controller {
 						Sound.playSound("./incorrectSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
+						voiceSpeed = voiceSpeedSlider.getValue();
 						SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
 						repeat.start(); // call the function again to ask user to spell word again 
 						// display to the user the appropriate hint
@@ -237,7 +238,7 @@ public class GamesModule extends Controller {
 						textField.clear();
 						attempts++;
 						Sound.playSound("./incorrectSound.mp3");
-
+						
 					}
 				}
 
