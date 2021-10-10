@@ -101,6 +101,7 @@ public class PractiseModule extends Controller {
 		helpBtn.setImage(new Image("./helpfade.jpg"));
 	}
 
+
 	/**
 	 * Function to start the practice game
 	 */
@@ -354,6 +355,11 @@ public class PractiseModule extends Controller {
 
 	public void exitArrow(MouseEvent event) { 
 		arrowBtn.setImage(new Image("./arrow.jpg"));
+	}
+	
+	public void exitWindow(MouseEvent event) {
+		helpOpen = false;
+		helpWindow.setVisible(false);
 	}
 	
 	public void back(MouseEvent event) { 

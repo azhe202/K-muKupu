@@ -59,7 +59,7 @@
             <Image url="@../submitfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="974.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="helpWindow" fitHeight="612.0" fitWidth="545.0" layoutX="819.0" layoutY="123.0" onMouseExited="#exitWindow" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../helpwindow.jpg" />
          </image>

@@ -73,7 +73,7 @@
             <Image url="@../startfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="helpWindow" fitHeight="546.0" fitWidth="365.0" layoutX="974.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="helpWindow" fitHeight="612.0" fitWidth="545.0" layoutX="819.0" layoutY="123.0" onMouseExited="#exitWindow" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../helpwindow.jpg" />
          </image>
@@ -88,7 +88,7 @@
             <Image url="@../speedWindow.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="47.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="47.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../timer.png" />
          </image>

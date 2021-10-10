@@ -464,6 +464,11 @@ public class GamesModule extends Controller {
 		arrowBtn.setImage(new Image("./arrow.jpg"));
 	}
 	
+	public void exitWindow(MouseEvent event) {
+		helpOpen = false;
+		helpWindow.setVisible(false);
+	}
+	
 	public void back(MouseEvent event) { 
 		try {
 			FXMLLoader loader = new FXMLLoader();
