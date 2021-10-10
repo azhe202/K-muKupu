@@ -38,7 +38,7 @@
             <Image url="@../frog.png" />
          </image>
       </ImageView>
-      <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="210.0" prefHeight="20.0" prefWidth="90.0" text="Time">
+      <Label fx:id="timeLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="43.0" layoutY="210.0" prefHeight="20.0" prefWidth="90.0">
          <font>
             <Font size="40.0" />
          </font>
@@ -109,5 +109,9 @@
             <Image url="@../filledStar.png" />
          </image>
       </ImageView>
+      <Label fx:id="noMoreTimeLabel" layoutX="20.0" layoutY="210.0" prefHeight="46.0" prefWidth="310.0">
+         <font>
+            <Font size="30.0" />
+         </font></Label>
    </children>
 </AnchorPane>
