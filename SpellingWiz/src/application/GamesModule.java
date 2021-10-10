@@ -210,7 +210,7 @@ public class GamesModule extends Controller {
 							translateStar.play();
 						} else {
 							score++;
-							star.setImage(new Image("./star.png"));
+							star.setImage(new Image("./filledStar.png"));
 							translateStar.play();
 						}
 						translate.play();
