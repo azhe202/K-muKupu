@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Summary">
@@ -13,6 +14,7 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="567.0" layoutX="114.0" layoutY="204.0" opacity="0.65" stroke="WHITE" strokeType="INSIDE" width="1168.0" />
       <Label fx:id="speltWordsLabel" layoutX="238.0" layoutY="208.0" prefHeight="557.0" prefWidth="1035.0">
          <font>
             <Font size="98.0" />
@@ -53,7 +55,7 @@
             <Image url="@../arrow.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="145.0" fitWidth="411.0" layoutX="525.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="resultsBanner" fitHeight="145.0" fitWidth="411.0" layoutX="525.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Results.png" />
          </image></ImageView>

@@ -41,9 +41,15 @@ public class Summary implements Initializable{
 	private ImageView newQuizBut;
 	@FXML
 	private ImageView goBackBut;
+	@FXML
+	private ImageView resultsBanner;
 	
+	String langExt = SceneController.langExt;
 	
 	private void start() {
+		
+		resultsBanner.setImage(new Image("./Results" + langExt + ".png"));
+		
 		int i = 1;
 		for (String word : GamesModule.wordsForSummary) {
 			String[] words = word.split("#");
