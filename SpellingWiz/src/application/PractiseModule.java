@@ -129,17 +129,12 @@ public class PractiseModule extends Controller {
 			// give a random word from the word list 
 			String command = "sort -u words/" + wordList + " | shuf -n 1";
 			String wordListWord = returnWord(command);
-			System.out.println(wordListWord);
-
 
 			// extract the maori and english words from the selected words
 			String temp = wordListWord;
 			String tempArray[] = temp.split("#");
 			word = tempArray[0].trim();
 			englishWord = tempArray[1];
-		
-			
-			System.out.println(word + " " + englishWord);
 
 			// starting word count and score
 			wordCount = 1;
@@ -233,6 +228,9 @@ public class PractiseModule extends Controller {
 				dialog.getDialogPane().getButtonTypes().add(type);
 				dialog.showAndWait();
 			}
+			
+			// remove the translation hint 
+			translationHint.setText("");
 		}
 
 		//disables game related buttons and enables start button

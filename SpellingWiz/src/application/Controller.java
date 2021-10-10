@@ -330,6 +330,9 @@ public class Controller implements Initializable{
 		//open a scheme file and write to it 
 		BufferedWriter scheme = null;
 		try {
+			if (word.contains("-")) {
+				word = word.replaceAll("-", " ");
+			}
 			scheme = new BufferedWriter(new FileWriter(schemeFile));
 			scheme.write("(voice_akl_mi_pk06_cg)"); // set up Māori voice
 			scheme.write("(Parameter.set 'Duration_Stretch " + speed + ")");
