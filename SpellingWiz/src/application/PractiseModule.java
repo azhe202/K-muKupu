@@ -11,6 +11,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar.ButtonData;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
@@ -56,6 +59,7 @@ public class PractiseModule extends Controller {
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
+	private Boolean answerNeeded = false;
 	private String wordList;
 	private String[] wordPoolFileNames = {"animals", "colours", "compassPoints", "daysOfTheWeek", "daysOfTheWeekLoanWords", 
 			"feelings", "food", "monthsOfTheYear", "monthsOfTheYearLoanWords"};
@@ -190,6 +194,7 @@ public class PractiseModule extends Controller {
 						textField.clear();
 						wordCount++;
 						Sound.playSound("./incorrectSound.mp3");
+						answerNeeded = true;
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						displayCorrectLetters(word, wordEntered);
@@ -218,6 +223,16 @@ public class PractiseModule extends Controller {
 				continue;
 			}
 
+			// display the correct answer to the user
+			if(answerNeeded) {
+				answerNeeded = false;
+				Dialog<String> dialog = new Dialog<String>();
+				dialog.setTitle("Answer");
+				ButtonType type = new ButtonType("Next Question", ButtonData.OK_DONE);
+				dialog.setContentText("The correct spelling is... " + word);
+				dialog.getDialogPane().getButtonTypes().add(type);
+				dialog.showAndWait();
+			}
 		}
 
 		//disables game related buttons and enables start button
