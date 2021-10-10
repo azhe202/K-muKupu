@@ -341,12 +341,12 @@ public class PractiseModule extends Controller {
 	}
 	
 	public void enterSpeed(MouseEvent event) throws MalformedURLException { 
-		speedBtn.setImage(new Image("./speed"+langExt+".jpg"));
+		speedBtn.setImage(new Image("./speed.jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitSpeed(MouseEvent event) { 
-		speedBtn.setImage(new Image("./speedfade"+langExt+".jpg"));
+		speedBtn.setImage(new Image("./speedfade.jpg"));
 	}
 	
 	public void enterArrow(MouseEvent event) throws MalformedURLException { 
