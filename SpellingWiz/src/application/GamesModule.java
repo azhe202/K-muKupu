@@ -55,6 +55,8 @@ public class GamesModule extends Controller {
 	@FXML
 	private Label timeLabel;
 	@FXML
+	private Label noMoreTimeLabel;
+	@FXML
 	private Slider voiceSpeedSlider;
 	@FXML
 	private ImageView speedBtn;
@@ -147,6 +149,7 @@ public class GamesModule extends Controller {
 
 		for (int i=0; i<words.length; i++) {
 			textField.clear();
+			noMoreTimeLabel.setText("");
 
 			word = words[i]; // maori words
 			englishWord = englishWords[i];
@@ -188,7 +191,7 @@ public class GamesModule extends Controller {
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						wordsForSummary.add(word + "#Correct");
 						pauseTimer(); 
-						if (timeLabel.getText().equals("Time's Up")) {
+						if (noMoreTimeLabel.getText().equals("Time's Up") || noMoreTimeLabel.getText().equals("Kaore o wa i toe")) {
 							score+= 0.5;
 							star.setImage(new Image("./halfStar.png"));
 							translateStar.play();
@@ -205,7 +208,7 @@ public class GamesModule extends Controller {
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						wordsForSummary.add(word + "#Correct");
 						pauseTimer();
-						if (timeLabel.getText().equals("Time's Up")) {
+						if (noMoreTimeLabel.getText().equals("Time's Up") || noMoreTimeLabel.getText().equals("Kaore o wa i toe")) {
 							score+= 0.5;
 							star.setImage(new Image("./halfStar.png"));
 							translateStar.play();
@@ -361,7 +364,12 @@ public class GamesModule extends Controller {
 					@Override
 					public void run() {
 						if(totalSeconds == 0) {
-							timeLabel.setText("Time's Up");
+							timeLabel.setText("");
+							if(SceneController.langExt == "m") {
+								noMoreTimeLabel.setText("Kaore o wa i toe");
+							} else {
+								noMoreTimeLabel.setText("Time's Up");
+							}
 							totalSeconds = 31;
 							timer.cancel();
 						} else {
