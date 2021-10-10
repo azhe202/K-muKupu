@@ -251,7 +251,9 @@ public class PractiseModule extends Controller {
 		}
 
 		for (int i = 0; i < word.length() - diff; i++) {
-			if (word.charAt(i) == spelling.charAt(i)) {
+			String wordChar = String.valueOf(word.charAt(i));
+			String spellingChar = String.valueOf(spelling.charAt(i));
+			if (wordChar.toLowerCase().equals(spellingChar.toLowerCase())) {
 				textToDisplay = (textToDisplay + word.charAt(i) + " "); 
 			} else {
 				textToDisplay = (textToDisplay + "_ "); 
