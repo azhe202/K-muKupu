@@ -18,6 +18,7 @@ public class PractiseSelection {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	String langExt = SceneController.langExt;
 
 	@FXML
 	private ImageView randomBtn;
@@ -25,12 +26,15 @@ public class PractiseSelection {
 	private ImageView selectBtn;
 	@FXML
 	private ImageView arrowBtn;
+	@FXML
+	private ImageView practisePrompt;
 	
 	public static boolean randomSelected = false;
 	
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
-		//to be added to when translation buttons made
-		
+		exitRandom(event);
+		exitSelect(event);
+		practisePrompt.setImage(new Image("./practisePrompt"+langExt+".jpg"));
 	}
 
 	public void chooseRandom(MouseEvent event) {
@@ -90,21 +94,21 @@ public class PractiseSelection {
 
 	//random
 	public void enterRandom(MouseEvent event) throws MalformedURLException { 
-		randomBtn.setImage(new Image("./randomise.jpg"));
+		randomBtn.setImage(new Image("./randomise"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitRandom(MouseEvent event) { 
-		randomBtn.setImage(new Image("./randomisefade.jpg"));
+		randomBtn.setImage(new Image("./randomisefade"+langExt+".jpg"));
 	}
 	//select
 	public void enterSelect(MouseEvent event) throws MalformedURLException { 
-		selectBtn.setImage(new Image("./select.jpg"));
+		selectBtn.setImage(new Image("./select"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitSelect(MouseEvent event) { 
-		selectBtn.setImage(new Image("./selectfade.jpg"));
+		selectBtn.setImage(new Image("./selectfade"+langExt+".jpg"));
 	}
 
 	//arrow

@@ -11,9 +11,9 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="89.0" fitWidth="1264.0" layoutX="50.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="practisePrompt" fitHeight="313.0" fitWidth="852.0" layoutX="249.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../practisePrompt.jpeg" />
+            <Image url="@../practisePrompt.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="arrowBtn" fitHeight="111.0" fitWidth="146.0" layoutX="11.0" layoutY="12.0" onMouseClicked="#backToMenu" onMouseEntered="#enterArrow" onMouseExited="#exitArrow" pickOnBounds="true" preserveRatio="true" rotate="180.0">
