@@ -8,21 +8,18 @@ import java.util.TimerTask;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -75,7 +72,6 @@ public class GamesModule extends Controller {
 	public static int wordCount;
 	public static float score;
 	private int totalSeconds = 31;
-	private int secondsPassed;
 	public static ArrayList<String> wordsForSummary = new ArrayList<>();
 	private int attempts;
 	public static double voiceSpeed;
@@ -236,8 +232,6 @@ public class GamesModule extends Controller {
 						voiceSpeed = voiceSpeedSlider.getValue();
 						SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
 						repeat.start(); // call the function again to ask user to spell word again 
-						// display to the user the appropriate hint
-						secondLetterHint(word);
 						textField.clear();
 						attempts++;
 						Sound.playSound("./incorrectSound.mp3");
@@ -357,7 +351,6 @@ public class GamesModule extends Controller {
 			@Override
 			public void run() {
 				totalSeconds--;
-				secondsPassed++;
 
 				Platform.runLater(new Runnable() {
 

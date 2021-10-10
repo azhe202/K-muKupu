@@ -13,23 +13,15 @@ import java.util.ResourceBundle;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -42,50 +34,15 @@ import javafx.scene.Node;
 public class Controller implements Initializable{
 
 	@FXML
-	private Label prompt;
-	@FXML
 	private TextField textField;
 	@FXML
-	private ImageView startGame;
-	@FXML
-	private ImageView checkSpelling;
-	@FXML
-	private ChoiceBox<String> wordpoolSelection;
-	@FXML
-	private Label hintLabel;
-	@FXML
-	private Label scoreLabel;
-	@FXML
-	private Label letterHintLabel;
-	@FXML
-	private ImageView repeatWordBtn;
-	@FXML
-	private ImageView skipWordBtn;
-	@FXML
-	private ImageView translationBtn;
-	@FXML
-	private Slider voiceSpeedSlider;
-	@FXML
 	private GridPane hintGrid;
-	@FXML 
-	private ImageView macronBtn;
 	@FXML
 	protected Label wordLength;
-	
-	private String[] wordpool = {"Babies", "Colours", "Compass points", "Days of the week", "Days of the week loan words", "Engineering", "Feelings", "Months of the year", "Months of the year loan words", "Software", "Uni life", "Weather", "Work"};
-	private String[] wordpoolFileNames = {"babies", "colours", "compassPoints", "daysOfTheWeek", "daysOfTheWeekLoanWords", "engineering", "feelings", "monthsOfTheYear", "monthsOfTheYearLoanWords", "software", "uniLife", "weather", "work"};
 	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	private int attempts;
-	private int wordCount;
-	private int score;
-	private int nextGridSpace = 0;
-	private double voiceSpeed;
-	private String word;
-	private String englishWord;
-	private Boolean skipRequested = false;
 	private final Object PAUSE_KEY = new Object();
 	
 	private static File schemeFile = getPath();
@@ -107,175 +64,6 @@ public class Controller implements Initializable{
 		}
 	}
 
-	/*
-	 * Function to start a new spelling game 
-	 */
-	public void startSpellingGame(String wordpoolSelected) {
-		startGame.setVisible(false);
-		wordpoolSelection.getItems().addAll(wordpool);
-		wordpoolSelection.setValue(wordpoolSelected);
-		
-		//disables game related buttons and enables submit button
-		startGame.setDisable(true);
-		checkSpelling.setDisable(false);
-		repeatWordBtn.setDisable(false);
-		translationBtn.setDisable(false);
-		skipWordBtn.setDisable(false);
-		macronBtn.setDisable(false);
-
-		// get the selected word list
-		int wordIndex;
-		for (wordIndex=0; wordIndex<wordpool.length; wordIndex++) {
-			if (wordpoolSelection.getValue() == wordpool[wordIndex]) {
-				break;
-			}
-		}
-		
-		// get five random words from the appropriate file
-		String command = "sort -u words/" + wordpoolFileNames[wordIndex] + " | shuf -n 5";
-		String[] words = returnWordList(command);
-
-		// extract the maori and english words from the selected words
-		String[] englishWords = new String[5];
-		for (int i=0; i<words.length; i++) {
-			String temp = words[i];
-			String tempArray[] = temp.split("#");
-			words[i] = tempArray[0].trim();
-			englishWords[i] = tempArray[1];
-		}
-		
-		// show current score text
-		scoreLabel.setText("0/0");
-
-		// starting word count and score
-		wordCount = 1;
-		score = 0;
-
-		// loop through the words the user needs to spell and mark the words accordingly
-		for (int i=0; i<words.length; i++) {
-			textField.clear();
-			
-			word = words[i]; // maori words
-			englishWord = englishWords[i];
-
-			attempts = 0;
-			prompt.setLayoutX(255);
-			
-			// remove existing hints
-			nextGridSpace = 0;
-			hintGrid.getChildren().clear();
-			
-			displayNumLetters(word);
-			
-			voiceSpeed = voiceSpeedSlider.getValue();
-
-			// call method to say the word
-			spellingQuestion(word, wordCount, attempts, 5, voiceSpeed);
-			attempts++;
-			
-			// create a skip request when don't know is pressed
-			skipWordBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
-				@Override
-				public void handle(MouseEvent e) {
-					skipRequested = true;
-					resume();
-				}
-			});
-
-			// checkSpelling button will check the word and increase the score or ask user to spell again
-			checkSpelling.setOnMouseClicked( new EventHandler<MouseEvent>() {
-				
-				@Override 
-				public void handle(MouseEvent e) {
-
-					String wordEntered = textField.getText().trim();
-
-					// conditional checks to increase user score
-					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-						bashCommand("echo Correct | festival --tts");
-						textField.clear();
-						wordCount++;
-						score++;
-						resume(); // resume function after check spelling button has been pressed
-					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Correct | festival --tts");
-						textField.clear();
-						wordCount++;
-						score++;
-						resume(); // resume function after check spelling button has been pressed
-					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo Incorrect. | festival --tts");
-						if (wordCount != words.length) {
-							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
-						}
-						textField.clear();
-						wordCount++;
-						resume(); // resume function after check spelling button has been pressed
-					} else if (!wordEntered.equalsIgnoreCase(word)){
-						voiceSpeed = voiceSpeedSlider.getValue();
-						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
-						// display to the user the appropriate hint
-						secondLetterHint(word);
-						Label hintLabel = new Label("The second letter of the word is '"+word.charAt(1)+"'");
-						hintLabel.setFont(new Font(15));
-						hintGrid.add(hintLabel, 0, nextGridSpace);
-						nextGridSpace++;
-						textField.clear();
-						attempts++;
-					}
-					// update score
-					scoreLabel.setText(score+"/"+(wordCount-1));
-				}
-
-			});
-
-			// temporarily pause the method and wait for resume to be called
-			pause();
-			
-			// skips the current word as per user request
-			if (skipRequested) {
-				if (wordCount != words.length) {
-					bashCommand("echo You can do it! | festival --tts");
-				}
-				skipRequested = false;
-				wordCount++;
-				scoreLabel.setText(score+"/"+(wordCount-1)); // update the score
-				continue;
-			}
-
-		}	
-		
-		// prompt the user the quiz has finished 
-		prompt.setText("Spelling Quiz Completed!");
-		
-		// alert shows the user their final score and appropriate message
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Game Complete");
-		alert.setHeaderText(null);
-		// select appropriate message to display
-		if (score <=2) {
-			alert.setContentText("You spelt " + score + "/5 words correcly. Maybe spend some more time practicing the \"" + wordpoolSelection.getValue() + "\" wordpool.");
-		} else if (score <=4) {
-			alert.setContentText("You spelt " + score + "/5 words correctly. Good job.");
-		} else {
-			alert.setContentText("Good job, you spelt " + score + "/5 words correctly. You have mastered the \"" + wordpoolSelection.getValue() + "\" wordpool.");
-		}
-		alert.showAndWait();
-		
-		//disables game related buttons and enables start button
-		startGame.setDisable(false);
-		checkSpelling.setDisable(true);
-		repeatWordBtn.setDisable(true);
-		translationBtn.setDisable(true);
-		skipWordBtn.setDisable(true);
-		macronBtn.setDisable(true);
-		
-		
-		// remove existing hints
-		hintGrid.getChildren().clear();
-
-	}
-
 	/**
 	 * Function displays to the user how many letters are in the word
 	 * @param word
@@ -285,24 +73,6 @@ public class Controller implements Initializable{
 		String textToDisplay = "_";
 		
 		for(int i=1; i<numLetters; i++) {
-			textToDisplay = textToDisplay + " " + "_";
-		}
-		
-		wordLength.setText(textToDisplay);
-	}
-	
-	/**
-	 * Function displays to the user how many letters are in the word along with the letter 
-	 * in the second position
-	 * @param word
-	 */
-	public void secondLetterHint(String word) {
-		int numLetters = word.length();
-		char secondLetter = word.charAt(1);
-		String textToDisplay = "_";
-		textToDisplay = textToDisplay + " " + secondLetter;
-		
-		for(int i=2; i<numLetters; i++) {
 			textToDisplay = textToDisplay + " " + "_";
 		}
 		
@@ -359,16 +129,6 @@ public class Controller implements Initializable{
 		// voice speed is changed accordingly when word is repeated
 		createSchemeFile(word, voiceSpeed);
 		bashCommand("festival -b " + schemeFile);
-	}
-	
-	/*
-	 * Function which provides the English translation of the given word
-	 */
-	public void giveTranslation(ActionEvent event) {
-		Label hintLabel = new Label("The english translation is: " + englishWord);
-		hintLabel.setFont(new Font(15));
-		hintGrid.add(hintLabel, 0, nextGridSpace); // add the hint in the correct space
-		nextGridSpace++;
 	}
 	
 	/*
@@ -539,15 +299,10 @@ public class Controller implements Initializable{
 
 		return word;
 	}
-	
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// initialise the wordPool
+		// TODO Auto-generated method stub
 		
-	}
-
-	
-	
-	
+	}	
 }
