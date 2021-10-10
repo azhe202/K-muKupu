@@ -72,11 +72,23 @@ public class Summary implements Initializable{
 	}
 	
 	public void startNewQuiz(MouseEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("Menu.fxml"));
+			root = loader.load();
+			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			SceneController controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void goBack(MouseEvent event) throws IOException {
