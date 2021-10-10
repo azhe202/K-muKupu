@@ -95,21 +95,28 @@ public class CategorySelection{
 	 */
 	public void changePractiseModule(MouseEvent event) {
 		try {
-
-			root = FXMLLoader.load(getClass().getResource("PractiseModule.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("PractiseModule.fxml"));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			PractiseModule controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
-
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
+
+
 		}
 	}
 
 	public void changeScenes(MouseEvent event) {
-		if(PractiseSelection.moduleSelected.equals("PractiseModule")) {
+		if(SceneController.moduleSelected.equals("PractiseModule")) {
 			changePractiseModule(event);
 		} else {
 			changeGamesModule(event);

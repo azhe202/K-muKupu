@@ -21,6 +21,7 @@ public class SceneController extends CategorySelection{
 	private Parent root;
 	public static boolean isEnglish = true;
 	public static String langExt = "";
+	public static String moduleSelected = "NotSelected";
 
 	@FXML
 	private ImageView gamesBtn;
@@ -39,6 +40,7 @@ public class SceneController extends CategorySelection{
 
 	public void chooseGame(MouseEvent event) { 
 		try {
+			moduleSelected = "GamesModule";
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
 			root = loader.load();
@@ -59,13 +61,21 @@ public class SceneController extends CategorySelection{
 
 	public void choosePractise(MouseEvent event) { 
 		try {
-			root = FXMLLoader.load(getClass().getResource("PractiseSelection.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			moduleSelected = "PractiseModule";
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("PractiseSelection.fxml"));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			PractiseSelection controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

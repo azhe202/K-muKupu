@@ -67,6 +67,16 @@ public class PractiseModule extends Controller {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
+	
+	public void setUpLang(MouseEvent event) throws MalformedURLException {
+		// call functions to set up the correct labels
+		exitRepeat(event);
+		exitTranslate(event);
+		exitMacron(event);
+		exitSkip(event);
+		exitStart(event);
+		exitSubmit(event);
+	}
 
 	public void selectHelp(MouseEvent event) {
 		if (helpOpen) {

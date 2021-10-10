@@ -26,35 +26,50 @@ public class PractiseSelection {
 	@FXML
 	private ImageView arrowBtn;
 	
-	public static String moduleSelected = "NotSelected";
 	public static boolean randomSelected = false;
+	
+	public void setUpLang(MouseEvent event) throws MalformedURLException {
+		//to be added to when translation buttons made
+		
+	}
 
 	public void chooseRandom(MouseEvent event) {
 		randomSelected = true;
 		try {
-			root = FXMLLoader.load(getClass().getResource("PractiseModule.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("PractiseModule.fxml"));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			PractiseModule controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
-
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void chooseSelect(MouseEvent event) {
-		moduleSelected = "PractiseModule";
 		try {
-			root = FXMLLoader.load(getClass().getResource("CategorySelection.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			CategorySelection controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
-
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
