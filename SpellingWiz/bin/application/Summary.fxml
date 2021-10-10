@@ -14,7 +14,7 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="567.0" layoutX="114.0" layoutY="204.0" opacity="0.65" stroke="WHITE" strokeType="INSIDE" width="1168.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="578.0" layoutX="114.0" layoutY="198.0" opacity="0.63" stroke="WHITE" strokeType="INSIDE" width="1027.0" />
       <Label fx:id="speltWordsLabel" layoutX="238.0" layoutY="208.0" prefHeight="557.0" prefWidth="1035.0">
          <font>
             <Font size="98.0" />
