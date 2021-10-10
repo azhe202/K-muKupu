@@ -13,6 +13,10 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
+<<<<<<< HEAD
+=======
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="578.0" layoutX="114.0" layoutY="198.0" opacity="0.63" stroke="WHITE" strokeType="INSIDE" width="1027.0" />
+>>>>>>> ec89e58502f35a49fd2634495d5eec11948853cb
       <Label fx:id="speltWordsLabel" layoutX="238.0" layoutY="208.0" prefHeight="557.0" prefWidth="1035.0">
          <font>
             <Font size="98.0" />
