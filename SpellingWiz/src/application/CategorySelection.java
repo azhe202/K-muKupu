@@ -172,7 +172,7 @@ public class CategorySelection{
 
 			// access the controller and call function to set up the language
 			SceneController controller = loader.getController();
-			controller.setUp(event);
+			controller.setUpLang(event);
 
 			// show GUI to user 
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();

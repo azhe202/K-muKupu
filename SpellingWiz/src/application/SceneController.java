@@ -30,10 +30,9 @@ public class SceneController extends CategorySelection{
 	@FXML
 	private ImageView langToggle;
 	
-	public void setUp(MouseEvent event) {
-		isEnglish = true;
-		langExt = "";
-		langToggle.setImage(new Image("./englishfade.jpg"));
+	public void setUpLang(MouseEvent event) {
+		
+		langToggle.setImage(new Image("./langTogglefade"+langExt+".jpg"));
 		gamesBtn.setImage(new Image("./gamesModule"+langExt+".jpg"));
 		practiseBtn.setImage(new Image("./practiseModule"+langExt+".jpg"));
 	}
@@ -84,12 +83,11 @@ public class SceneController extends CategorySelection{
 		if (isEnglish) {
 			isEnglish = false;
 			langExt = "m";
-			langToggle.setImage(new Image("./maori.jpg"));
 		} else {
 			isEnglish = true;
 			langExt = "";
-			langToggle.setImage(new Image("./english.jpg"));
 		}
+		langToggle.setImage(new Image("./langToggle"+langExt+".jpg"));
 		gamesBtn.setImage(new Image("./gamesModule"+langExt+".jpg"));
 		practiseBtn.setImage(new Image("./practiseModule"+langExt+".jpg"));
 	}
@@ -113,20 +111,12 @@ public class SceneController extends CategorySelection{
 	}
 
 	public void enterToggle(MouseEvent event) throws MalformedURLException { 
-		if (isEnglish) {
-			langToggle.setImage(new Image("./english.jpg"));
-		} else {
-			langToggle.setImage(new Image("./maori.jpg"));
-		}
+		langToggle.setImage(new Image("./langToggle"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitToggle(MouseEvent event) { 
-		if (isEnglish) {
-			langToggle.setImage(new Image("./englishfade.jpg"));
-		} else {
-			langToggle.setImage(new Image("./maorifade.jpg"));
-		}
+		langToggle.setImage(new Image("./langTogglefade"+langExt+".jpg"));
 	}
 
 

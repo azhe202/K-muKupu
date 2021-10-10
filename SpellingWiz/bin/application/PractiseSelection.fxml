@@ -11,7 +11,7 @@
             <Image url="@../background.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="practisePrompt" fitHeight="313.0" fitWidth="852.0" layoutX="249.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="practisePrompt" fitHeight="313.0" fitWidth="852.0" layoutX="227.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../practisePrompt.jpg" />
          </image>

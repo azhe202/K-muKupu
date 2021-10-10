@@ -80,14 +80,20 @@ public class PractiseSelection {
 	
 	public void backToMenu(MouseEvent event) { 
 		try {
-			root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("Menu.fxml"));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// access the controller and call function to set up the language
+			SceneController controller = loader.getController();
+			controller.setUpLang(event);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
-
-		} 
-		catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

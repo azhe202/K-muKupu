@@ -23,7 +23,7 @@
       </ImageView>
       <ImageView fx:id="langToggle" fitHeight="40.0" fitWidth="192.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#chooseToggle" onMouseEntered="#enterToggle" onMouseExited="#exitToggle" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../englishfade.jpg" />
+            <Image url="@../langTogglefade.jpg" />
          </image>
       </ImageView>
    </children>

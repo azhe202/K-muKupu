@@ -346,12 +346,12 @@ public class PractiseModule extends Controller {
 	public void back(MouseEvent event) { 
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			loader.setLocation(getClass().getResource("PractiseSelection.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 
 			// access the controller and call function to set up the language
-			CategorySelection controller = loader.getController();
+			PractiseSelection controller = loader.getController();
 			controller.setUpLang(event);
 
 			// show GUI to user 
