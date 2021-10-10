@@ -359,6 +359,7 @@ public class PractiseModule extends Controller {
 	}
 	
 	public void back(MouseEvent event) { 
+		PractiseSelection.randomSelected = false;
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("PractiseSelection.fxml"));
