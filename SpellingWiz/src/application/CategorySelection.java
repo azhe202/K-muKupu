@@ -44,12 +44,12 @@ public class CategorySelection{
 	String langExt = SceneController.langExt;
 
 	/**
-	 * Function will change the category labels to the appropriate label (english/maori)
+	 * Method will change the category labels to the appropriate label (english/maori)
 	 * @param event
 	 * @throws MalformedURLException
 	 */
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
-		// call functions to set up the correct labels
+		// call functions to set up labels in their unselected state in the appropriate language
 		exitFood(event);
 		exitWeather(event);
 		exitColours(event);
@@ -61,138 +61,87 @@ public class CategorySelection{
 		prompt.setImage(new Image("./categoryPrompt"+langExt+".jpg"));
 	}
 
-
 	/**
-	 * Change to the Games Module when the category is chosen
+	 * This method loads the appropriate module when a word list has been chosen (games/practise)
 	 * @param event
+	 * @throws Exception
 	 */
-	public void changeGamesModule(MouseEvent event) {
-
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("GamesModule.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
-			// access the controller and call function to set up the language
-			GamesModule controller = loader.getController();
-			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-
-
-		}
-	}
-
-	/**
-	 * Change to Practice module when the category is chosen
-	 * @param event
-	 */
-	public void changePractiseModule(MouseEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("PractiseModule.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
+	public void chooseModule(MouseEvent event) throws Exception {
+		if(SceneController.moduleSelected.equals("PractiseModule")) {
+			FXMLLoader loader = changeScene("PractiseModule.fxml", event);
 			// access the controller and call function to set up the language
 			PractiseModule controller = loader.getController();
 			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-
-
-		}
-	}
-
-	public void changeScenes(MouseEvent event) {
-		if(SceneController.moduleSelected.equals("PractiseModule")) {
-			changePractiseModule(event);
 		} else {
-			changeGamesModule(event);
+			FXMLLoader loader = changeScene("GamesModule.fxml", event);
+			// access the controller and call function to set up the language
+			GamesModule controller = loader.getController();
+			controller.setUpLang(event);
 		}
 	}
 
-	public void chooseFood(MouseEvent event) {
+	// the following methods detect when a word list has been selected
+	
+	public void chooseFood(MouseEvent event) throws Exception {
 		wordList = "food";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseWeather(MouseEvent event) {
+	public void chooseWeather(MouseEvent event) throws Exception {
 		wordList = "weather";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseColours(MouseEvent event) {
+	public void chooseColours(MouseEvent event) throws Exception {
 		wordList = "colours";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseAnimals(MouseEvent event) {
+	public void chooseAnimals(MouseEvent event) throws Exception {
 		wordList = "animals";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseFeelings(MouseEvent event) {
+	public void chooseFeelings(MouseEvent event) throws Exception {
 		wordList = "feelings";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseDirections(MouseEvent event) {
+	public void chooseDirections(MouseEvent event) throws Exception {
 		wordList = "compassPoints";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseMonths(MouseEvent event) {
+	public void chooseMonths(MouseEvent event) throws Exception {
 		wordList = "monthsOfTheYear";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
-	public void chooseMonths2(MouseEvent event) {
+	public void chooseMonths2(MouseEvent event) throws Exception {
 		wordList = "monthsOfTheYearLoanWords";
-		changeScenes(event);
+		chooseModule(event);
 	}
 
 	public void backToMenu(MouseEvent event) { 
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("Menu.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
-			// access the controller and call function to set up the language
-			SceneController controller = loader.getController();
-			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		FXMLLoader loader = changeScene("Menu.fxml", event);
+		// access the controller and call function to set up the language
+		SceneController controller = loader.getController();
+		controller.setUpLang(event);
 	}
-	//food
+
+	// The following methods deal with updating the buttons when the user hovers over them
+
+	// food
 	public void enterFood(MouseEvent event) throws MalformedURLException { 
 		foodBtn.setImage(new Image("./food"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
-
 	public void exitFood(MouseEvent event) { 
 		foodBtn.setImage(new Image("./foodfade"+langExt+".jpg"));
 	}
-	//weather
+
+	// weather
 	public void enterWeather(MouseEvent event) throws MalformedURLException { 
 		weatherBtn.setImage(new Image("./weather"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -201,7 +150,8 @@ public class CategorySelection{
 	public void exitWeather(MouseEvent event) { 
 		weatherBtn.setImage(new Image("./weatherfade"+langExt+".jpg"));
 	}
-	//colours
+
+	// colours
 	public void enterColours(MouseEvent event) throws MalformedURLException { 
 		coloursBtn.setImage(new Image("./colours"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -211,7 +161,7 @@ public class CategorySelection{
 		coloursBtn.setImage(new Image("./coloursfade"+langExt+".jpg"));
 	}
 
-	//animals
+	// animals
 	public void enterAnimals(MouseEvent event) throws MalformedURLException { 
 		animalsBtn.setImage(new Image("./animals"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -220,7 +170,8 @@ public class CategorySelection{
 	public void exitAnimals(MouseEvent event) { 
 		animalsBtn.setImage(new Image("./animalsfade"+langExt+".jpg"));
 	}
-	//feelings
+
+	// feelings
 	public void enterFeelings(MouseEvent event) throws MalformedURLException { 
 		feelingsBtn.setImage(new Image("./feelings"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -229,7 +180,8 @@ public class CategorySelection{
 	public void exitFeelings(MouseEvent event) { 
 		feelingsBtn.setImage(new Image("./feelingsfade"+langExt+".jpg"));
 	}
-	//directions
+
+	// directions
 	public void enterDirections(MouseEvent event) throws MalformedURLException { 
 		directionsBtn.setImage(new Image("./directions"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -238,7 +190,8 @@ public class CategorySelection{
 	public void exitDirections(MouseEvent event) { 
 		directionsBtn.setImage(new Image("./directionsfade"+langExt+".jpg"));
 	}
-	//month1
+
+	// months1
 	public void enterMonths(MouseEvent event) throws MalformedURLException { 
 		monthsBtn.setImage(new Image("./months"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -247,7 +200,8 @@ public class CategorySelection{
 	public void exitMonths(MouseEvent event) { 
 		monthsBtn.setImage(new Image("./monthsfade"+langExt+".jpg"));
 	}
-	//month2
+
+	// months2
 	public void enterMonths2(MouseEvent event) throws MalformedURLException { 
 		months2Btn.setImage(new Image("./months2"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
@@ -256,6 +210,7 @@ public class CategorySelection{
 	public void exitMonths2(MouseEvent event) { 
 		months2Btn.setImage(new Image("./months2fade"+langExt+".jpg"));
 	}
+
 	//arrow
 	public void enterArrow(MouseEvent event) throws MalformedURLException { 
 		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
@@ -266,4 +221,25 @@ public class CategorySelection{
 		arrowBtn.setImage(new Image("./arrow.jpg"));
 	}
 
+	public FXMLLoader changeScene(String nextScene, MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource(nextScene));
+			root = loader.load();
+			scene = new Scene(root);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+
+			return loader;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return new FXMLLoader();
+
+		}
+
+	}
 }
