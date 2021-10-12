@@ -68,11 +68,6 @@
             <Image url="@../submitfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="startGame" fitHeight="170.0" fitWidth="826.0" layoutX="341.0" layoutY="53.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../startfade.jpg" />
-         </image>
-      </ImageView>
       <ImageView fx:id="helpWindow" fitHeight="612.0" fitWidth="545.0" layoutX="819.0" layoutY="123.0" onMouseExited="#exitWindow" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
             <Image url="@../helpwindow.jpg" />
@@ -111,6 +106,16 @@
       <ImageView fitHeight="95.0" fitWidth="98.0" layoutX="47.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../timer.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="instruction" fitHeight="905.0" fitWidth="1358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../gamesInstructions.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="startGame" fitHeight="150.0" fitWidth="264.0" layoutX="513.0" layoutY="613.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../arrow.png" />
          </image>
       </ImageView>
    </children>

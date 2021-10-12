@@ -184,11 +184,21 @@ public class PractiseModule extends Controller {
 						Sound.playSound("./correctSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
+						displayCorrectWord(word);
+						try {
+							PractiseThread.sleep(2000);
+							SpellingThread.sleep(2000);
+							SpellingThread2.sleep(2000);
+							Thread.sleep(2000);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						textField.clear();
 						wordCount++;
 						Sound.playSound("./incorrectSound.mp3");
 						answerNeeded = true;
+						
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						displayCorrectLetters(word, wordEntered);
@@ -216,17 +226,6 @@ public class PractiseModule extends Controller {
 				wordCount++;
 				continue;
 			}
-
-			// display the correct answer to the user
-			if(answerNeeded) {
-				answerNeeded = false;
-				Dialog<String> dialog = new Dialog<String>();
-				dialog.setTitle("Answer");
-				ButtonType type = new ButtonType("Next Question", ButtonData.OK_DONE);
-				dialog.setContentText("The correct spelling is... " + word);
-				dialog.getDialogPane().getButtonTypes().add(type);
-				dialog.showAndWait();
-			}
 			
 			// remove the translation hint 
 			translationHint.setText("");
@@ -239,6 +238,10 @@ public class PractiseModule extends Controller {
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
 		checkSpelling.setDisable(true);
+	}
+	
+	public void displayCorrectWord(String word) {
+		super.wordLength.setText(word);
 	}
 	
 	public void displayCorrectLetters(String word, String spelling) { 

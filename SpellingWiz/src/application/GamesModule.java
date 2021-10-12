@@ -8,6 +8,9 @@ import java.util.TimerTask;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.Property;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,6 +66,8 @@ public class GamesModule extends Controller {
 	public ImageView arrowBtn;
 	@FXML
 	private ImageView star;
+	@FXML
+	private ImageView instruction;
 
 
 	private Stage stage;
@@ -101,6 +106,7 @@ public class GamesModule extends Controller {
 	 */
 	public void startSpellingGame(MouseEvent event) throws IOException, InterruptedException {
 		startGame.setVisible(false);
+		instruction.setVisible(false);
 		wordsForSummary.clear();
 		translate.setNode(frog);
 		translate.setDuration(Duration.millis(1000));
@@ -180,6 +186,7 @@ public class GamesModule extends Controller {
 
 				@Override 
 				public void handle(MouseEvent e) {
+					
 
 					String wordEntered = textField.getText().trim();
 
@@ -274,8 +281,9 @@ public class GamesModule extends Controller {
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
-
 	}
+	
+
 
 	/**
 	 * Function allowing user to repeat a word 
@@ -439,12 +447,12 @@ public class GamesModule extends Controller {
 	}
 	
 	public void enterStart(MouseEvent event) throws MalformedURLException { 
-		startGame.setImage(new Image("./start"+langExt+".jpg"));
+		//startGame.setImage(new Image("./start"+langExt+".jpg"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitStart(MouseEvent event) { 
-		startGame.setImage(new Image("./startfade"+langExt+".jpg"));
+		//startGame.setImage(new Image("./startfade"+langExt+".jpg"));
 	}
 	
 	public void enterSpeed(MouseEvent event) throws MalformedURLException { 
