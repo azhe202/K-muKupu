@@ -180,6 +180,7 @@ public class Controller implements Initializable{
 			}
 			textField.clear();
 			textField.setText(preMacron + macronChar); // display the word with the macron to user
+			textField.positionCaret(textField.getText().length()); // reposition cursor at end of word
 		}
 
 	}
