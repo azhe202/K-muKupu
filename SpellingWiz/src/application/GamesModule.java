@@ -447,12 +447,12 @@ public class GamesModule extends Controller {
 	}
 	
 	public void enterStart(MouseEvent event) throws MalformedURLException { 
-		//startGame.setImage(new Image("./start"+langExt+".jpg"));
+		startGame.setImage(new Image("./start"+langExt+".png"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitStart(MouseEvent event) { 
-		//startGame.setImage(new Image("./startfade"+langExt+".jpg"));
+		startGame.setImage(new Image("./startfade"+langExt+".png"));
 	}
 	
 	public void enterSpeed(MouseEvent event) throws MalformedURLException { 

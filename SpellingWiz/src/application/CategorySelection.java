@@ -49,7 +49,7 @@ public class CategorySelection{
 	 * @throws MalformedURLException
 	 */
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
-		// call functions to set up labels in their unselected state in the appropriate language
+		// set up labels in their unselected state in the appropriate language
 		exitFood(event);
 		exitWeather(event);
 		exitColours(event);
