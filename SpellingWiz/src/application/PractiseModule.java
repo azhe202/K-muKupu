@@ -272,8 +272,16 @@ public class PractiseModule extends Controller {
 		super.wordLength.setText(textToDisplay);
 	}
 	
+	/**
+	 * Function to translate word from maori to english
+	 */
 	public void translate(MouseEvent event) {
-		translationHint.setText("Hint: the english translation is " + englishWord);
+		if (SceneController.isEnglish) {
+			translationHint.setText("Translation: " + englishWord);
+		} else {
+			translationHint.setText("Whakamāori: " + englishWord);
+		}
+		
 	}
 	
 	/**

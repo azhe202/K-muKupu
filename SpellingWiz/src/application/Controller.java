@@ -40,6 +40,7 @@ public class Controller implements Initializable{
 	@FXML
 	protected Label wordLength;
 	
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;

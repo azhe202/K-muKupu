@@ -283,7 +283,17 @@ public class GamesModule extends Controller {
 		stage.show();
 	}
 	
-
+	/**
+	 * Function to translate word from maori to english
+	 */
+	public void translate(MouseEvent event) {
+		if (SceneController.isEnglish) {
+			translationHint.setText("Translation: " + englishWord);
+		} else {
+			translationHint.setText("Whakamāori: " + englishWord);
+		}
+		
+	}
 
 	/**
 	 * Function allowing user to repeat a word 
@@ -292,13 +302,6 @@ public class GamesModule extends Controller {
 		voiceSpeed = voiceSpeedSlider.getValue();
 		RepeatThread repeat = new RepeatThread();
 		repeat.start();
-	}
-
-	/**
-	 * Function to translate word from maori to english
-	 */
-	public void translate(MouseEvent event) {
-		translationHint.setText("Hint: the english translation is " + englishWord);
 	}
 
 	/*
