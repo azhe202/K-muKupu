@@ -188,15 +188,6 @@ public class PractiseModule extends Controller {
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						displayCorrectWord(word);
-						try {
-							PractiseThread.sleep(2000);
-							SpellingThread.sleep(2000);
-							SpellingThread2.sleep(2000);
-							Thread.sleep(2000);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
 						textField.clear();
 						wordCount++;
 						Sound.playSound("./incorrectSound.mp3");
@@ -204,15 +195,14 @@ public class PractiseModule extends Controller {
 						
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
+						Sound.playSound("./incorrectSound.mp3");
 						displayCorrectLetters(word, wordEntered);
 						voiceSpeed = voiceSpeedSlider.getValue();
-						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again 
-						// display to the user the appropriate hint
-	
+						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
 						textField.clear();
 						attempts++;
-						Sound.playSound("./incorrectSound.mp3");
-
+						
+					
 					}
 				}
 
@@ -224,7 +214,7 @@ public class PractiseModule extends Controller {
 
 			// skips the current word as per user request
 			if (skipRequested) {
-				bashCommand("echo You can do it! | festival --tts");
+				Sound.playSound("incorrectSound.mp3");
 				skipRequested = false;
 				wordCount++;
 				continue;
@@ -271,6 +261,7 @@ public class PractiseModule extends Controller {
 		}
 		super.wordLength.setText(textToDisplay);
 	}
+	
 	
 	/**
 	 * Function to translate word from maori to english

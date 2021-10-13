@@ -192,11 +192,9 @@ public class Controller implements Initializable{
 	public void spellingQuestion(String word, int wordCount, int attempts, int numWords, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
-			bashCommand("echo Please spell | festival --tts");
 			createSchemeFile(word, speed); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);	
 		} else if (attempts == 1) {
-			bashCommand("echo Incorrect, try once more. | festival --tts");
 			createSchemeFile(word, speed); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);
 			bashCommand("festival -b " + schemeFile);

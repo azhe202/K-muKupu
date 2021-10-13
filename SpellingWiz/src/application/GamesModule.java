@@ -226,9 +226,6 @@ public class GamesModule extends Controller {
 						Sound.playSound("./correctSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						if (wordCount != words.length) {
-							bashCommand("echo You can do it! | festival --tts"); // encouraging message for user
-						}
 						pauseTimer();
 						wordsForSummary.add(word + "#Incorrect");
 						textField.clear();
@@ -254,9 +251,7 @@ public class GamesModule extends Controller {
 			// skips the current word as per user request
 			if (skipRequested) {
 				pauseTimer(); // when skip is requested then pause and delete the old timer
-				if (wordCount != words.length) {
-					bashCommand("echo You can do it! | festival --tts");
-				}
+				Sound.playSound("incorrectSound.mp3");
 				wordsForSummary.add(word + "#Incorrect");
 				skipRequested = false;
 				wordCount++;
@@ -340,6 +335,8 @@ public class GamesModule extends Controller {
 			speedWindow.setVisible(true);
 		}
 	}
+	
+	
 
 	public void enterHelp(MouseEvent event) {
 		helpBtn.setImage(new Image("./help.jpg"));
