@@ -83,7 +83,7 @@
             <Image url="@../speedWindow.jpg" />
          </image>
       </ImageView>
-      <Slider fx:id="voiceSpeedSlider" blockIncrement="0.1" layoutX="618.0" layoutY="14.0" majorTickUnit="1.0" max="2.0" minorTickCount="10" prefHeight="103.0" prefWidth="471.0" rotate="180.0" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
+      <Slider fx:id="voiceSpeedSlider" blockIncrement="0.1" layoutX="632.0" layoutY="5.0" majorTickUnit="1.0" max="2.0" minorTickCount="10" prefHeight="103.0" prefWidth="471.0" rotate="180.0" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
       <ImageView fx:id="speedBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1240.0" layoutY="20.0" onMouseClicked="#selectSpeed" onMouseEntered="#enterSpeed" onMouseExited="#exitSpeed" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../speedfade.jpg" />

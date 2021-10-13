@@ -49,6 +49,8 @@ public class PractiseModule extends Controller {
 	private Slider voiceSpeedSlider;
 	@FXML
 	private ImageView arrowBtn;
+	@FXML
+	private ImageView instruction;
 	
 	public static int wordCount;
 	public static int score;
@@ -104,8 +106,9 @@ public class PractiseModule extends Controller {
 	 * Function to start the practice game
 	 */
 	public void startSpellingGame() {
+	
 		startGame.setVisible(false);
-		startGame.setDisable(true);
+		instruction.setVisible(false);
 		repeatWordBtn.setDisable(false);
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
@@ -334,12 +337,12 @@ public class PractiseModule extends Controller {
 	}
 	
 	public void enterStart(MouseEvent event) throws MalformedURLException { 
-		startGame.setImage(new Image("./start"+langExt+".jpg"));
+		startGame.setImage(new Image("./start"+langExt+".png"));
 		Sound.playSound("./switch.wav");
 	}
 
 	public void exitStart(MouseEvent event) { 
-		startGame.setImage(new Image("./startfade"+langExt+".jpg"));
+		startGame.setImage(new Image("./startfade"+langExt+".png"));
 	}
 	
 	public void enterSpeed(MouseEvent event) throws MalformedURLException { 

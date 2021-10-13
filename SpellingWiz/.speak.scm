@@ -1,1 +1,1 @@
-(voice_akl_mi_pk06_cg)(Parameter.set 'Duration_Stretch 0.5454545454545454)(SayText "Ratapu")
+(voice_akl_mi_pk06_cg)(Parameter.set 'Duration_Stretch 1.0)(SayText "hēki")
