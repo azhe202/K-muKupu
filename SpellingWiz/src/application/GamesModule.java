@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -8,9 +9,6 @@ import java.util.TimerTask;
 
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.Property;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -318,6 +316,7 @@ public class GamesModule extends Controller {
 			helpWindow.setVisible(false);
 		} else {
 			helpOpen = true;
+			helpWindow.setImage(new Image("./helpWindow"+langExt+".jpg"));
 			helpWindow.setVisible(true);
 		}
 	}

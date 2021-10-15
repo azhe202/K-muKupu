@@ -80,6 +80,7 @@ public class PractiseModule extends Controller {
 		exitSkip(event);
 		exitStart(event);
 		exitSubmit(event);
+		instruction.setImage(new Image("./practiseInstructions"+langExt+".jpg"));
 	}
 
 	public void selectHelp(MouseEvent event) {
@@ -88,6 +89,7 @@ public class PractiseModule extends Controller {
 			helpWindow.setVisible(false);
 		} else {
 			helpOpen = true;
+			helpWindow.setImage(new Image("./helpWindow"+langExt+".jpg"));
 			helpWindow.setVisible(true);
 		}
 	}
