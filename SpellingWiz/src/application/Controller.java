@@ -300,6 +300,24 @@ public class Controller implements Initializable{
 		return word;
 	}
 
+	/**
+	 * Function is called when a word is spelled correctly
+	 * @param textField
+	 */
+	public void correctSpelling(TextField textField) {
+		textField.clear();
+		Sound.playSound("./sounds/correctSound.mp3");
+	}
+	
+	/**
+	 * Function is called when a word is spelled incorrectly
+	 * @param textField
+	 */
+	public void incorrectSpelling(TextField textField) {
+		textField.clear();
+		Sound.playSound("./sounds/incorrectSound.mp3");
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub

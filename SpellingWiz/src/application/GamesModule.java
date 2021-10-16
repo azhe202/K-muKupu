@@ -203,9 +203,7 @@ public class GamesModule extends Controller {
 							translateStar.play();
 						}
 						translate.play();
-						textField.clear();
-						wordCount++;
-						Sound.playSound("./sounds/correctSound.mp3");
+						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						wordsForSummary.add(word + "#Correct");
@@ -220,24 +218,20 @@ public class GamesModule extends Controller {
 							translateStar.play();
 						}
 						translate.play();
-						textField.clear();
-						wordCount++;
-						Sound.playSound("./sounds/correctSound.mp3");
+						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						pauseTimer();
 						wordsForSummary.add(word + "#Incorrect");
-						textField.clear();
-						wordCount++;
-						Sound.playSound("./sounds/incorrectSound.mp3");
+						incorrectSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
+						incorrectSpelling(textField);
 						voiceSpeed = voiceSpeedSlider.getValue();
 						SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
 						repeat.start(); // call the function again to ask user to spell word again 
-						textField.clear();
 						attempts++;
-						Sound.playSound("./sounds/incorrectSound.mp3");
+						
 						
 					}
 				}

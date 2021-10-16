@@ -179,32 +179,23 @@ public class PractiseModule extends Controller {
 
 					// conditional checks to increase user score
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-						textField.clear();
-						wordCount++;
-						Sound.playSound("./sounds/correctSound.mp3");
+						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						textField.clear();
-						wordCount++;
-						Sound.playSound("./sounds/correctSound.mp3");
+						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						displayCorrectWord(word);
-						textField.clear();
-						wordCount++;
-						Sound.playSound("./sounds/incorrectSound.mp3");
+						incorrectSpelling(textField);
 						answerNeeded = true;
 						
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						Sound.playSound("./sounds/incorrectSound.mp3");
+						incorrectSpelling(textField);
 						displayCorrectLetters(word, wordEntered);
 						voiceSpeed = voiceSpeedSlider.getValue();
 						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
-						textField.clear();
 						attempts++;
-						
-					
 					}
 				}
 
