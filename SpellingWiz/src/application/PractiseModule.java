@@ -80,7 +80,7 @@ public class PractiseModule extends Controller {
 		exitSkip(event);
 		exitStart(event);
 		exitSubmit(event);
-		instruction.setImage(new Image("./practiseInstructions"+langExt+".jpg"));
+		instruction.setImage(new Image("./images/practiseInstructions"+langExt+".jpg"));
 	}
 
 	public void selectHelp(MouseEvent event) {
@@ -89,18 +89,18 @@ public class PractiseModule extends Controller {
 			helpWindow.setVisible(false);
 		} else {
 			helpOpen = true;
-			helpWindow.setImage(new Image("./helpWindow"+langExt+".jpg"));
+			helpWindow.setImage(new Image("./images/helpWindow"+langExt+".jpg"));
 			helpWindow.setVisible(true);
 		}
 	}
 
 	public void enterHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./help.jpg"));
-		Sound.playSound("./switch.wav");
+		helpBtn.setImage(new Image("./images/help.jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./helpfade.jpg"));
+		helpBtn.setImage(new Image("./images/helpfade.jpg"));
 	}
 
 
@@ -181,23 +181,23 @@ public class PractiseModule extends Controller {
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						textField.clear();
 						wordCount++;
-						Sound.playSound("./correctSound.mp3");
+						Sound.playSound("./sounds/correctSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						textField.clear();
 						wordCount++;
-						Sound.playSound("./correctSound.mp3");
+						Sound.playSound("./sounds/correctSound.mp3");
 						resume(); // resume function after check spelling button has been pressed
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						displayCorrectWord(word);
 						textField.clear();
 						wordCount++;
-						Sound.playSound("./incorrectSound.mp3");
+						Sound.playSound("./sounds/incorrectSound.mp3");
 						answerNeeded = true;
 						
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
-						Sound.playSound("./incorrectSound.mp3");
+						Sound.playSound("./sounds/incorrectSound.mp3");
 						displayCorrectLetters(word, wordEntered);
 						voiceSpeed = voiceSpeedSlider.getValue();
 						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
@@ -216,7 +216,7 @@ public class PractiseModule extends Controller {
 
 			// skips the current word as per user request
 			if (skipRequested) {
-				Sound.playSound("incorrectSound.mp3");
+				Sound.playSound("sounds/incorrectSound.mp3");
 				skipRequested = false;
 				wordCount++;
 				continue;
@@ -293,75 +293,75 @@ public class PractiseModule extends Controller {
 	}
 	
 	public void enterRepeat(MouseEvent event) throws MalformedURLException { 
-		repeatWordBtn.setImage(new Image("./repeat"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		repeatWordBtn.setImage(new Image("./images/repeat"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitRepeat(MouseEvent event) { 
-		repeatWordBtn.setImage(new Image("./repeatfade"+langExt+".jpg"));
+		repeatWordBtn.setImage(new Image("./images/repeatfade"+langExt+".jpg"));
 	}
 
 	public void enterMacron(MouseEvent event) throws MalformedURLException { 
-		macronBtn.setImage(new Image("./macron"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		macronBtn.setImage(new Image("./images/macron"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitMacron(MouseEvent event) { 
-		macronBtn.setImage(new Image("./macronfade"+langExt+".jpg"));
+		macronBtn.setImage(new Image("./images/macronfade"+langExt+".jpg"));
 	}
 
 	public void enterTranslate(MouseEvent event) throws MalformedURLException { 
-		translationBtn.setImage(new Image("./translate"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		translationBtn.setImage(new Image("./images/translate"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitTranslate(MouseEvent event) { 
-		translationBtn.setImage(new Image("./translatefade"+langExt+".jpg"));
+		translationBtn.setImage(new Image("./images/translatefade"+langExt+".jpg"));
 	}
 
 	public void enterSkip(MouseEvent event) throws MalformedURLException { 
-		skipWordBtn.setImage(new Image("./skip"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		skipWordBtn.setImage(new Image("./images/skip"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitSkip(MouseEvent event) { 
-		skipWordBtn.setImage(new Image("./skipfade"+langExt+".jpg"));
+		skipWordBtn.setImage(new Image("./images/skipfade"+langExt+".jpg"));
 	}
 
 	public void enterSubmit(MouseEvent event) throws MalformedURLException { 
-		checkSpelling.setImage(new Image("./submit"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		checkSpelling.setImage(new Image("./images/submit"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitSubmit(MouseEvent event) { 
-		checkSpelling.setImage(new Image("./submitfade"+langExt+".jpg"));
+		checkSpelling.setImage(new Image("./images/submitfade"+langExt+".jpg"));
 	}
 	
 	public void enterStart(MouseEvent event) throws MalformedURLException { 
-		startGame.setImage(new Image("./start"+langExt+".png"));
-		Sound.playSound("./switch.wav");
+		startGame.setImage(new Image("./images/start"+langExt+".png"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitStart(MouseEvent event) { 
-		startGame.setImage(new Image("./startfade"+langExt+".png"));
+		startGame.setImage(new Image("./images/startfade"+langExt+".png"));
 	}
 	
 	public void enterSpeed(MouseEvent event) throws MalformedURLException { 
-		speedBtn.setImage(new Image("./speed.jpg"));
-		Sound.playSound("./switch.wav");
+		speedBtn.setImage(new Image("./images/speed.jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitSpeed(MouseEvent event) { 
-		speedBtn.setImage(new Image("./speedfade.jpg"));
+		speedBtn.setImage(new Image("./images/speedfade.jpg"));
 	}
 	
 	public void enterArrow(MouseEvent event) throws MalformedURLException { 
-		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
-		Sound.playSound("./switch.wav");
+		arrowBtn.setImage(new Image("./images/arrowSelect.jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitArrow(MouseEvent event) { 
-		arrowBtn.setImage(new Image("./arrow.jpg"));
+		arrowBtn.setImage(new Image("./images/arrow.jpg"));
 	}
 	
 	public void exitWindow(MouseEvent event) {
