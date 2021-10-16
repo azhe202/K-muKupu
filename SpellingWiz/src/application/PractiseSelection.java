@@ -34,7 +34,7 @@ public class PractiseSelection {
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
 		exitRandom(event);
 		exitSelect(event);
-		practisePrompt.setImage(new Image("./practisePrompt"+langExt+".jpg"));
+		practisePrompt.setImage(new Image("./images/practisePrompt"+langExt+".jpg"));
 	}
 
 	public void chooseRandom(MouseEvent event) {
@@ -100,30 +100,30 @@ public class PractiseSelection {
 
 	//random
 	public void enterRandom(MouseEvent event) throws MalformedURLException { 
-		randomBtn.setImage(new Image("./randomise"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		randomBtn.setImage(new Image("./images/randomise"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitRandom(MouseEvent event) { 
-		randomBtn.setImage(new Image("./randomisefade"+langExt+".jpg"));
+		randomBtn.setImage(new Image("./images/randomisefade"+langExt+".jpg"));
 	}
 	//select
 	public void enterSelect(MouseEvent event) throws MalformedURLException { 
-		selectBtn.setImage(new Image("./select"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		selectBtn.setImage(new Image("./images/select"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitSelect(MouseEvent event) { 
-		selectBtn.setImage(new Image("./selectfade"+langExt+".jpg"));
+		selectBtn.setImage(new Image("./images/selectfade"+langExt+".jpg"));
 	}
 
 	//arrow
 	public void enterArrow(MouseEvent event) throws MalformedURLException { 
-		arrowBtn.setImage(new Image("./arrowSelect.jpg"));
-		Sound.playSound("./switch.wav");
+		arrowBtn.setImage(new Image("./images/arrowSelect.jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitArrow(MouseEvent event) { 
-		arrowBtn.setImage(new Image("./arrow.jpg"));
+		arrowBtn.setImage(new Image("./images/arrow.jpg"));
 	}
 }

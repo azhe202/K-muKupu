@@ -31,9 +31,9 @@ public class SceneController extends CategorySelection{
 	
 	public void setUpLang(MouseEvent event) {
 		
-		langToggle.setImage(new Image("./langTogglefade"+langExt+".jpg"));
-		gamesBtn.setImage(new Image("./gamesModule"+langExt+".jpg"));
-		practiseBtn.setImage(new Image("./practiseModule"+langExt+".jpg"));
+		langToggle.setImage(new Image("./images/langTogglefade"+langExt+".jpg"));
+		gamesBtn.setImage(new Image("./images/gamesModule"+langExt+".jpg"));
+		practiseBtn.setImage(new Image("./images/practiseModule"+langExt+".jpg"));
 	}
 
 	public void chooseGame(MouseEvent event) { 
@@ -86,36 +86,36 @@ public class SceneController extends CategorySelection{
 			isEnglish = true;
 			langExt = "";
 		}
-		langToggle.setImage(new Image("./langToggle"+langExt+".jpg"));
-		gamesBtn.setImage(new Image("./gamesModule"+langExt+".jpg"));
-		practiseBtn.setImage(new Image("./practiseModule"+langExt+".jpg"));
+		langToggle.setImage(new Image("./images/langToggle"+langExt+".jpg"));
+		gamesBtn.setImage(new Image("./images/gamesModule"+langExt+".jpg"));
+		practiseBtn.setImage(new Image("./images/practiseModule"+langExt+".jpg"));
 	}
 
 	public void enterGames(MouseEvent event) throws MalformedURLException { 
-		gamesBtn.setImage(new Image("./gamesModuleSelect"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		gamesBtn.setImage(new Image("./images/gamesModuleSelect"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitGames(MouseEvent event) { 
-		gamesBtn.setImage(new Image("./gamesModule"+langExt+".jpg"));
+		gamesBtn.setImage(new Image("./images/gamesModule"+langExt+".jpg"));
 	}
 
 	public void enterPractise(MouseEvent event) throws MalformedURLException { 
-		practiseBtn.setImage(new Image("./practiseModuleSelect"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		practiseBtn.setImage(new Image("./images/practiseModuleSelect"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitPractise(MouseEvent event) { 
-		practiseBtn.setImage(new Image("./practiseModule"+langExt+".jpg"));
+		practiseBtn.setImage(new Image("./images/practiseModule"+langExt+".jpg"));
 	}
 
 	public void enterToggle(MouseEvent event) throws MalformedURLException { 
-		langToggle.setImage(new Image("./langToggle"+langExt+".jpg"));
-		Sound.playSound("./switch.wav");
+		langToggle.setImage(new Image("./images/langToggle"+langExt+".jpg"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitToggle(MouseEvent event) { 
-		langToggle.setImage(new Image("./langTogglefade"+langExt+".jpg"));
+		langToggle.setImage(new Image("./images/langTogglefade"+langExt+".jpg"));
 	}
 
 

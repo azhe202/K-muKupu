@@ -8,22 +8,22 @@
    <children>
       <ImageView fitHeight="909.0" fitWidth="1366.0" layoutX="-6.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../menubackground.jpg" />
+            <Image url="@../images/menubackground.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="practiseBtn" fitHeight="90.0" fitWidth="426.0" layoutX="446.0" layoutY="526.0" onMouseClicked="#choosePractise" onMouseEntered="#enterPractise" onMouseExited="#exitPractise" pickOnBounds="true" preserveRatio="true" rotate="3.0">
          <image>
-            <Image url="@../practiseModule.jpg" />
+            <Image url="@../images/practiseModule.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="gamesBtn" fitHeight="90.0" fitWidth="426.0" layoutX="509.0" layoutY="694.0" onMouseClicked="#chooseGame" onMouseEntered="#enterGames" onMouseExited="#exitGames" pickOnBounds="true" preserveRatio="true" rotate="-3.0">
          <image>
-            <Image url="@../gamesModule.jpg" />
+            <Image url="@../images/gamesModule.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="langToggle" fitHeight="40.0" fitWidth="192.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#chooseToggle" onMouseEntered="#enterToggle" onMouseExited="#exitToggle" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../langTogglefade.jpg" />
+            <Image url="@../images/langTogglefade.jpg" />
          </image>
       </ImageView>
    </children>
