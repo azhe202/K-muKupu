@@ -1,1 +1,1 @@
-(voice_akl_mi_pk06_cg)(Parameter.set 'Duration_Stretch 1.0090909090909093)(SayText "Whiringa a rangi")
+(voice_akl_mi_pk06_cg)(Parameter.set 'Duration_Stretch 1.6454545454545455)(SayText "Kiwikiwi")
