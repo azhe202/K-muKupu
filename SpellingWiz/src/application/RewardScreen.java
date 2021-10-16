@@ -69,7 +69,7 @@ public class RewardScreen implements Initializable{
 	}
 	
 	public void switchToSummary(MouseEvent event) throws IOException { 
-			root = FXMLLoader.load(getClass().getResource("Summary.fxml"));
+			root = FXMLLoader.load(getClass().getResource("./FXML/Summary.fxml"));
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);

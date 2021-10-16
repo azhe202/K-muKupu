@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="907.0" fitWidth="1358.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/background.jpg" />
+            <Image url="@../../images/background.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="252.0" layoutX="44.0" layoutY="382.0" opacity="0.9" stroke="WHITE" strokeType="INSIDE" width="1274.0" />
@@ -31,63 +31,63 @@
          </font></Label>
       <ImageView fx:id="repeatWordBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="78.0" layoutY="521.0" onMouseClicked="#wordRepeat" onMouseEntered="#enterRepeat" onMouseExited="#exitRepeat" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/repeatfade.jpg" />
+            <Image url="@../../images/repeatfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="translationBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="391.0" layoutY="521.0" onMouseClicked="#translate" onMouseEntered="#enterTranslate" onMouseExited="#exitTranslate" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/translatefade.jpg" />
+            <Image url="@../../images/translatefade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="macronBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="699.0" layoutY="521.0" onMouseClicked="#insertMacron" onMouseEntered="#enterMacron" onMouseExited="#exitMacron" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/macronfade.jpg" />
+            <Image url="@../../images/macronfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="skipWordBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="1008.0" layoutY="521.0" onMouseEntered="#enterSkip" onMouseExited="#exitSkip" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/skipfade.jpg" />
+            <Image url="@../../images/skipfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="checkSpelling" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="1008.0" layoutY="411.0" onMouseEntered="#enterSubmit" onMouseExited="#exitSubmit" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/submitfade.jpg" />
+            <Image url="@../../images/submitfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="helpWindow" fitHeight="612.0" fitWidth="545.0" layoutX="819.0" layoutY="123.0" onMouseExited="#exitWindow" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/helpWindow.jpg" />
+            <Image url="@../../images/helpfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="helpBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1242.0" layoutY="129.0" onMouseClicked="#selectHelp" onMouseEntered="#enterHelp" onMouseExited="#exitHelp" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/helpfade.jpg" />
+            <Image url="@../../images/helpfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="speedWindow" fitHeight="262.0" fitWidth="826.0" layoutX="513.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../images/speedWindow.jpg" />
+            <Image url="@../../images/speedWindow.jpg" />
          </image>
       </ImageView>
       <Slider fx:id="voiceSpeedSlider" blockIncrement="0.1" layoutX="631.0" layoutY="14.0" majorTickUnit="1.0" max="2.0" minorTickCount="10" prefHeight="103.0" prefWidth="471.0" rotate="180.0" showTickMarks="true" snapToTicks="true" value="1.0" visible="false" />
       <ImageView fx:id="speedBtn" fitHeight="90.0" fitWidth="98.0" layoutX="1240.0" layoutY="20.0" onMouseClicked="#selectSpeed" onMouseEntered="#enterSpeed" onMouseExited="#exitSpeed" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/speedfade.jpg" />
+            <Image url="@../../images/speedfade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="arrowBtn" fitHeight="111.0" fitWidth="146.0" layoutX="11.0" layoutY="12.0" onMouseClicked="#back" onMouseEntered="#enterArrow" onMouseExited="#exitArrow" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@../images/arrow.jpg" />
+            <Image url="@../../images/arrow.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="instruction" fitHeight="923.0" fitWidth="1358.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/practiseInstructions.jpg" />
+            <Image url="@../../images/practiseInstructions.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="startGame" fitHeight="212.0" fitWidth="260.0" layoutX="554.0" layoutY="684.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/startfade.png" />
+            <Image url="@../../images/startfade.png" />
          </image>
       </ImageView>
    </children>

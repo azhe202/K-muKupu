@@ -40,7 +40,7 @@ public class SceneController extends CategorySelection{
 		try {
 			moduleSelected = "GamesModule";
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/CategorySelection.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 
@@ -61,7 +61,7 @@ public class SceneController extends CategorySelection{
 		try {
 			moduleSelected = "PractiseModule";
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("PractiseSelection.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/PractiseSelection.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 

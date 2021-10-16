@@ -8,27 +8,27 @@
    <children>
       <ImageView fitHeight="906.0" fitWidth="1368.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/background.jpg" />
+            <Image url="@../../images/background.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="practisePrompt" fitHeight="313.0" fitWidth="852.0" layoutX="227.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/practisePrompt.jpg" />
+            <Image url="@../../images/practisePrompt.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="arrowBtn" fitHeight="111.0" fitWidth="146.0" layoutX="11.0" layoutY="12.0" onMouseClicked="#backToMenu" onMouseEntered="#enterArrow" onMouseExited="#exitArrow" pickOnBounds="true" preserveRatio="true" rotate="180.0">
          <image>
-            <Image url="@../images/arrow.jpg" />
+            <Image url="@../../images/arrow.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="randomBtn" fitHeight="442.0" fitWidth="526.0" layoutX="179.0" layoutY="371.0" onMouseClicked="#chooseRandom" onMouseEntered="#enterRandom" onMouseExited="#exitRandom" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/randomisefade.jpg" />
+            <Image url="@../../images/randomisefade.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="selectBtn" fitHeight="442.0" fitWidth="484.0" layoutX="739.0" layoutY="371.0" onMouseClicked="#chooseSelect" onMouseEntered="#enterSelect" onMouseExited="#exitSelect" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/selectfade.jpg" />
+            <Image url="@../../images/selectfade.jpg" />
          </image>
       </ImageView>
    </children>

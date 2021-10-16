@@ -68,12 +68,12 @@ public class CategorySelection{
 	 */
 	public void chooseModule(MouseEvent event) throws Exception {
 		if(SceneController.moduleSelected.equals("PractiseModule")) {
-			FXMLLoader loader = changeScene("PractiseModule.fxml", event);
+			FXMLLoader loader = changeScene("./FXML/PractiseModule.fxml", event);
 			// access the controller and call function to set up the language
 			PractiseModule controller = loader.getController();
 			controller.setUpLang(event);
 		} else {
-			FXMLLoader loader = changeScene("GamesModule.fxml", event);
+			FXMLLoader loader = changeScene("./FXML/GamesModule.fxml", event);
 			// access the controller and call function to set up the language
 			GamesModule controller = loader.getController();
 			controller.setUpLang(event);

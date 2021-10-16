@@ -74,7 +74,7 @@ public class Summary implements Initializable{
 	public void startNewQuiz(MouseEvent event) throws IOException {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("Menu.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/Menu.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 
@@ -92,7 +92,7 @@ public class Summary implements Initializable{
 	}
 	
 	public void goBack(MouseEvent event) throws IOException {
-		root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
+		root = FXMLLoader.load(getClass().getResource("./FXML/RewardScreen.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -115,7 +115,7 @@ public class Summary implements Initializable{
 	}
 	
 	public void exitGoBack(MouseEvent images) { 
-		goBackBut.setImage(new Image("./images/rrow.png"));
+		goBackBut.setImage(new Image("./images/arrow.png"));
 	}
 
 	public void enterGoBack(MouseEvent event) throws MalformedURLException { 

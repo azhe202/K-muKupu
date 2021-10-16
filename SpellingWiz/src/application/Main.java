@@ -19,7 +19,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		// loads and displays the main menu to the user
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("./FXML/Menu.fxml"));
 			primaryStage.setTitle("Kēmu Kupu"); // set a title for the application
 		   
 
@@ -29,7 +29,6 @@ public class Main extends Application {
 		    // keep a constant window width and height
 		    primaryStage.setResizable(false);
 		    
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();	
 			

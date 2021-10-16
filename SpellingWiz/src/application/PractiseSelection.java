@@ -41,7 +41,7 @@ public class PractiseSelection {
 		randomSelected = true;
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("PractiseModule.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/PractiseModule.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 
@@ -61,7 +61,7 @@ public class PractiseSelection {
 	public void chooseSelect(MouseEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/CategorySelection.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 
@@ -81,7 +81,7 @@ public class PractiseSelection {
 	public void backToMenu(MouseEvent event) { 
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("Menu.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/Menu.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 

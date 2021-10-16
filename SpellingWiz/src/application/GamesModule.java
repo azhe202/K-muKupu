@@ -270,7 +270,7 @@ public class GamesModule extends Controller {
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
 		
-		root = FXMLLoader.load(getClass().getResource("RewardScreen.fxml"));
+		root = FXMLLoader.load(getClass().getResource("./FXML/RewardScreen.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
 		stage.setScene(scene);
@@ -481,7 +481,7 @@ public class GamesModule extends Controller {
 	public void back(MouseEvent event) { 
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("CategorySelection.fxml"));
+			loader.setLocation(getClass().getResource("./FXML/CategorySelection.fxml"));
 			root = loader.load();
 			scene = new Scene(root);
 
