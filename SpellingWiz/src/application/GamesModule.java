@@ -72,7 +72,6 @@ public class GamesModule extends Controller {
 	private Scene scene;
 	private Parent root;
 
-	public static int wordCount;
 	public static float score;
 	private int totalSeconds = 31;
 	public static ArrayList<String> wordsForSummary = new ArrayList<>();
@@ -117,15 +116,6 @@ public class GamesModule extends Controller {
 		translateStar.setAutoReverse(true);
 		translateStar.setCycleCount(2);
 
-		//disables game related buttons and enables submit button
-		startGame.setDisable(true);
-		checkSpelling.setDisable(false);
-		repeatWordBtn.setDisable(false);
-		translationBtn.setDisable(false);
-		skipWordBtn.setDisable(false);
-		macronBtn.setDisable(false);
-
-
 		// get the word list 
 		String wordList = CategorySelection.wordList;
 
@@ -142,8 +132,7 @@ public class GamesModule extends Controller {
 			englishWords[i] = tempArray[1];
 		}
 
-		// starting word count and score
-		wordCount = 1;
+		// starting score
 		score = 0;
 
 		SpellingThread speakWord; 
@@ -247,7 +236,6 @@ public class GamesModule extends Controller {
 				Sound.playSound("sounds/incorrectSound.mp3");
 				wordsForSummary.add(word + "#Incorrect");
 				skipRequested = false;
-				wordCount++;
 				continue;
 			}
 			
@@ -255,14 +243,6 @@ public class GamesModule extends Controller {
 			translationHint.setText("");
 
 		}
-
-		//disables game related buttons and enables start button
-		startGame.setDisable(false);
-		checkSpelling.setDisable(true);
-		repeatWordBtn.setDisable(true);
-		translationBtn.setDisable(true);
-		skipWordBtn.setDisable(true);
-		macronBtn.setDisable(true);
 		
 		root = FXMLLoader.load(getClass().getResource("./FXML/RewardScreen.fxml"));
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();

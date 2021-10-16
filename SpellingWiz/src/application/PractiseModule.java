@@ -52,7 +52,6 @@ public class PractiseModule extends Controller {
 	@FXML
 	private ImageView instruction;
 	
-	public static int wordCount;
 	public static int score;
 	private int attempts;
 	public static double voiceSpeed;
@@ -108,14 +107,9 @@ public class PractiseModule extends Controller {
 	 * Function to start the practice game
 	 */
 	public void startSpellingGame() {
-	
 		startGame.setVisible(false);
 		instruction.setVisible(false);
-		repeatWordBtn.setDisable(false);
-		translationBtn.setDisable(false);
-		skipWordBtn.setDisable(false);
-		macronBtn.setDisable(false);
-		checkSpelling.setDisable(false);
+		
 		gameInPlay = true;
 
 		while(gameInPlay) {
@@ -140,8 +134,7 @@ public class PractiseModule extends Controller {
 			word = tempArray[0].trim();
 			englishWord = tempArray[1];
 
-			// starting word count and score
-			wordCount = 1;
+			// starting score
 			score = 0;
 
 			textField.clear();
@@ -194,7 +187,7 @@ public class PractiseModule extends Controller {
 						incorrectSpelling(textField);
 						displayCorrectLetters(word, wordEntered);
 						voiceSpeed = voiceSpeedSlider.getValue();
-						spellingQuestion(word, 0, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
+						spellingQuestion(word, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
 						attempts++;
 					}
 				}
@@ -209,7 +202,6 @@ public class PractiseModule extends Controller {
 			if (skipRequested) {
 				Sound.playSound("sounds/incorrectSound.mp3");
 				skipRequested = false;
-				wordCount++;
 				continue;
 			}
 			
@@ -217,13 +209,6 @@ public class PractiseModule extends Controller {
 			translationHint.setText("");
 		}
 
-		//disables game related buttons and enables start button
-		startGame.setDisable(false);
-		repeatWordBtn.setDisable(true);
-		translationBtn.setDisable(true);
-		skipWordBtn.setDisable(true);
-		macronBtn.setDisable(true);
-		checkSpelling.setDisable(true);
 	}
 	
 	public void displayCorrectWord(String word) {

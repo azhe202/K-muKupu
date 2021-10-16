@@ -43,27 +43,27 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <ImageView fx:id="repeatWordBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="78.0" layoutY="521.0" onMouseClicked="#wordRepeat" onMouseEntered="#enterRepeat" onMouseExited="#exitRepeat" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="repeatWordBtn" fitHeight="79.0" fitWidth="292.0" layoutX="78.0" layoutY="521.0" onMouseClicked="#wordRepeat" onMouseEntered="#enterRepeat" onMouseExited="#exitRepeat" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/repeatfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="translationBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="391.0" layoutY="521.0" onMouseClicked="#translate" onMouseEntered="#enterTranslate" onMouseExited="#exitTranslate" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="translationBtn" fitHeight="79.0" fitWidth="292.0" layoutX="391.0" layoutY="521.0" onMouseClicked="#translate" onMouseEntered="#enterTranslate" onMouseExited="#exitTranslate" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/translatefade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="macronBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="699.0" layoutY="521.0" onMouseClicked="#insertMacron" onMouseEntered="#enterMacron" onMouseExited="#exitMacron" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="macronBtn" fitHeight="79.0" fitWidth="292.0" layoutX="699.0" layoutY="521.0" onMouseClicked="#insertMacron" onMouseEntered="#enterMacron" onMouseExited="#exitMacron" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/macronfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="skipWordBtn" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="1008.0" layoutY="521.0" onMouseEntered="#enterSkip" onMouseExited="#exitSkip" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="skipWordBtn" fitHeight="79.0" fitWidth="292.0" layoutX="1008.0" layoutY="521.0" onMouseEntered="#enterSkip" onMouseExited="#exitSkip" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/skipfade.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="checkSpelling" disable="true" fitHeight="79.0" fitWidth="292.0" layoutX="1008.0" layoutY="411.0" onMouseEntered="#enterSubmit" onMouseExited="#exitSubmit" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="checkSpelling" fitHeight="79.0" fitWidth="292.0" layoutX="1008.0" layoutY="411.0" onMouseEntered="#enterSubmit" onMouseExited="#exitSubmit" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/submitfade.jpg" />
          </image>

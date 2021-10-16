@@ -189,7 +189,7 @@ public class Controller implements Initializable{
 	/*
 	 * Helper function for newSpellingQuiz 
 	 */
-	public void spellingQuestion(String word, int wordCount, int attempts, int numWords, double speed) {
+	public void spellingQuestion(String word, int attempts, int numWords, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
 			createSchemeFile(word, speed); // file to speak the maori word
@@ -317,7 +317,7 @@ public class Controller implements Initializable{
 		textField.clear();
 		Sound.playSound("./sounds/incorrectSound.mp3");
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
