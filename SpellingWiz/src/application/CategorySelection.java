@@ -123,7 +123,7 @@ public class CategorySelection{
 	}
 
 	public void backToMenu(MouseEvent event) { 
-		FXMLLoader loader = changeScene("Menu.fxml", event);
+		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
 		// access the controller and call function to set up the language
 		SceneController controller = loader.getController();
 		controller.setUpLang(event);
