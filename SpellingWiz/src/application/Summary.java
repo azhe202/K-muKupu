@@ -48,22 +48,22 @@ public class Summary implements Initializable{
 	
 	private void start() {
 		
-		resultsBanner.setImage(new Image("./Results" + langExt + ".png"));
+		resultsBanner.setImage(new Image("./images/Results" + langExt + ".png"));
 		
 		int i = 1;
 		for (String word : GamesModule.wordsForSummary) {
 			String[] words = word.split("#");
 			speltWords = speltWords + words[0] + "\n";
 			if (i==1) {
-				indicator1.setImage(new Image("./" + words[1] + ".png"));
+				indicator1.setImage(new Image("./images/" + words[1] + ".png"));
 			} else if (i==2) {
-				indicator2.setImage(new Image("./" + words[1] + ".png"));
+				indicator2.setImage(new Image("./images/" + words[1] + ".png"));
 			} else if (i==3) {
-				indicator3.setImage(new Image("./" + words[1] + ".png"));
+				indicator3.setImage(new Image("./images/" + words[1] + ".png"));
 			} else if (i==4) {
-				indicator4.setImage(new Image("./" + words[1] + ".png"));
+				indicator4.setImage(new Image("./images/" + words[1] + ".png"));
 			} else if (i==5) {
-				indicator5.setImage(new Image("./" + words[1] + ".png"));
+				indicator5.setImage(new Image("./images/" + words[1] + ".png"));
 			} 
 			i++;
 		}
@@ -106,21 +106,21 @@ public class Summary implements Initializable{
 	}
 	
 	public void exitNewQuiz(MouseEvent event) { 
-		newQuizBut.setImage(new Image("./arrow.png"));
+		newQuizBut.setImage(new Image("./images/arrow.png"));
 	}
 
 	public void enterNewQuiz(MouseEvent event) throws MalformedURLException { 
-		newQuizBut.setImage(new Image("./arrowSelect.png"));
-		Sound.playSound("./switch.wav");
+		newQuizBut.setImage(new Image("./images/arrowSelect.png"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 	
-	public void exitGoBack(MouseEvent event) { 
-		goBackBut.setImage(new Image("./arrow.png"));
+	public void exitGoBack(MouseEvent images) { 
+		goBackBut.setImage(new Image("./images/rrow.png"));
 	}
 
 	public void enterGoBack(MouseEvent event) throws MalformedURLException { 
-		goBackBut.setImage(new Image("./arrowSelect.png"));
-		Sound.playSound("./switch.wav");
+		goBackBut.setImage(new Image("./images/arrowSelect.png"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 	
 	

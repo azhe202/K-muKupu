@@ -40,31 +40,31 @@ public class RewardScreen implements Initializable{
 	private Parent root;
 
 	public void start() {
-		messageLabel.setImage(new Image("./horribleMessage" + langExt + ".png"));
+		messageLabel.setImage(new Image("./images/horribleMessage" + langExt + ".png"));
 		
 		if (GamesModule.score>=0.5) {
-			star1.setImage(new Image("./halfStar.png"));
+			star1.setImage(new Image("./images/halfStar.png"));
 		} if (GamesModule.score>=1) {
-			star1.setImage(new Image("./filledStar.png"));
+			star1.setImage(new Image("./images/filledStar.png"));
 		}if (GamesModule.score>=1.5) {
-			star2.setImage(new Image("./halfStar.png"));
+			star2.setImage(new Image("./images/halfStar.png"));
 		} if (GamesModule.score>=2) {
-			star2.setImage(new Image("./filledStar.png"));
+			star2.setImage(new Image("./images/filledStar.png"));
 		}if (GamesModule.score>=2.5) {
-			star3.setImage(new Image("./halfStar.png"));
+			star3.setImage(new Image("./images/halfStar.png"));
 		} if (GamesModule.score>=3) {
-			messageLabel.setImage(new Image("./badMessage" + langExt + ".png"));
-			star3.setImage(new Image("./filledStar.png"));
+			messageLabel.setImage(new Image("./images/badMessage" + langExt + ".png"));
+			star3.setImage(new Image("./images/filledStar.png"));
 		}if (GamesModule.score>=3.5) {
-			star4.setImage(new Image("./halfStar.png"));
+			star4.setImage(new Image("./images/halfStar.png"));
 		} if (GamesModule.score>=4) {
-			messageLabel.setImage(new Image("./decentMessage" + langExt + ".png"));
-			star4.setImage(new Image("./filledStar.png"));
+			messageLabel.setImage(new Image("./images/decentMessage" + langExt + ".png"));
+			star4.setImage(new Image("./images/filledStar.png"));
 		}if (GamesModule.score>=4.5) {
-			star5.setImage(new Image("./halfStar.png"));
+			star5.setImage(new Image("./images/halfStar.png"));
 		} if (GamesModule.score==5) {
-			messageLabel.setImage(new Image("./goodMessage" + langExt + ".png"));
-			star5.setImage(new Image("./filledStar.png"));
+			messageLabel.setImage(new Image("./images/goodMessage" + langExt + ".png"));
+			star5.setImage(new Image("./images/filledStar.png"));
 		}
 	}
 	
@@ -83,12 +83,12 @@ public class RewardScreen implements Initializable{
 	}
 	
 	public void exitNextPage(MouseEvent event) { 
-		nextPage.setImage(new Image("./arrow.png"));
+		nextPage.setImage(new Image("./images/arrow.png"));
 	}
 
 	public void enterNextPage(MouseEvent event) throws MalformedURLException { 
-		nextPage.setImage(new Image("./arrowSelect.png"));
-		Sound.playSound("./switch.wav");
+		nextPage.setImage(new Image("./images/arrowSelect.png"));
+		Sound.playSound("./sounds/switch.wav");
 	}
 	
 	
