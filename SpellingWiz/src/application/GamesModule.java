@@ -95,6 +95,7 @@ public class GamesModule extends Controller {
 		exitSkip(event);
 		exitStart(event);
 		exitSubmit(event);
+		instruction.setImage(new Image("./gamesInstructions"+langExt+".jpg"));
 	}
 
 	/**

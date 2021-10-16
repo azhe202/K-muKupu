@@ -113,7 +113,7 @@
             <Image url="@../gamesInstructions.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="startGame" fitHeight="208.0" fitWidth="529.0" layoutX="486.0" layoutY="613.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="startGame" fitHeight="212.0" fitWidth="260.0" layoutX="554.0" layoutY="689.0" onMouseClicked="#startSpellingGame" onMouseEntered="#enterStart" onMouseExited="#exitStart" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../startfade.png" />
          </image>
