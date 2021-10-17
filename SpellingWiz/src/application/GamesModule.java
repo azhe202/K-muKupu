@@ -108,7 +108,7 @@ public class GamesModule extends Controller {
 		wordsForSummary.clear();
 		translate.setNode(frog);
 		translate.setDuration(Duration.millis(1000));
-		translate.setByX(126);
+		translate.setByX(122);
 		
 		translateStar.setNode(star);
 		translateStar.setDuration(Duration.millis(1000));
