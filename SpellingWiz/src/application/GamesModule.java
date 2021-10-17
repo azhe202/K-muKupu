@@ -212,6 +212,7 @@ public class GamesModule extends Controller {
 					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						pauseTimer();
 						wordsForSummary.add(word + "#Incorrect");
+						translate.play();
 						incorrectSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if (!wordEntered.equalsIgnoreCase(word)){
@@ -235,6 +236,7 @@ public class GamesModule extends Controller {
 				pauseTimer(); // when skip is requested then pause and delete the old timer
 				Sound.playSound("sounds/incorrectSound.mp3");
 				wordsForSummary.add(word + "#Incorrect");
+				translate.play();
 				skipRequested = false;
 				continue;
 			}
