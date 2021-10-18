@@ -39,7 +39,7 @@ public class GamesModule extends Controller {
 	@FXML
 	private TextField textField;
 	@FXML
-	private ImageView checkSpelling;
+	private ImageView submitBtn;
 	@FXML
 	private Label translationHint;
 	@FXML
@@ -170,7 +170,7 @@ public class GamesModule extends Controller {
 			});
 
 			// checkSpelling button will check the word and increase the score or ask user to spell again
-			checkSpelling.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			submitBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 				@Override 
 				public void handle(MouseEvent e) {
@@ -182,30 +182,14 @@ public class GamesModule extends Controller {
 					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
 						wordsForSummary.add(word + "#Correct");
 						pauseTimer(); 
-						if (noMoreTimeLabel.getText().equals("Time's Up") || noMoreTimeLabel.getText().equals("Kaore o wa i toe")) {
-							score+= 0.5;
-							star.setImage(new Image("./images/halfStar.png"));
-							translateStar.play();
-						} else {
-							score++;
-							star.setImage(new Image("./images/filledStar.png"));
-							translateStar.play();
-						}
+						playScoreAnimation();
 						translate.play();
 						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						wordsForSummary.add(word + "#Correct");
 						pauseTimer();
-						if (noMoreTimeLabel.getText().equals("Time's Up") || noMoreTimeLabel.getText().equals("Kaore o wa i toe")) {
-							score+= 0.5;
-							star.setImage(new Image("./images/halfStar.png"));
-							translateStar.play();
-						} else {
-							score++;
-							star.setImage(new Image("./images/filledStar.png"));
-							translateStar.play();
-						}
+						playScoreAnimation();
 						translate.play();
 						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
@@ -246,11 +230,22 @@ public class GamesModule extends Controller {
 
 		}
 		
-		root = FXMLLoader.load(getClass().getResource("./FXML/RewardScreen.fxml"));
-		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-		scene = new Scene(root);
-		stage.setScene(scene);
-		stage.show();
+		enterRewardsScreen(event);
+	}
+	
+	/**
+	 * Function which shows the user their score for the given word
+	 */
+	public void playScoreAnimation() {
+		if (noMoreTimeLabel.getText().equals("Time's Up") || noMoreTimeLabel.getText().equals("Kaore o wa i toe")) {
+			score+= 0.5;
+			star.setImage(new Image("./images/halfStar.png"));
+			translateStar.play();
+		} else {
+			score++;
+			star.setImage(new Image("./images/filledStar.png"));
+			translateStar.play();
+		}
 	}
 	
 	/**
@@ -274,14 +269,14 @@ public class GamesModule extends Controller {
 		repeat.start();
 	}
 
-	/*
+	/**
 	 * Function allowing the user to enter a macron
 	 */
 	public void insertMacron(MouseEvent event) {
 		addMacron(event);
 	}
 
-	/* 
+	/* *
 	 * Help button functionality
 	 */
 
@@ -298,6 +293,18 @@ public class GamesModule extends Controller {
 		}
 	}
 	
+	public void enterHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/help.jpg"));
+		Sound.playSound("./sounds/switch.wav");
+	}
+
+	public void exitHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/helpfade.jpg"));
+	}
+	
+	/**
+	 * Voice speed button functionality
+	 */
 	boolean speedOpen = false;
 	
 	public void selectSpeed(MouseEvent event) {
@@ -311,18 +318,6 @@ public class GamesModule extends Controller {
 			speedWindow.setVisible(true);
 		}
 	}
-	
-	
-
-	public void enterHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/help.jpg"));
-		Sound.playSound("./sounds/switch.wav");
-	}
-
-	public void exitHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/helpfade.jpg"));
-	}
-
 
 	/**
 	 * Functionality for the timer
@@ -377,6 +372,11 @@ public class GamesModule extends Controller {
 	}
 
 
+	/** 
+	 * Functionality for fading of buttons if selected
+	 * @param event
+	 * @throws MalformedURLException
+	 */
 	public void enterRepeat(MouseEvent event) throws MalformedURLException { 
 		repeatWordBtn.setImage(new Image("./images/repeat"+langExt+".jpg"));
 		Sound.playSound("./sounds/switch.wav");
@@ -414,12 +414,12 @@ public class GamesModule extends Controller {
 	}
 
 	public void enterSubmit(MouseEvent event) throws MalformedURLException { 
-		checkSpelling.setImage(new Image("./images/submit"+langExt+".jpg"));
+		submitBtn.setImage(new Image("./images/submit"+langExt+".jpg"));
 		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitSubmit(MouseEvent event) { 
-		checkSpelling.setImage(new Image("./images/submitfade"+langExt+".jpg"));
+		submitBtn.setImage(new Image("./images/submitfade"+langExt+".jpg"));
 	}
 	
 	public void enterStart(MouseEvent event) throws MalformedURLException { 
@@ -454,6 +454,10 @@ public class GamesModule extends Controller {
 		helpWindow.setVisible(false);
 	}
 	
+	/**
+	 * Function to allow user to return to category selection is back arrow is clicked
+	 * @param event
+	 */
 	public void back(MouseEvent event) { 
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -472,6 +476,23 @@ public class GamesModule extends Controller {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Function is called to enter the Rewards Screen
+	 * @param event
+	 */
+	public void enterRewardsScreen(MouseEvent event) {
+		try {
+			root = FXMLLoader.load(getClass().getResource("./FXML/RewardScreen.fxml"));
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }
