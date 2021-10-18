@@ -37,65 +37,26 @@ public class PractiseSelection {
 		practisePrompt.setImage(new Image("./images/practisePrompt"+langExt+".jpg"));
 	}
 
-	public void chooseRandom(MouseEvent event) {
+	public void chooseRandom(MouseEvent event) throws MalformedURLException {
 		randomSelected = true;
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("./FXML/PractiseModule.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
-			// access the controller and call function to set up the language
-			PractiseModule controller = loader.getController();
-			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		FXMLLoader loader = changeScene("./FXML/PractiseModule.fxml", event);
+		// access the controller and call function to set up the language
+		PractiseModule controller = loader.getController();
+		controller.setUpLang(event);
 	}
 
-	public void chooseSelect(MouseEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("./FXML/CategorySelection.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
-			// access the controller and call function to set up the language
-			CategorySelection controller = loader.getController();
-			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public void chooseSelect(MouseEvent event) throws MalformedURLException {
+		FXMLLoader loader = changeScene("./FXML/CategorySelection.fxml", event);
+		// access the controller and call function to set up the language
+		CategorySelection controller = loader.getController();
+		controller.setUpLang(event);
 	}
 	
 	public void backToMenu(MouseEvent event) { 
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("./FXML/Menu.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
-			// access the controller and call function to set up the language
-			SceneController controller = loader.getController();
-			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
+		// access the controller and call function to set up the language
+		SceneController controller = loader.getController();
+		controller.setUpLang(event);
 	}
 
 	//random
@@ -125,5 +86,27 @@ public class PractiseSelection {
 
 	public void exitArrow(MouseEvent event) { 
 		arrowBtn.setImage(new Image("./images/arrow.jpg"));
+	}
+	
+	public FXMLLoader changeScene(String nextScene, MouseEvent event) {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource(nextScene));
+			root = loader.load();
+			scene = new Scene(root);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+
+			return loader;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+			return new FXMLLoader();
+
+		}
+
 	}
 }
