@@ -82,27 +82,6 @@ public class PractiseModule extends Controller {
 		instruction.setImage(new Image("./images/practiseInstructions"+langExt+".jpg"));
 	}
 
-	public void selectHelp(MouseEvent event) {
-		if (helpOpen) {
-			helpOpen = false;
-			helpWindow.setVisible(false);
-		} else {
-			helpOpen = true;
-			helpWindow.setImage(new Image("./images/helpWindow"+langExt+".jpg"));
-			helpWindow.setVisible(true);
-		}
-	}
-
-	public void enterHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/help.jpg"));
-		Sound.playSound("./sounds/switch.wav");
-	}
-
-	public void exitHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/helpfade.jpg"));
-	}
-
-
 	/**
 	 * Function to start the practice game
 	 */
@@ -365,6 +344,27 @@ public class PractiseModule extends Controller {
 			e.printStackTrace();
 		}
 	}
+	
+	public void selectHelp(MouseEvent event) {
+		if (helpOpen) {
+			helpOpen = false;
+			helpWindow.setVisible(false);
+		} else {
+			helpOpen = true;
+			helpWindow.setImage(new Image("./images/helpWindow"+langExt+".jpg"));
+			helpWindow.setVisible(true);
+		}
+	}
+
+	public void enterHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/help.jpg"));
+		Sound.playSound("./sounds/switch.wav");
+	}
+
+	public void exitHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/helpfade.jpg"));
+	}
+
 	
 	boolean speedOpen = false;
 	

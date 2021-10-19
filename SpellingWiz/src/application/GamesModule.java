@@ -222,7 +222,6 @@ public class GamesModule extends Controller {
 				wordsForSummary.add(word + "#Incorrect");
 				translate.play();
 				skipRequested = false;
-				continue;
 			}
 			
 			// remove existing hints
