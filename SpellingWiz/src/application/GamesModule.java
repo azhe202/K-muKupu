@@ -458,23 +458,10 @@ public class GamesModule extends Controller {
 	 * @param event
 	 */
 	public void back(MouseEvent event) { 
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("./FXML/CategorySelection.fxml"));
-			root = loader.load();
-			scene = new Scene(root);
-
-			// access the controller and call function to set up the language
-			CategorySelection controller = loader.getController();
-			controller.setUpLang(event);
-
-			// show GUI to user 
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
+		// access the controller and call function to set up the language
+		SceneController controller = loader.getController();
+		controller.setUpLang(event);
 	}
 	
 	/**
@@ -482,16 +469,29 @@ public class GamesModule extends Controller {
 	 * @param event
 	 */
 	public void enterRewardsScreen(MouseEvent event) {
+		FXMLLoader loader = changeScene("./FXML/RewardScreen.fxml", event);
+	}
+	
+	public FXMLLoader changeScene(String nextScene, MouseEvent event) {
 		try {
-			root = FXMLLoader.load(getClass().getResource("./FXML/RewardScreen.fxml"));
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource(nextScene));
+			root = loader.load();
 			scene = new Scene(root);
+
+			// show GUI to user 
+			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
 			stage.show();
+
+			return loader;
+
 		} catch (IOException e) {
 			e.printStackTrace();
+			return new FXMLLoader();
+
 		}
-		
+
 	}
 
 }
