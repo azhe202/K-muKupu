@@ -3,15 +3,13 @@ package application;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
+import javafx.animation.PauseTransition;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
@@ -19,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class PractiseModule extends Controller {
 	@FXML
@@ -58,7 +57,6 @@ public class PractiseModule extends Controller {
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
-	private Boolean answerNeeded = false;
 	private String wordList;
 	private String[] wordPoolFileNames = {"animals", "colours", "compassPoints", "daysOfTheWeek", "daysOfTheWeekLoanWords", 
 			"feelings", "food", "monthsOfTheYear", "monthsOfTheYearLoanWords"};
@@ -127,6 +125,7 @@ public class PractiseModule extends Controller {
 			
 			// Start a new thread to say the word to spell to user
 			PractiseThread practiseThread = new PractiseThread();
+			practiseThread.setDaemon(true);
 			practiseThread.start();
 
 			attempts++;
@@ -156,12 +155,9 @@ public class PractiseModule extends Controller {
 					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
 						correctSpelling(textField);
 						resume(); // resume function after check spelling button has been pressed
-					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						displayCorrectWord(word);
+					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {	
 						incorrectSpelling(textField);
-						answerNeeded = true;
-						
-						resume(); // resume function after check spelling button has been pressed
+						displayCorrectWord(word, e);
 					} else if (!wordEntered.equalsIgnoreCase(word)){
 						incorrectSpelling(textField);
 						displayCorrectLetters(word, wordEntered);
@@ -181,7 +177,6 @@ public class PractiseModule extends Controller {
 			if (skipRequested) {
 				Sound.playSound("sounds/incorrectSound.mp3");
 				skipRequested = false;
-				continue;
 			}
 			
 			// remove the translation hint 
@@ -190,8 +185,50 @@ public class PractiseModule extends Controller {
 
 	}
 	
-	public void displayCorrectWord(String word) {
+	
+	/**
+	 * Function displays to the user the correct spelling of the given word for 
+	 * a certain time frame
+	 * @param word
+	 * @param event
+	 */
+	public void displayCorrectWord(String word, MouseEvent event) {
+		
+		disableButtons();
 		super.wordLength.setText(word);
+		PauseTransition pause = new PauseTransition(Duration.seconds(4.0));
+		pause.setOnFinished( e -> {
+			enableButtons();
+			resume();
+		});
+		pause.play();
+		
+	}
+	
+	/**
+	 * Disables all buttons on the screen excluding the back button
+	 */
+	public void disableButtons() {
+		repeatWordBtn.setDisable(true);
+		translationBtn.setDisable(true);
+		skipWordBtn.setDisable(true);
+		macronBtn.setDisable(true);
+		checkSpelling.setDisable(true);
+		helpBtn.setDisable(true);
+		speedBtn.setDisable(true);
+	}
+	
+	/**
+	 * Enables all buttons on the screen
+	 */
+	public void enableButtons() {
+		repeatWordBtn.setDisable(false);
+		translationBtn.setDisable(false);
+		skipWordBtn.setDisable(false);
+		macronBtn.setDisable(false);
+		checkSpelling.setDisable(false);
+		helpBtn.setDisable(false);
+		speedBtn.setDisable(false);
 	}
 	
 	public void displayCorrectLetters(String word, String spelling) { 
