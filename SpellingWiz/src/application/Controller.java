@@ -71,10 +71,10 @@ public class Controller implements Initializable{
 	 */
 	public void displayNumLetters(String word) {
 		int numLetters = word.length();
-		String textToDisplay = "_";
+		String textToDisplay = "";
 		
-		for(int i=1; i<numLetters; i++) {
-			textToDisplay = textToDisplay + " " + "_";
+		for(int i=0; i<numLetters; i++) {
+			textToDisplay = textToDisplay + "_ ";
 		}
 		
 		wordLength.setText(textToDisplay);
