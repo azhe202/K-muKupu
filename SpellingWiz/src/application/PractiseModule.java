@@ -195,7 +195,11 @@ public class PractiseModule extends Controller {
 	public void displayCorrectWord(String word, MouseEvent event) {
 		
 		disableButtons();
-		super.wordLength.setText(word);
+		String displayWord = "";
+		for (int i = 0; i < word.length(); i++) {
+			displayWord = (displayWord + word.charAt(i) + " ");
+		}
+		super.wordLength.setText(displayWord);
 		PauseTransition pause = new PauseTransition(Duration.seconds(4.0));
 		pause.setOnFinished( e -> {
 			enableButtons();
