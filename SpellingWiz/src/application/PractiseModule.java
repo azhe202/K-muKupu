@@ -15,6 +15,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -145,29 +147,19 @@ public class PractiseModule extends Controller {
 
 				@Override 
 				public void handle(MouseEvent e) {
-
-					String wordEntered = textField.getText().trim();
-
-					// conditional checks to increase user score
-					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-						correctSpelling(textField);
-						resume(); // resume function after check spelling button has been pressed
-					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						correctSpelling(textField);
-						resume(); // resume function after check spelling button has been pressed
-					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {	
-						incorrectSpelling(textField);
-						displayCorrectWord(word, e);
-					} else if (!wordEntered.equalsIgnoreCase(word)){
-						incorrectSpelling(textField);
-						displayCorrectLetters(word, wordEntered);
-						voiceSpeed = voiceSpeedSlider.getValue();
-						spellingQuestion(word, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
-						attempts++;
-					}
+					assess();
 				}
 
 
+			});
+			
+			textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			    @Override
+			    public void handle(KeyEvent ke) {
+			        if (ke.getCode().equals(KeyCode.ENTER)) {
+			            assess();
+			        }
+			    }
 			});
 
 			// temporarily pause the method and wait for resume to be called
@@ -185,6 +177,29 @@ public class PractiseModule extends Controller {
 
 	}
 	
+	public void assess() {
+	
+	String wordEntered = textField.getText().trim();
+
+	// conditional checks to increase user score
+	if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
+		correctSpelling(textField);
+		resume(); // resume function after check spelling button has been pressed
+	} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+		correctSpelling(textField);
+		resume(); // resume function after check spelling button has been pressed
+	} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {	
+		incorrectSpelling(textField);
+		displayCorrectWord(word);
+	} else if (!wordEntered.equalsIgnoreCase(word)){
+		incorrectSpelling(textField);
+		displayCorrectLetters(word, wordEntered);
+		voiceSpeed = voiceSpeedSlider.getValue();
+		spellingQuestion(word, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
+		attempts++;
+	}
+	}
+	
 	
 	/**
 	 * Function displays to the user the correct spelling of the given word for 
@@ -192,13 +207,16 @@ public class PractiseModule extends Controller {
 	 * @param word
 	 * @param event
 	 */
-	public void displayCorrectWord(String word, MouseEvent event) {
+	public void displayCorrectWord(String word) {
 		
 		disableButtons();
+		
+		// format word to line up with underscore placement
 		String displayWord = "";
 		for (int i = 0; i < word.length(); i++) {
 			displayWord = (displayWord + word.charAt(i) + " ");
 		}
+		
 		super.wordLength.setText(displayWord);
 		PauseTransition pause = new PauseTransition(Duration.seconds(4.0));
 		pause.setOnFinished( e -> {

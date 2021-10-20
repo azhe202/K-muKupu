@@ -20,6 +20,8 @@ import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -174,42 +176,17 @@ public class GamesModule extends Controller {
 
 				@Override 
 				public void handle(MouseEvent e) {
-					
-
-					String wordEntered = textField.getText().trim();
-
-					// conditional checks to increase user score
-					if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-						wordsForSummary.add(word + "#Correct");
-						pauseTimer(); 
-						playScoreAnimation();
-						translate.play();
-						correctSpelling(textField);
-						resume(); // resume function after check spelling button has been pressed
-					} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						wordsForSummary.add(word + "#Correct");
-						pauseTimer();
-						playScoreAnimation();
-						translate.play();
-						correctSpelling(textField);
-						resume(); // resume function after check spelling button has been pressed
-					} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-						pauseTimer();
-						wordsForSummary.add(word + "#Incorrect");
-						translate.play();
-						incorrectSpelling(textField);
-						resume(); // resume function after check spelling button has been pressed
-					} else if (!wordEntered.equalsIgnoreCase(word)){
-						incorrectSpelling(textField);
-						voiceSpeed = voiceSpeedSlider.getValue();
-						SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
-						repeat.start(); // call the function again to ask user to spell word again 
-						attempts++;
-						
-						
-					}
+					assess();
 				}
-
+			});
+			
+			textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+			    @Override
+			    public void handle(KeyEvent ke) {
+			        if (ke.getCode().equals(KeyCode.ENTER)) {
+			            assess();
+			        }
+			    }
 			});
 
 			// temporarily pause the method and wait for resume to be called
@@ -230,6 +207,42 @@ public class GamesModule extends Controller {
 		}
 		
 		enterRewardsScreen(event);
+	}
+		
+	public void assess() {
+		String wordEntered = textField.getText().trim();
+
+		// conditional checks to increase user score
+		if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
+			wordsForSummary.add(word + "#Correct");
+			pauseTimer(); 
+			playScoreAnimation();
+			translate.play();
+			correctSpelling(textField);
+			resume(); // resume function after check spelling button has been pressed
+		} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+			wordsForSummary.add(word + "#Correct");
+			pauseTimer();
+			playScoreAnimation();
+			translate.play();
+			correctSpelling(textField);
+			resume(); // resume function after check spelling button has been pressed
+		} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+			pauseTimer();
+			wordsForSummary.add(word + "#Incorrect");
+			translate.play();
+			incorrectSpelling(textField);
+			resume(); // resume function after check spelling button has been pressed
+		} else if (!wordEntered.equalsIgnoreCase(word)){
+			incorrectSpelling(textField);
+			voiceSpeed = voiceSpeedSlider.getValue();
+			SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
+			repeat.start(); // call the function again to ask user to spell word again 
+			attempts++;
+			
+			
+		}
+	
 	}
 	
 	/**
