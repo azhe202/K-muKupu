@@ -32,6 +32,8 @@ public class RewardScreen implements Initializable{
 	private ImageView messageLabel;
 	@FXML
 	private ImageView nextPage;
+	@FXML
+	private ImageView trophyImage;
 	
 	String langExt = SceneController.langExt;
 
@@ -52,6 +54,7 @@ public class RewardScreen implements Initializable{
 			star2.setImage(new Image("./images/filledStar.png"));
 		}if (GamesModule.score>=2.5) {
 			star3.setImage(new Image("./images/halfStar.png"));
+			trophyImage.setImage(new Image("./images/silverTrophy.png"));
 		} if (GamesModule.score>=3) {
 			messageLabel.setImage(new Image("./images/badMessage" + langExt + ".png"));
 			star3.setImage(new Image("./images/filledStar.png"));
@@ -62,6 +65,7 @@ public class RewardScreen implements Initializable{
 			star4.setImage(new Image("./images/filledStar.png"));
 		}if (GamesModule.score>=4.5) {
 			star5.setImage(new Image("./images/halfStar.png"));
+			trophyImage.setImage(new Image("./images/goldTrophy.png"));
 		} if (GamesModule.score==5) {
 			messageLabel.setImage(new Image("./images/goodMessage" + langExt + ".png"));
 			star5.setImage(new Image("./images/filledStar.png"));

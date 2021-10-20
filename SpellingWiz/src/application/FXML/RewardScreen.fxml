@@ -11,27 +11,27 @@
             <Image url="@../../images/background.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="star1" fitHeight="150.0" fitWidth="200.0" layoutX="284.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star1" fitHeight="150.0" fitWidth="200.0" layoutX="266.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star2" fitHeight="150.0" fitWidth="200.0" layoutX="452.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star2" fitHeight="150.0" fitWidth="200.0" layoutX="434.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star3" fitHeight="150.0" fitWidth="200.0" layoutX="617.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star3" fitHeight="150.0" fitWidth="200.0" layoutX="599.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star4" fitHeight="150.0" fitWidth="200.0" layoutX="786.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star4" fitHeight="150.0" fitWidth="200.0" layoutX="768.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/star.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="star5" fitHeight="150.0" fitWidth="200.0" layoutX="952.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="star5" fitHeight="150.0" fitWidth="200.0" layoutX="934.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/star.png" />
          </image>
@@ -54,6 +54,11 @@
       <ImageView fx:id="messageLabel" fitHeight="204.0" fitWidth="727.0" layoutX="419.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/badMessage.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="trophyImage" fitHeight="340.0" fitWidth="392.0" layoutX="538.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/bronzeTrohpy.png" />
          </image>
       </ImageView>
    </children>
