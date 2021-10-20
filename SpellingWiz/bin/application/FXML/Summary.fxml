@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Summary">
+   <children>
+      <ImageView fitHeight="906.0" fitWidth="1356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/background.jpg" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="578.0" layoutX="114.0" layoutY="198.0" opacity="0.63" stroke="WHITE" strokeType="INSIDE" width="1027.0" />
+      <Label fx:id="speltWordsLabel" layoutX="238.0" layoutY="208.0" prefHeight="557.0" prefWidth="1035.0">
+         <font>
+            <Font size="98.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="indicator1" fitHeight="110.0" fitWidth="100.0" layoutX="131.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator2" fitHeight="110.0" fitWidth="100.0" layoutX="131.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator3" fitHeight="110.0" fitWidth="100.0" layoutX="131.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator4" fitHeight="110.0" fitWidth="100.0" layoutX="131.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="indicator5" fitHeight="110.0" fitWidth="100.0" layoutX="131.0" layoutY="660.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Correct.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="newQuizBut" fitHeight="150.0" fitWidth="200.0" layoutX="1136.0" layoutY="775.0" onMouseClicked="#startNewQuiz" onMouseEntered="#enterNewQuiz" onMouseExited="#exitNewQuiz" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="goBackBut" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#goBack" onMouseEntered="#enterGoBack" onMouseExited="#exitGoBack" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../images/arrow.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resultsBanner" fitHeight="145.0" fitWidth="411.0" layoutX="525.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/Results.png" />
+         </image></ImageView>
+   </children>
+</AnchorPane>

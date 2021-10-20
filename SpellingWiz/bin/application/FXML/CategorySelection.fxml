@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="900" maxWidth="1350" minHeight="900" minWidth="1350" prefHeight="900.0" prefWidth="1350" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CategorySelection">
+   <children>
+      <ImageView fitHeight="909.0" fitWidth="1364.0" layoutX="-7.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="prompt" fitHeight="157.0" fitWidth="1010.0" layoutX="169.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/categoryPrompt.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="arrowBtn" fitHeight="111.0" fitWidth="146.0" layoutX="11.0" layoutY="12.0" onMouseClicked="#backToMenu" onMouseEntered="#enterArrow" onMouseExited="#exitArrow" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../../images/arrow.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="foodBtn" fitHeight="276.0" fitWidth="292.0" layoutX="84.0" layoutY="241.0" onMouseEntered="#enterFood" onMouseExited="#exitFood" onMousePressed="#chooseFood" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/foodfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="weatherBtn" fitHeight="276.0" fitWidth="314.0" layoutX="385.0" layoutY="241.0" onMouseClicked="#chooseWeather" onMouseEntered="#enterWeather" onMouseExited="#exitWeather" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/weatherfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="coloursBtn" fitHeight="276.0" fitWidth="330.0" layoutX="687.0" layoutY="241.0" onMouseClicked="#chooseColours" onMouseEntered="#enterColours" onMouseExited="#exitColours" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/coloursfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="animalsBtn" fitHeight="276.0" fitWidth="374.0" layoutX="987.0" layoutY="241.0" onMouseClicked="#chooseAnimals" onMouseEntered="#enterAnimals" onMouseExited="#exitAnimals" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/animalsfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="feelingsBtn" fitHeight="276.0" fitWidth="304.0" layoutX="84.0" layoutY="540.0" onMouseClicked="#chooseFeelings" onMouseEntered="#enterFeelings" onMouseExited="#exitFeelings" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/feelingsfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="directionsBtn" fitHeight="276.0" fitWidth="282.0" layoutX="385.0" layoutY="540.0" onMouseClicked="#chooseDirections" onMouseEntered="#enterDirections" onMouseExited="#exitDirections" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/directionsfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="monthsBtn" fitHeight="276.0" fitWidth="288.0" layoutX="687.0" layoutY="540.0" onMouseClicked="#chooseMonths" onMouseEntered="#enterMonths" onMouseExited="#exitMonths" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/monthsfade.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="months2Btn" fitHeight="276.0" fitWidth="276.0" layoutX="987.0" layoutY="540.0" onMouseClicked="#chooseMonths2" onMouseEntered="#enterMonths2" onMouseExited="#exitMonths2" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/months2fade.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
