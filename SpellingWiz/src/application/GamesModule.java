@@ -26,6 +26,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * The GamesModule class controls all the functionality within the Games Module
+ * @author Group 22
+ *
+ */
 public class GamesModule extends Controller {
 
 	@FXML
@@ -88,6 +93,11 @@ public class GamesModule extends Controller {
 	Timer timer = new Timer();
 	TimerTask timerTask;
 
+	/**
+	 * Function sets up the language selected by the user
+	 * @param event
+	 * @throws MalformedURLException
+	 */
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
 		// call functions to set up the correct labels
 		exitRepeat(event);
@@ -171,7 +181,7 @@ public class GamesModule extends Controller {
 				}
 			});
 
-			// checkSpelling button will check the word and increase the score or ask user to spell again
+			// submit button will check the word and increase the score or ask user to spell again
 			submitBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 				@Override 
@@ -209,6 +219,10 @@ public class GamesModule extends Controller {
 		enterRewardsScreen(event);
 	}
 		
+	/**
+	 * Function will be called upon the submit button being pressed and will 
+	 * assess the correctness of the word typed by the user
+	 */
 	public void assess() {
 		String wordEntered = textField.getText().trim();
 
@@ -238,15 +252,13 @@ public class GamesModule extends Controller {
 			voiceSpeed = voiceSpeedSlider.getValue();
 			SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
 			repeat.start(); // call the function again to ask user to spell word again 
-			attempts++;
-			
-			
+			attempts++;	
 		}
 	
 	}
 	
 	/**
-	 * Function which shows the user their score for the given word
+	 * Function will play an animation which shows the user their score for the given word
 	 */
 	public void playScoreAnimation() {
 		if (noMoreTimeLabel.getText().equals("Time's Up") || noMoreTimeLabel.getText().equals("Kaore o wa i toe")) {
@@ -261,15 +273,14 @@ public class GamesModule extends Controller {
 	}
 	
 	/**
-	 * Function to translate word from maori to english
+	 * Function to translate word from Māori to english
 	 */
 	public void translate(MouseEvent event) {
 		if (SceneController.isEnglish) {
 			translationHint.setText("Translation: " + englishWord);
 		} else {
 			translationHint.setText("Whakamāori: " + englishWord);
-		}
-		
+		}	
 	}
 
 	/**
@@ -287,49 +298,22 @@ public class GamesModule extends Controller {
 	public void insertMacron(MouseEvent event) {
 		addMacron(event);
 	}
-
-	/* *
-	 * Help button functionality
-	 */
-
-	boolean helpOpen = false;
-
-	public void selectHelp(MouseEvent event) {
-		if (helpOpen) {
-			helpOpen = false;
-			helpWindow.setVisible(false);
-		} else {
-			helpOpen = true;
-			helpWindow.setImage(new Image("./images/helpWindow"+langExt+".jpg"));
-			helpWindow.setVisible(true);
-		}
-	}
-	
-	public void enterHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/help.jpg"));
-		Sound.playSound("./sounds/switch.wav");
-	}
-
-	public void exitHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/helpfade.jpg"));
-	}
 	
 	/**
 	 * Voice speed button functionality
 	 */
-	boolean speedOpen = false;
-	
 	public void selectSpeed(MouseEvent event) {
-		if (speedOpen) {
-			speedOpen = false;
-			voiceSpeedSlider.setVisible(false);
-			speedWindow.setVisible(false);
-		} else {
-			speedOpen = true;
-			voiceSpeedSlider.setVisible(true);
-			speedWindow.setVisible(true);
-		}
+		super.selectSpeed(event, voiceSpeedSlider, speedWindow);
 	}
+	
+
+	/* *
+	 * Help button functionality
+	 */
+	public void selectHelp(MouseEvent event) {
+		super.selectHelp(event, helpWindow, langExt);
+	}
+	
 
 	/**
 	 * Functionality for the timer
@@ -349,11 +333,13 @@ public class GamesModule extends Controller {
 					public void run() {
 						if(totalSeconds == 0) {
 							timeLabel.setText("");
+						
 							if(SceneController.langExt == "m") {
 								noMoreTimeLabel.setText("Kaore o wa i toe");
 							} else {
 								noMoreTimeLabel.setText("Time's Up");
 							}
+							
 							totalSeconds = 31;
 							timer.cancel();
 						} else {
@@ -385,7 +371,7 @@ public class GamesModule extends Controller {
 
 
 	/** 
-	 * Functionality for fading of buttons if selected
+	 * Functionality for fading and non fading of all buttons if selected
 	 * @param event
 	 * @throws MalformedURLException
 	 */
@@ -466,6 +452,15 @@ public class GamesModule extends Controller {
 		helpWindow.setVisible(false);
 	}
 	
+	public void enterHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/help.jpg"));
+		Sound.playSound("./sounds/switch.wav");
+	}
+
+	public void exitHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/helpfade.jpg"));
+	}
+	
 	/**
 	 * Function to allow user to return to category selection is back arrow is clicked
 	 * @param event
@@ -485,6 +480,12 @@ public class GamesModule extends Controller {
 		FXMLLoader loader = changeScene("./FXML/RewardScreen.fxml", event);
 	}
 	
+	/**
+	 * Helper function to change scenes from current scene
+	 * @param nextScene
+	 * @param event
+	 * @return
+	 */
 	public FXMLLoader changeScene(String nextScene, MouseEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
