@@ -1,14 +1,10 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -46,7 +42,7 @@ public class Controller implements Initializable{
 	private Parent root;
 	private final Object PAUSE_KEY = new Object();
 	
-	private static File schemeFile = getPath();
+	private static File schemeFile = Speak.getPath();
 	
 	/*
 	 * Function to change scenes back to the main menu when button is pressed 
@@ -95,40 +91,11 @@ public class Controller implements Initializable{
 	}
 	
 	/*
-	 * Function to adjust the speed of festival voice 
-	 */
-	private void createSchemeFile(String word, double speed) {
-		//open a scheme file and write to it 
-		BufferedWriter scheme = null;
-		try {
-			if (word.contains("-")) {
-				word = word.replaceAll("-", " ");
-			}
-			scheme = new BufferedWriter(new FileWriter(schemeFile));
-			scheme.write("(voice_akl_mi_pk06_cg)"); // set up Māori voice
-			scheme.write("(Parameter.set 'Duration_Stretch " + speed + ")");
-			scheme.write("(SayText \"" + word + "\")");
-			scheme.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/* 
-	 * Function to get the path for the scheme file
-	 */
-	private static File getPath() {
-		Path path = Paths.get(".speak.scm"); 
-		schemeFile = new File(path.toAbsolutePath().toString());
-		return schemeFile;
-	}
-	
-	/*
 	 * Function to repeat the word on users request
 	 */
 	public void repeatWord(double voiceSpeed, String word) {
 		// voice speed is changed accordingly when word is repeated
-		createSchemeFile(word, voiceSpeed);
+		Speak.createSchemeFile(word, voiceSpeed, schemeFile);
 		bashCommand("festival -b " + schemeFile);
 	}
 	
@@ -192,10 +159,10 @@ public class Controller implements Initializable{
 	public void spellingQuestion(String word, int attempts, int numWords, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
-			createSchemeFile(word, speed); // file to speak the maori word
+			Speak.createSchemeFile(word, speed, schemeFile); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);	
 		} else if (attempts == 1) {
-			createSchemeFile(word, speed); // file to speak the maori word
+			Speak.createSchemeFile(word, speed, schemeFile); // file to speak the maori word
 			bashCommand("festival -b " + schemeFile);
 			bashCommand("festival -b " + schemeFile);
 		}
