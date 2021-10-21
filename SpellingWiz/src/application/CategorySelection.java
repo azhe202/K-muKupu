@@ -41,7 +41,7 @@ public class CategorySelection{
 	public ImageView prompt;
 
 	public static String wordList;
-	String langExt = SceneController.langExt;
+	String langExt = Menu.langExt;
 
 	/**
 	 * Method will change the category labels to the appropriate label (english/maori)
@@ -67,7 +67,7 @@ public class CategorySelection{
 	 * @throws Exception
 	 */
 	public void chooseModule(MouseEvent event) throws Exception {
-		if(SceneController.moduleSelected.equals("PractiseModule")) {
+		if(Menu.moduleSelected.equals("PractiseModule")) {
 			FXMLLoader loader = changeScene("./FXML/PractiseModule.fxml", event);
 			// access the controller and call function to set up the language
 			PractiseModule controller = loader.getController();
@@ -125,7 +125,7 @@ public class CategorySelection{
 	public void backToMenu(MouseEvent event) { 
 		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
 		// access the controller and call function to set up the language
-		SceneController controller = loader.getController();
+		Menu controller = loader.getController();
 		controller.setUpLang(event);
 	}
 

@@ -44,7 +44,7 @@ public class Summary implements Initializable{
 	@FXML
 	private ImageView resultsBanner;
 	
-	String langExt = SceneController.langExt;
+	String langExt = Menu.langExt;
 	
 	private void start() {
 		
@@ -79,7 +79,7 @@ public class Summary implements Initializable{
 			scene = new Scene(root);
 
 			// access the controller and call function to set up the language
-			SceneController controller = loader.getController();
+			Menu controller = loader.getController();
 			controller.setUpLang(event);
 
 			// show GUI to user 

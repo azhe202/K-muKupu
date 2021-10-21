@@ -13,7 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class SceneController extends CategorySelection{
+public class Menu extends CategorySelection{
 
 	private Stage stage;
 	private Scene scene;

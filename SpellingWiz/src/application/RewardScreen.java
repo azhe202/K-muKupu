@@ -35,8 +35,8 @@ public class RewardScreen implements Initializable{
 	@FXML
 	private ImageView trophyImage;
 	
-	String langExt = SceneController.langExt;
-
+	String langExt = Menu.langExt;
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;

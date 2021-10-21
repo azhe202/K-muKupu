@@ -12,9 +12,6 @@ public class Main extends Application {
 	public static boolean isEnglish = true;
 	public static String langExt = "";
 	
-	@FXML
-	private ImageView borderImg;
-	
 	@Override
 	public void start(Stage primaryStage) {
 		// loads and displays the main menu to the user

@@ -82,7 +82,7 @@ public class GamesModule extends Controller {
 	public static String word;
 	private String englishWord;
 	private Boolean skipRequested = false;
-	String langExt = SceneController.langExt;
+	String langExt = Menu.langExt;
 	TranslateTransition translate = new TranslateTransition();
 	TranslateTransition translateStar = new TranslateTransition();
 	Timer timer = new Timer();
@@ -264,7 +264,7 @@ public class GamesModule extends Controller {
 	 * Function to translate word from maori to english
 	 */
 	public void translate(MouseEvent event) {
-		if (SceneController.isEnglish) {
+		if (Menu.isEnglish) {
 			translationHint.setText("Translation: " + englishWord);
 		} else {
 			translationHint.setText("Whakamāori: " + englishWord);
@@ -349,7 +349,7 @@ public class GamesModule extends Controller {
 					public void run() {
 						if(totalSeconds == 0) {
 							timeLabel.setText("");
-							if(SceneController.langExt == "m") {
+							if(Menu.langExt == "m") {
 								noMoreTimeLabel.setText("Kaore o wa i toe");
 							} else {
 								noMoreTimeLabel.setText("Time's Up");
@@ -473,7 +473,7 @@ public class GamesModule extends Controller {
 	public void back(MouseEvent event) { 
 		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
 		// access the controller and call function to set up the language
-		SceneController controller = loader.getController();
+		Menu controller = loader.getController();
 		controller.setUpLang(event);
 	}
 	

@@ -18,7 +18,7 @@ public class PractiseSelection {
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	String langExt = SceneController.langExt;
+	String langExt = Menu.langExt;
 
 	@FXML
 	private ImageView randomBtn;
@@ -55,7 +55,7 @@ public class PractiseSelection {
 	public void backToMenu(MouseEvent event) { 
 		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
 		// access the controller and call function to set up the language
-		SceneController controller = loader.getController();
+		Menu controller = loader.getController();
 		controller.setUpLang(event);
 	}
 

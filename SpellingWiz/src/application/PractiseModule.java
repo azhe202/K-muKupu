@@ -65,7 +65,7 @@ public class PractiseModule extends Controller {
 
 	boolean helpOpen = false;
 	boolean gameInPlay;
-	String langExt = SceneController.langExt;
+	String langExt = Menu.langExt;
 	
 	private Stage stage;
 	private Scene scene;
@@ -283,7 +283,7 @@ public class PractiseModule extends Controller {
 	 * Function to translate word from maori to english
 	 */
 	public void translate(MouseEvent event) {
-		if (SceneController.isEnglish) {
+		if (Menu.isEnglish) {
 			translationHint.setText("Translation: " + englishWord);
 		} else {
 			translationHint.setText("Whakamāori: " + englishWord);
