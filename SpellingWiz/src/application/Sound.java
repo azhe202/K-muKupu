@@ -5,6 +5,11 @@ import java.net.URL;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * This class controls all sound in the game
+ * @author Group 22
+ *
+ */
 public class Sound {
 
 	public static void playSound(String sound){
