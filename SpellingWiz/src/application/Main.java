@@ -7,6 +7,11 @@ import javafx.stage.Stage;
 import javafx.scene.*;
 import javafx.scene.image.ImageView;
 
+/**
+ * This class is the entry point of the Kemu Kupu application
+ * @author Group 22
+ *
+ */
 public class Main extends Application {
 	
 	public static boolean isEnglish = true;
@@ -17,7 +22,7 @@ public class Main extends Application {
 		// loads and displays the main menu to the user
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("./FXML/Menu.fxml"));
-			primaryStage.setTitle("Kēmu Kupu"); // set a title for the application
+			primaryStage.setTitle("Kēmu Kupu"); 
 		   
 
 		    Scene scene = new Scene(root,1350,900);

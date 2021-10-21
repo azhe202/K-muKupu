@@ -13,6 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * The CategorySelection class lets the user select a word list to be quizzed on
+ * @author Group 22
+ *
+ */
 public class CategorySelection{
 
 	private Stage stage;
@@ -121,7 +126,11 @@ public class CategorySelection{
 		wordList = "monthsOfTheYearLoanWords";
 		chooseModule(event);
 	}
-
+	
+	/**
+	 * This method loads the Menu screen when user clicks back
+	 * @param event
+	 */
 	public void backToMenu(MouseEvent event) { 
 		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
 		// access the controller and call function to set up the language
@@ -221,6 +230,12 @@ public class CategorySelection{
 		arrowBtn.setImage(new Image("./images/arrow.jpg"));
 	}
 
+	/**
+	 * This method assists in loading new scenes on users request
+	 * @param nextScene
+	 * @param event
+	 * @return
+	 */
 	public FXMLLoader changeScene(String nextScene, MouseEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();

@@ -13,6 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * The PractiseSelection class lets the user choose to randomise words or select a word list
+ * @author Group 22
+ *
+ */
 public class PractiseSelection {
 
 	private Stage stage;
@@ -31,33 +36,51 @@ public class PractiseSelection {
 	
 	public static boolean randomSelected = false;
 	
+	/**
+	 * Method will change the category labels to the appropriate label (english/maori)
+	 * @param event
+	 * @throws MalformedURLException
+	 */
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
 		exitRandom(event);
 		exitSelect(event);
 		practisePrompt.setImage(new Image("./images/practisePrompt"+langExt+".jpg"));
 	}
 
+	/**
+	 * This method loads the Practise Module when the user chooses to randomise words
+	 * @param event
+	 * @throws Exception
+	 */
 	public void chooseRandom(MouseEvent event) throws MalformedURLException {
 		randomSelected = true;
 		FXMLLoader loader = changeScene("./FXML/PractiseModule.fxml", event);
-		// access the controller and call function to set up the language
 		PractiseModule controller = loader.getController();
 		controller.setUpLang(event);
 	}
 
+	/**
+	 * This method loads the Category Selection screen when the user chooses to select a word list
+	 * @param event
+	 * @throws Exception
+	 */
 	public void chooseSelect(MouseEvent event) throws MalformedURLException {
 		FXMLLoader loader = changeScene("./FXML/CategorySelection.fxml", event);
-		// access the controller and call function to set up the language
 		CategorySelection controller = loader.getController();
 		controller.setUpLang(event);
 	}
 	
+	/**
+	 * This method loads the Menu screen when user clicks back
+	 * @param event
+	 */
 	public void backToMenu(MouseEvent event) { 
 		FXMLLoader loader = changeScene("./FXML/Menu.fxml", event);
-		// access the controller and call function to set up the language
 		Menu controller = loader.getController();
 		controller.setUpLang(event);
 	}
+	
+	// The following methods deal with updating the buttons when the user hovers over them
 
 	//random
 	public void enterRandom(MouseEvent event) throws MalformedURLException { 
@@ -88,6 +111,12 @@ public class PractiseSelection {
 		arrowBtn.setImage(new Image("./images/arrow.jpg"));
 	}
 	
+	/**
+	 * This method assists in loading new scenes on users request
+	 * @param nextScene
+	 * @param event
+	 * @return
+	 */
 	public FXMLLoader changeScene(String nextScene, MouseEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
