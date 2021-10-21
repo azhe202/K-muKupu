@@ -13,6 +13,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+/**
+ * The Menu class lets the user select a module
+ * @author Group 22
+ *
+ */
 public class Menu extends CategorySelection{
 
 	private Stage stage;
