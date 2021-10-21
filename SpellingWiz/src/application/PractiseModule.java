@@ -21,6 +21,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * The Practise Module class controls all the functionality within the Practise Module
+ * @author Group 22
+ *
+ */
 public class PractiseModule extends Controller {
 	@FXML
 	private ImageView helpBtn;
@@ -39,7 +44,7 @@ public class PractiseModule extends Controller {
 	@FXML
 	private TextField textField;
 	@FXML
-	private ImageView checkSpelling;
+	private ImageView submitBtn;
 	@FXML
 	private Label translationHint;
 	@FXML
@@ -53,7 +58,6 @@ public class PractiseModule extends Controller {
 	@FXML
 	private ImageView instruction;
 	
-	public static int score;
 	private int attempts;
 	public static double voiceSpeed;
 	public static String word;
@@ -71,6 +75,11 @@ public class PractiseModule extends Controller {
 	private Scene scene;
 	private Parent root;
 	
+	/**
+	 * Function sets up the language chosen by the user
+	 * @param event
+	 * @throws MalformedURLException
+	 */
 	public void setUpLang(MouseEvent event) throws MalformedURLException {
 		// call functions to set up the correct labels
 		exitRepeat(event);
@@ -113,9 +122,6 @@ public class PractiseModule extends Controller {
 			word = tempArray[0].trim();
 			englishWord = tempArray[1];
 
-			// starting score
-			score = 0;
-
 			textField.clear();
 
 			attempts = 0;
@@ -142,8 +148,8 @@ public class PractiseModule extends Controller {
 			});
 
 
-			// checkSpelling button will check the word or ask user to spell again
-			checkSpelling.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			// submit button will check the word or ask user to spell again
+			submitBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 				@Override 
 				public void handle(MouseEvent e) {
@@ -153,6 +159,7 @@ public class PractiseModule extends Controller {
 
 			});
 			
+			// enable user to use enter key to submit word
 			textField.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			    @Override
 			    public void handle(KeyEvent ke) {
@@ -177,27 +184,31 @@ public class PractiseModule extends Controller {
 
 	}
 	
+	/**
+	 * Function will be called upon the submit button being pressed and will 
+	 * assess the correctness of the word typed by the user
+	 */
 	public void assess() {
-	
-	String wordEntered = textField.getText().trim();
 
-	// conditional checks to increase user score
-	if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
-		correctSpelling(textField);
-		resume(); // resume function after check spelling button has been pressed
-	} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
-		correctSpelling(textField);
-		resume(); // resume function after check spelling button has been pressed
-	} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {	
-		incorrectSpelling(textField);
-		displayCorrectWord(word);
-	} else if (!wordEntered.equalsIgnoreCase(word)){
-		incorrectSpelling(textField);
-		displayCorrectLetters(word, wordEntered);
-		voiceSpeed = voiceSpeedSlider.getValue();
-		spellingQuestion(word, 1, 5, voiceSpeed); // call the function again to ask user to spell word again
-		attempts++;
-	}
+		String wordEntered = textField.getText().trim();
+
+		// conditional checks to increase user score
+		if (word.equalsIgnoreCase(wordEntered) && attempts == 1) {
+			correctSpelling(textField);
+			resume(); // resume function after check spelling button has been pressed
+		} else if (wordEntered.equalsIgnoreCase(word) && attempts == 2) {
+			correctSpelling(textField);
+			resume(); // resume function after check spelling button has been pressed
+		} else if(!wordEntered.equalsIgnoreCase(word) && attempts == 2) {	
+			incorrectSpelling(textField);
+			displayCorrectWord(word);
+		} else if (!wordEntered.equalsIgnoreCase(word)){
+			incorrectSpelling(textField);
+			displayCorrectLetters(word, wordEntered);
+			voiceSpeed = voiceSpeedSlider.getValue();
+			spellingQuestion(word, 1, voiceSpeed); // call the function again to ask user to spell word again
+			attempts++;
+		}
 	}
 	
 	
@@ -235,7 +246,7 @@ public class PractiseModule extends Controller {
 		translationBtn.setDisable(true);
 		skipWordBtn.setDisable(true);
 		macronBtn.setDisable(true);
-		checkSpelling.setDisable(true);
+		submitBtn.setDisable(true);
 		helpBtn.setDisable(true);
 		speedBtn.setDisable(true);
 	}
@@ -248,11 +259,16 @@ public class PractiseModule extends Controller {
 		translationBtn.setDisable(false);
 		skipWordBtn.setDisable(false);
 		macronBtn.setDisable(false);
-		checkSpelling.setDisable(false);
+		submitBtn.setDisable(false);
 		helpBtn.setDisable(false);
 		speedBtn.setDisable(false);
 	}
 	
+	/**
+	 * Display the any correct letters of the word if the user has the letters in the correct position
+	 * @param word
+	 * @param spelling
+	 */
 	public void displayCorrectLetters(String word, String spelling) { 
 		String textToDisplay = "";
 		int diff = 0;
@@ -262,6 +278,7 @@ public class PractiseModule extends Controller {
 			diff = 0;
 		}
 
+		// check if any letter are in the correct position
 		for (int i = 0; i < word.length() - diff; i++) {
 			String wordChar = String.valueOf(word.charAt(i));
 			String spellingChar = String.valueOf(spelling.charAt(i));
@@ -275,6 +292,7 @@ public class PractiseModule extends Controller {
 		for (int i = 0; i < diff; i++) {
 			textToDisplay = (textToDisplay + "_ "); 
 		}
+		
 		super.wordLength.setText(textToDisplay);
 	}
 	
@@ -299,13 +317,18 @@ public class PractiseModule extends Controller {
 		repeatWord(voiceSpeed, word);
 	}
 	
-	/*
+	/**
 	 * Function allowing the user to enter a macron
 	 */
 	public void insertMacron(MouseEvent event) {
 		addMacron(event);
 	}
 	
+	/**
+	 * Functionality for fading and non fading of all buttons if selected
+	 * @param event
+	 * @throws MalformedURLException
+	 */
 	public void enterRepeat(MouseEvent event) throws MalformedURLException { 
 		repeatWordBtn.setImage(new Image("./images/repeat"+langExt+".jpg"));
 		Sound.playSound("./sounds/switch.wav");
@@ -343,12 +366,12 @@ public class PractiseModule extends Controller {
 	}
 
 	public void enterSubmit(MouseEvent event) throws MalformedURLException { 
-		checkSpelling.setImage(new Image("./images/submit"+langExt+".jpg"));
+		submitBtn.setImage(new Image("./images/submit"+langExt+".jpg"));
 		Sound.playSound("./sounds/switch.wav");
 	}
 
 	public void exitSubmit(MouseEvent event) { 
-		checkSpelling.setImage(new Image("./images/submitfade"+langExt+".jpg"));
+		submitBtn.setImage(new Image("./images/submitfade"+langExt+".jpg"));
 	}
 	
 	public void enterStart(MouseEvent event) throws MalformedURLException { 
@@ -383,6 +406,19 @@ public class PractiseModule extends Controller {
 		helpWindow.setVisible(false);
 	}
 	
+	public void enterHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/help.jpg"));
+		Sound.playSound("./sounds/switch.wav");
+	}
+
+	public void exitHelp(MouseEvent event) {
+		helpBtn.setImage(new Image("./images/helpfade.jpg"));
+	}
+	
+	/**
+	 * Functionality to for back arrow to return to practise selection page
+	 * @param event
+	 */
 	public void back(MouseEvent event) { 
 		PractiseSelection.randomSelected = false;
 		try {
@@ -404,39 +440,21 @@ public class PractiseModule extends Controller {
 		}
 	}
 	
+	/**
+	 * Functionality to open and hide the help window
+	 * @param event
+	 */
 	public void selectHelp(MouseEvent event) {
-		if (helpOpen) {
-			helpOpen = false;
-			helpWindow.setVisible(false);
-		} else {
-			helpOpen = true;
-			helpWindow.setImage(new Image("./images/helpWindow"+langExt+".jpg"));
-			helpWindow.setVisible(true);
-		}
+		super.selectHelp(event, helpWindow, langExt);
 	}
-
-	public void enterHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/help.jpg"));
-		Sound.playSound("./sounds/switch.wav");
-	}
-
-	public void exitHelp(MouseEvent event) {
-		helpBtn.setImage(new Image("./images/helpfade.jpg"));
-	}
-
 	
-	boolean speedOpen = false;
+	/**
+	 * Functionality to open and hide the speed window
+	 * @param event
+	 */
 	
 	public void selectSpeed(MouseEvent event) {
-		if (speedOpen) {
-			speedOpen = false;
-			voiceSpeedSlider.setVisible(false);
-			speedWindow.setVisible(false);
-		} else {
-			speedOpen = true;
-			voiceSpeedSlider.setVisible(true);
-			speedWindow.setVisible(true);
-		}
+		super.selectSpeed(event, voiceSpeedSlider, speedWindow);
 	}
 	
 	

@@ -7,6 +7,6 @@ public class PractiseThread extends Thread {
 		String word = PractiseModule.word;
 		double speed = PractiseModule.voiceSpeed;
 		
-		speak.spellingQuestion(word, 0, 5, speed);
+		speak.spellingQuestion(word, 0, speed);
 	}
 }

@@ -7,6 +7,6 @@ public class SpellingThread2 extends Thread{
 		String word = GamesModule.word;
 		double voiceSpeed = GamesModule.voiceSpeed;
 		
-		speak.spellingQuestion(word, 1, 5, voiceSpeed);
+		speak.spellingQuestion(word, 1, voiceSpeed);
 	}
 }

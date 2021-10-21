@@ -15,16 +15,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-/*
- * The Controller class includes methods which involves changing scenes 
- * and the functions used within the scenes themselves as well as additional
- * helper function
+/**
+ *
+ * The Controller class controls the functionality within the Practise and Games Modules
+ * @author Group 22
+ *
  */
 
 public class Controller implements Initializable{
@@ -40,8 +44,10 @@ public class Controller implements Initializable{
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	private final Object PAUSE_KEY = new Object();
+	boolean speedOpen = false;
+	boolean helpOpen = false;
 	
+	private final Object PAUSE_KEY = new Object();
 	private static File schemeFile = Speak.getPath();
 	
 	/*
@@ -76,22 +82,24 @@ public class Controller implements Initializable{
 		wordLength.setText(textToDisplay);
 	}
 	
-	/*
+	/**
 	 * Function is used the pause a method
 	 */
 	public void pause() {
 		Platform.enterNestedEventLoop(PAUSE_KEY);
 	}
 
-	/*
-	 * function is used to resume a method
+	/**
+	 * Function is used to resume a paused method
 	 */
 	public void resume() {
 		Platform.exitNestedEventLoop(PAUSE_KEY, null);
 	}
 	
-	/*
-	 * Function to repeat the word on users request
+	/**
+	 * Function to repeat a word upon users request
+	 * @param voiceSpeed
+	 * @param word
 	 */
 	public void repeatWord(double voiceSpeed, String word) {
 		// voice speed is changed accordingly when word is repeated
@@ -99,8 +107,44 @@ public class Controller implements Initializable{
 		bashCommand("festival -b " + schemeFile);
 	}
 	
-	/*
-	 * Function allowing the user to enter a macron
+	/**
+	 * Function to open and hide the speed window within the different game modules
+	 * @param event
+	 * @param voiceSpeedSlider
+	 * @param speedWindow
+	 */
+	public void selectSpeed(MouseEvent event, Slider voiceSpeedSlider, ImageView speedWindow) {
+		if (speedOpen) {
+			speedOpen = false;
+			voiceSpeedSlider.setVisible(false);
+			speedWindow.setVisible(false);
+		} else {
+			speedOpen = true;
+			voiceSpeedSlider.setVisible(true);
+			speedWindow.setVisible(true);
+		}
+	}
+	
+	/**
+	 * Function to open and hide the help window within the different game modules
+	 * @param event
+	 * @param helpWindow
+	 * @param langExt
+	 */
+	public void selectHelp(MouseEvent event, ImageView helpWindow, String langExt) {
+		if (helpOpen) {
+			helpOpen = false;
+			helpWindow.setVisible(false);
+		} else {
+			helpOpen = true;
+			helpWindow.setImage(new Image("./images/helpWindow"+langExt+".jpg"));
+			helpWindow.setVisible(true);
+		}
+	}
+	
+	/**
+	 * Function which allows the user to enter a macron for a given vowel
+	 * @param event
 	 */
 	public void addMacron(MouseEvent event) {
 		
@@ -153,10 +197,13 @@ public class Controller implements Initializable{
 
 	}
 
-	/*
-	 * Helper function for newSpellingQuiz 
+	/**
+	 * Function to ask and speak to the user to spell the given word
+	 * @param word
+	 * @param attempts
+	 * @param speed
 	 */
-	public void spellingQuestion(String word, int attempts, int numWords, double speed) {
+	public void spellingQuestion(String word, int attempts, double speed) {
 		// display the appropriate message according to the number of attempts for a word 
 		if (attempts == 0) {
 			Speak.createSchemeFile(word, speed, schemeFile); // file to speak the maori word
@@ -168,8 +215,9 @@ public class Controller implements Initializable{
 		}
 	}
 
-	/*
-	 * Function for bash commands without a variable to be returned
+	/**
+	 * Function for bash commands to be called without a variable to be returned
+	 * @param command
 	 */
 	public static void bashCommand(String command) {
 		try {
@@ -199,8 +247,10 @@ public class Controller implements Initializable{
 		}
 	}
 	
-	/*
-	 * Function using bash command to return the word list as an array
+	/**
+	 * Function for a bash command to return a word list in the form of a string array
+	 * @param command
+	 * @return
 	 */
 	public String[] returnWordList(String command) {
 		String[] word = new String[5];
@@ -234,8 +284,10 @@ public class Controller implements Initializable{
 		return word;
 	}
 	
-	/*
-	 * Function using bash command to return the word 
+	/**
+	 * Function using bash command to return a word as a String
+	 * @param command
+	 * @return
 	 */
 	public String returnWord(String command) {
 		String word = null;
@@ -287,7 +339,6 @@ public class Controller implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		
 	}	
 }
