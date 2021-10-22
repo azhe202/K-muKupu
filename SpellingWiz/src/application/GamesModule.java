@@ -82,7 +82,7 @@ public class GamesModule extends Controller {
 	public static float score;
 	private int totalSeconds = 31;
 	public static ArrayList<String> wordsForSummary = new ArrayList<>();
-	private int attempts;
+	public static int attempts;
 	public static double voiceSpeed;
 	public static String word;
 	private String englishWord;
@@ -251,7 +251,7 @@ public class GamesModule extends Controller {
 		} else if (!wordEntered.equalsIgnoreCase(word)){
 			incorrectSpelling(textField);
 			voiceSpeed = voiceSpeedSlider.getValue();
-			SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
+			SpellingThreadSecondAttempt repeat = new SpellingThreadSecondAttempt(); // call the function again to ask user to spell word again
 			repeat.setDaemon(true);
 			repeat.start(); // call the function again to ask user to spell word again 
 			attempts++;	

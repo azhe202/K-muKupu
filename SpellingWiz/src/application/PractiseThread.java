@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * The Practise Thread class creates a thread for festival to run on in the Practise Module
+ * This ensures the timer isn't momentarily interrupted
+ * @author Group 22
+ *
+ */
 public class PractiseThread extends Thread {
 	@Override
 	public void run() {

@@ -1,5 +1,11 @@
 package application;
 
+/**
+ * The Repeat Thread class creates a thread for festival to run on when repeating the word 
+ * The ensures that the timer is not momentarily interrupted
+ * @author Group 22
+ *
+ */
 public class RepeatThread extends Thread {
 	@Override 
 	public void run() {

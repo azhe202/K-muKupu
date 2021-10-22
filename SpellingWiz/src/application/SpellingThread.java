@@ -1,7 +1,10 @@
 package application;
 
 /**
- * This class creates a thread for festival to run on
+ * The Spelling Thread class creates a thread for festival to run on in the Games Module
+ * This ensures the timer isn't momentarily interrupted
+ * @author Group 22
+ *
  */
 public class SpellingThread extends Thread{
 	@Override
