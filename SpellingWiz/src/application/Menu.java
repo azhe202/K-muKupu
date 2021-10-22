@@ -52,7 +52,7 @@ public class Menu extends CategorySelection{
 	 */
 	public void chooseGame(MouseEvent event) throws MalformedURLException { 
 		FXMLLoader loader = changeScene("./FXML/CategorySelection.fxml", event);
-		GamesModule controller = loader.getController();
+		CategorySelection controller = loader.getController();
 		controller.setUpLang(event);
 	}
 

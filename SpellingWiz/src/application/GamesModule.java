@@ -165,6 +165,7 @@ public class GamesModule extends Controller {
 
 			// Start a new thread to say the word to spell to user
 			speakWord = new SpellingThread();
+			speakWord.setDaemon(true);
 			speakWord.start();
 
 			// start timer
@@ -251,6 +252,7 @@ public class GamesModule extends Controller {
 			incorrectSpelling(textField);
 			voiceSpeed = voiceSpeedSlider.getValue();
 			SpellingThread2 repeat = new SpellingThread2(); // call the function again to ask user to spell word again
+			repeat.setDaemon(true);
 			repeat.start(); // call the function again to ask user to spell word again 
 			attempts++;	
 		}

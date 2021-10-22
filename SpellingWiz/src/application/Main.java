@@ -1,11 +1,14 @@
 package application;
 
+import java.util.concurrent.ScheduledExecutorService;
+
 import javafx.application.Application;
-import javafx.fxml.FXML;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.scene.*;
-import javafx.scene.image.ImageView;
 
 /**
  * This class is the entry point of the Kemu Kupu application
@@ -37,7 +40,12 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+
 	}
+	
+	
+
 	
 	public static void main(String[] args) {
 		launch(args);
