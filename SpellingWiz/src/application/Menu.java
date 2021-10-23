@@ -62,6 +62,7 @@ public class Menu extends CategorySelection{
 	 * @throws Exception
 	 */
 	public void choosePractise(MouseEvent event) throws MalformedURLException { 
+		moduleSelected = "PractiseModule";
 		FXMLLoader loader = changeScene("./FXML/PractiseSelection.fxml", event);
 		PractiseSelection controller = loader.getController();
 		controller.setUpLang(event);
