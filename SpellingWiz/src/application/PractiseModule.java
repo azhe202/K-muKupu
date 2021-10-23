@@ -206,7 +206,8 @@ public class PractiseModule extends Controller {
 			incorrectSpelling(textField);
 			displayCorrectLetters(word, wordEntered);
 			voiceSpeed = voiceSpeedSlider.getValue();
-			spellingQuestion(word, 1, voiceSpeed); // call the function again to ask user to spell word again
+			PractiseThreadSecondAttempt repeat = new PractiseThreadSecondAttempt();
+			repeat.start();
 			attempts++;
 		}
 	}
